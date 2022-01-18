@@ -1,0 +1,5 @@
+#!/bin/bash
+shopt -s globstar
+for i in char char_u; do
+	rg "\((const)? *$i *\**\)" --stats --quiet **/*.c **/*.h | head -n2
+done | grep . | awk '{print $1}' | paste -sd+ | bc

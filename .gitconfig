@@ -1,0 +1,32 @@
+[user]
+	name = Dundar Göc
+	email = gocdundar@gmail.com
+[alias]
+	bisect-all = !git bisect start && git bisect bad && git bisect good $(git rev-list --max-parents=0 --first-parent HEAD)
+	uncommit = "!sh -c \"git reset --hard HEAD~$1\""
+	back = reset HEAD~
+  ls = ls-files
+[merge]
+	tool = meld
+	conflictstyle = diff3
+[rerere]
+	enabled = true
+	autoupdate = true
+[color]
+	ui = true
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[color "diff"]
+	meta = yellow
+	frag = magenta bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+[pull]
+	rebase = true
+[advice]
+	detachedHead = false

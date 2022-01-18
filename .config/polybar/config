@@ -1,0 +1,52 @@
+[color]
+volume_background = #3FB8AF 
+volume_muted_background = ${self.volume_background}
+volume_muted_foreground = #FF0000
+
+bspwm_focused_background = #FF3D7F
+bspwm_occupied_background = #DAD8A7
+bspwm_occupied_foreground = #dd222222
+
+battery_charging_background = #B439D3
+battery_discharging_background = ${self.battery_charging_background}
+battery_discharging_foreground = #000000
+battery_full_background = ${self.battery_charging_background}
+battery_low_foreground = #65ff49
+
+time = #26DE8B
+
+date = #3D40CE 
+
+[bar/main]
+monitor = ${env:MONITOR:}
+width = 100%
+height = 25
+background = #40000000
+module-margin = 2
+
+font-0 = Noto Sans:style=Bold:size=10;0
+font-1 = NotoEmoji Nerd Font:size=12;1
+font-2 = NotoEmoji Nerd Font:size=20;5
+font-3 = DejaVu Sans:size=10;0
+
+modules-left = 
+modules-center = volume battery bspwm time date 
+modules-right = 
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[module/battery]
+include-file = ~/.config/polybar/battery.ini
+
+[module/bspwm]
+include-file = ~/.config/polybar/bspwm.ini
+
+[module/date]
+include-file = ~/.config/polybar/date.ini
+
+[module/time]
+include-file = ~/.config/polybar/time.ini
+
+[module/volume]
+include-file = ~/.config/polybar/volume.ini

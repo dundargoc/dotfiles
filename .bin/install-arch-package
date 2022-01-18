@@ -1,0 +1,47 @@
+#!/usr/bin/env python3
+
+import argparse
+import os
+import subprocess
+import sys
+from pathlib import Path
+
+
+def main():
+	parser = argparse.ArgumentParser()
+	parser.add_argument("packages", nargs="*")
+	args = parser.parse_args()
+	BIN = Path(sys.path[0])
+
+	for package in args.packages:
+		subprocess.call(
+			[
+				"paru",
+				"-S",
+				"--needed",
+				"--removemake",
+				package,
+			]
+		)
+
+	list_path = BIN / "list"
+	installed_packages = subprocess.check_output([list_path], text=True).splitlines()
+	installed_packages.sort()
+
+	dotpath = Path(os.environ["HOME"]) / ".dotfiles"
+	subprocess.call(["git", "stash"], cwd=dotpath)
+	subprocess.call(["git", "switch", "pkglist"], cwd=dotpath)
+
+	pkgfile_path = dotpath / ".misc" / "pkglist.txt"
+	pkgfile_path.write_text("\n".join(installed_packages))
+
+	subprocess.call(["git", "add", pkgfile_path], cwd=dotpath)
+	subprocess.call(["git", "commit", "-m", "update"], cwd=dotpath)
+	subprocess.call(["git", "push"], cwd=dotpath)
+
+	subprocess.call(["git", "switch", "master"], cwd=dotpath)
+	subprocess.call(["git", "stash", "pop"], cwd=dotpath)
+
+
+if __name__ == "__main__":
+	main()

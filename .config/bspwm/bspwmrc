@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+bspc monitor -d I II III IV V VI VII VIII IX X
+bspc config gapless_monocle true
+bspc config single_monocle true
+
+bspc rule -r '*'
+bspc rule -a Chromium desktop='^2'
+bspc rule -a firefox desktop='^3'
+bspc rule -a Zathura desktop='^3' state=tiled follow=on
+
+~/.config/polybar/launch.sh
+
+killall sxhkd
+sxhkd &
+
+killall picom
+# Add a small sleep so the new picom process isn't killed immediately
+sleep 0.01
+picom --daemon --inactive-opacity=0.8 &
+
+killall feh
+feh --bg-fill "$HOME/.misc/disco.png"
+
+killall unclutter
+unclutter -idle 3.0 -root &
+
+wmname LG3D

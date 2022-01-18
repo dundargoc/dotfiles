@@ -1,0 +1,69 @@
+---
+# Configure clang-tidy for this project.
+#
+#
+Checks: >
+  -*,
+  bugprone-*,
+  -bugprone-easily-swappable-parameters,
+  -bugprone-narrowing-conversions,
+  -bugprone-sizeof-expression,
+  -bugprone-branch-clone,
+  -bugprone-macro-parentheses,
+  clang-analyzer-*,
+  google-*,
+  -google-build-using-namespace,
+  -google-readability-braces-around-statements,
+  -google-readability-todo,
+  misc-*,
+  -misc-no-recursion,
+  -misc-unused-parameters,
+  performance-*,
+  portability-*,
+  readability-*,
+  -readability-braces-around-statements,
+  -readability-else-after-return,
+  -readability-function-cognitive-complexity,
+  -readability-identifier-naming,
+  -readability-isolate-declaration,
+  -readability-magic-numbers,
+  -readability-redundant-function-ptr-dereference,
+  -readability-misleading-indentation,
+
+# Turn all the warnings from the checks above into errors.
+WarningsAsErrors: ''
+
+HeaderFilterRegex: ' ' 
+
+CheckOptions:
+  - key: readability-identifier-naming.NamespaceCase
+    value: lower_case
+  - key: readability-identifier-naming.StructCase
+    value: CamelCase
+  - key: readability-identifier-naming.TemplateParameterCase
+    value: CamelCase
+  - key: readability-identifier-naming.FunctionCase
+    value: lower_case
+  - key: readability-identifier-naming.VariableCase
+    value: lower_case
+  - key: readability-identifier-naming.ClassMemberCase
+    value: lower_case
+  - key: readability-identifier-naming.ClassMemberSuffix
+    value: _
+  - key: readability-identifier-naming.EnumConstantCase
+    value: CamelCase 
+  - key: readability-identifier-naming.EnumConstantPrefix
+    value: k
+  - key: readability-identifier-naming.GlobalConstantCase
+    value: CamelCase 
+  - key: readability-identifier-naming.GlobalConstantPrefix
+    value: k
+  - key: readability-identifier-naming.MemberConstantCase
+    value: CamelCase 
+  - key: readability-identifier-naming.MemberConstantPrefix
+    value: k
+  - key: readability-identifier-naming.StaticConstantCase
+    value: CamelCase 
+  - key: readability-identifier-naming.StaticConstantPrefix
+    value: k
+...
