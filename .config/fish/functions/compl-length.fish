@@ -8,7 +8,8 @@ function compl-length
   end
 
   if count $argv >/dev/null
-    set files (git rev-parse --show-toplevel)/share/completions/$argv.fish
+    set _files (string replace ".fish" "" $argv)
+    set files (git rev-parse --show-toplevel)/share/completions/$_files.fish
   else
     set files (git rev-parse --show-toplevel)/share/completions/*.fish
   end
