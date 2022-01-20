@@ -114,7 +114,8 @@ alias cdu="cd $HOME/programs/uncrustify"
 
 # Goto dotfiles
 alias dfi="cd $HOME/.config/fish"
-alias dfc="cd $HOME/.config/fish/conf.d"
+alias dfc="cd $HOME/.config/fish/completions"
+alias dfd="cd $HOME/.config/fish/conf.d"
 alias dff="cd $HOME/.config/fish/functions"
 alias dm="cd $HOME/.misc"
 alias dn="cd $HOME/.config/nvim"
