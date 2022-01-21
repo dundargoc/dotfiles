@@ -46,3 +46,4 @@ fish_vi_key_bindings
 
 # Accept autosuggestions with ctrl-space
 bind -k nul -M insert accept-autosuggestion
+bind -k nul -M normal accept-autosuggestion
