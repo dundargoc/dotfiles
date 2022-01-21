@@ -1,1 +1,15 @@
-*
+# Ignore everything
+/*
+
+# Unlock .config but ignore all of its contents
+!/.config
+/.config/*
+
+# except for these
+!/.config/fish
+!/.config/nvim
+!/.config/kitty
+!/.config/polybar
+
+# Ignore fish_variables that get generated
+/.config/fish/fish_variables
