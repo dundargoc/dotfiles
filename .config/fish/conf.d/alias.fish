@@ -1,3 +1,6 @@
+# Define helper paths
+set PROG $HOME/programs
+
 #ls
 if type -q exa
   alias ls "exa"
@@ -93,52 +96,52 @@ alias view 'vi -M'
 
 # goto
 alias cdd="cd $HOME/Downloads"
-alias cdp="cd $HOME/programs"
-alias cdf="cd $HOME/programs/fish-shell"
-alias cdfc="cd $HOME/programs/fish-shell/share/completions"
-alias cdn="cd $HOME/programs/neovim"
-alias cdnd="cd $HOME/programs/neovim/runtime/doc"
-alias cdni="cd $HOME/programs/neovim/.github/workflows"
-alias cdnl="cd $HOME/programs/neovim/runtime/lua/vim"
-alias cdnc="cd $HOME/programs/neovim/scripts"
-alias cdnci="cd $HOME/programs/neovim/ci"
-alias cdnr="cd $HOME/programs/neovim/runtime"
-alias cdnn="cd $HOME/programs/neovim/src/nvim"
-alias cdns="cd $HOME/programs/neovim/src"
-alias cdl="cd $HOME/programs/nvim-lspconfig"
-alias cdli="cd $HOME/programs/nvim-lspconfig/.github/workflows"
-alias cds="cd $HOME/programs/services/src"
-alias cdsv="cd $HOME/programs/services/src/services/victoria/ui"
-alias cdsva="cd $HOME/programs/services/src/services/victoria/ui/ui/components/Activity"
-alias cdv="cd $HOME/programs/vim/src"
-alias cdu="cd $HOME/programs/uncrustify"
+alias cdp="cd $PROG"
+alias cdf="cd $PROG/fish-shell"
+alias cdfc="cd $PROG/fish-shell/share/completions"
+alias cdn="cd $PROG/neovim"
+alias cdnd="cd $PROG/neovim/runtime/doc"
+alias cdni="cd $PROG/neovim/.github/workflows"
+alias cdnl="cd $PROG/neovim/runtime/lua/vim"
+alias cdnc="cd $PROG/neovim/scripts"
+alias cdnci="cd $PROG/neovim/ci"
+alias cdnr="cd $PROG/neovim/runtime"
+alias cdnn="cd $PROG/neovim/src/nvim"
+alias cdns="cd $PROG/neovim/src"
+alias cdl="cd $PROG/nvim-lspconfig"
+alias cdli="cd $PROG/nvim-lspconfig/.github/workflows"
+alias cds="cd $PROG/services/src"
+alias cdsv="cd $PROG/services/src/services/victoria/ui"
+alias cdsva="cd $PROG/services/src/services/victoria/ui/ui/components/Activity"
+alias cdv="cd $PROG/vim/src"
+alias cdu="cd $PROG/uncrustify"
 
 # Goto dotfiles
-alias dfi="cd $HOME/.config/fish"
-alias dfc="cd $HOME/.config/fish/completions"
-alias dfd="cd $HOME/.config/fish/conf.d"
-alias dff="cd $HOME/.config/fish/functions"
+alias dfi="cd $XDG_CONFIG_HOME/fish"
+alias dfc="cd $XDG_CONFIG_HOME/fish/completions"
+alias dfd="cd $XDG_CONFIG_HOME/fish/conf.d"
+alias dff="cd $XDG_CONFIG_HOME/fish/functions"
 alias dm="cd $HOME/.misc"
-alias dn="cd $HOME/.config/nvim"
-alias dnp="cd $HOME/.config/nvim/plugin"
-alias c="cd $HOME/.config"
+alias dn="cd $XDG_CONFIG_HOME/nvim"
+alias dnp="cd $XDG_CONFIG_HOME/nvim/plugin"
+alias c="cd $XDG_CONFIG_HOME"
 alias ft="cd $HOME/ftplugin"
 alias db="cd $HOME/.bin"
 alias dp="cd $HOME/.private-dotfiles"
 
 #config
-alias ali="$EDITOR $HOME/.config/fish/conf.d/alias.fish"
-alias prc="$EDITOR $HOME/.config/nvim/plugin/packer.lua"
-alias rc="$EDITOR $HOME/.config/fish/config.fish"
+alias ali="$EDITOR $XDG_CONFIG_HOME/fish/conf.d/alias.fish"
+alias prc="$EDITOR $XDG_CONFIG_HOME/nvim/plugin/packer.lua"
+alias rc="$EDITOR $XDG_CONFIG_HOME/fish/config.fish"
 alias brc="$EDITOR $HOME/.bashrc"
-alias frc="$EDITOR $HOME/.config/fish/config.fish"
+alias frc="$EDITOR $XDG_CONFIG_HOME/fish/config.fish"
 alias zenv="$EDITOR $HOME/.zshenv"
-alias unrc="$EDITOR $HOME/programs/neovim/src/uncrustify.cfg"
-alias vimrc="$EDITOR $HOME/.config/nvim/init.vim"
+alias unrc="$EDITOR $PROG/neovim/src/uncrustify.cfg"
+alias vimrc="$EDITOR $XDG_CONFIG_HOME/nvim/init.vim"
 alias lsp="$EDITOR $XDG_CONFIG_HOME/nvim/plugin/lsp.lua"
 alias ts="$EDITOR $XDG_CONFIG_HOME/nvim/plugin/treesitter.lua"
-alias bsprc="$EDITOR $HOME/.config/bspwm/bspwmrc"
-alias sxhrc="$EDITOR $HOME/.config/sxhkd/sxhkdrc"
+alias bsprc="$EDITOR $XDG_CONFIG_HOME/bspwm/bspwmrc"
+alias sxhrc="$EDITOR $XDG_CONFIG_HOME/sxhkd/sxhkdrc"
 alias trc="$EDITOR $HOME/.tmux.conf"
 alias grc="$EDITOR $HOME/.gitconfig"
 
@@ -222,22 +225,22 @@ alias scc='scc --no-complexity --no-cocomo'
 alias black="black -C"
 
 alias cl='clang-format -i'
-alias un='uncrustify -c $HOME/programs/neovim/src/uncrustify.cfg --replace --no-backup'
-alias clint='$HOME/programs/neovim/src/clint.py'
-alias unc-update='uncrustify -c $HOME/programs/neovim/src/uncrustify.cfg --update-config-with-doc -o $HOME/programs/neovim/src/uncrustify.cfg'
+alias un='uncrustify -c $PROG/neovim/src/uncrustify.cfg --replace --no-backup'
+alias clint='$PROG/neovim/src/clint.py'
+alias unc-update='uncrustify -c $PROG/neovim/src/uncrustify.cfg --update-config-with-doc -o $PROG/neovim/src/uncrustify.cfg'
 
 alias codespell="codespell -H --config $HOME/.codespellrc --ignore-words=$HOME/.codespell-ignorewords"
 
-alias lint "make -C $HOME/programs/neovim lint"
+alias lint "make -C $PROG/neovim lint"
 
-alias bi "$HOME/programs/neovim/bin/nvim"
-alias asan "UBSAN_OPTIONS=print_stacktrace=1 ASAN_OPTIONS=log_path=/tmp/nvim_asan $HOME/programs/neovim/bin/nvim"
+alias bi "$PROG/neovim/bin/nvim"
+alias asan "UBSAN_OPTIONS=print_stacktrace=1 ASAN_OPTIONS=log_path=/tmp/nvim_asan $PROG/neovim/bin/nvim"
 
 alias asan-log "vi /tmp/nvim_asan"
 
 alias lt "reset; languagetool --autoDetect --disable DASH_RULE,COMMA_PARENTHESIS_WHITESPACE,ARROWS,UNLIKELY_OPENING_PUNCTUATION,WHITESPACE_RULE,FILE_EXTENSIONS_CASE,PLUS_MINUS,UPPERCASE_SENTENCE_START"
 
-alias gen "$HOME/programs/neovim/scripts/gen_vimdoc.py; rm -f $HOME/programs/neovim/runtime/doc/*.mpack"
+alias gen "$PROG/neovim/scripts/gen_vimdoc.py; rm -f $PROG/neovim/runtime/doc/*.mpack"
 
 alias diff "diff -W (tput cols)"
 
