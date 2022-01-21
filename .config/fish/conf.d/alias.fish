@@ -108,13 +108,10 @@ alias cdnci="cd $PROG/neovim/ci"
 alias cdnr="cd $PROG/neovim/runtime"
 alias cdnn="cd $PROG/neovim/src/nvim"
 alias cdns="cd $PROG/neovim/src"
-alias cdl="cd $PROG/nvim-lspconfig"
-alias cdli="cd $PROG/nvim-lspconfig/.github/workflows"
 alias cds="cd $PROG/services/src"
 alias cdsv="cd $PROG/services/src/services/victoria/ui"
 alias cdsva="cd $PROG/services/src/services/victoria/ui/ui/components/Activity"
 alias cdv="cd $PROG/vim/src"
-alias cdu="cd $PROG/uncrustify"
 
 # Goto dotfiles
 alias dfi="cd $XDG_CONFIG_HOME/fish"
@@ -138,8 +135,6 @@ alias frc="$EDITOR $XDG_CONFIG_HOME/fish/config.fish"
 alias zenv="$EDITOR $HOME/.zshenv"
 alias unrc="$EDITOR $PROG/neovim/src/uncrustify.cfg"
 alias vimrc="$EDITOR $XDG_CONFIG_HOME/nvim/init.vim"
-alias lsp="$EDITOR $XDG_CONFIG_HOME/nvim/plugin/lsp.lua"
-alias ts="$EDITOR $XDG_CONFIG_HOME/nvim/plugin/treesitter.lua"
 alias bsprc="$EDITOR $XDG_CONFIG_HOME/bspwm/bspwmrc"
 alias sxhrc="$EDITOR $XDG_CONFIG_HOME/sxhkd/sxhkdrc"
 alias trc="$EDITOR $HOME/.tmux.conf"
@@ -204,21 +199,10 @@ alias path='echo $PATH | tr " " "\n" | sort'
 alias logout="loginctl terminate-user dundar"
 
 alias ch="reset; shellcheck -a -x -e SC2086"
-alias chs="ch -S style"
-alias chi="ch -S info"
-alias chw="ch -S warning"
-alias che="ch -S error"
-
-alias q="shellcheck -f diff"
-
-alias fo="shfmt -w -s"
 
 alias rename="perl-rename -i"
 
 alias detox="detox -s lower"
-
-alias ffmpeg='ffmpeg -hide_banner'
-alias ffprobe='ffprobe -hide_banner'
 
 alias scc='scc --no-complexity --no-cocomo'
 
@@ -245,12 +229,6 @@ alias gen "$PROG/neovim/scripts/gen_vimdoc.py; rm -f $PROG/neovim/runtime/doc/*.
 alias diff "diff -W (tput cols)"
 
 alias fd "fd --hidden"
-
-# nix alias
-alias nix-upgrade "nix-channel --update; nix-env -iA nixpkgs.nix nixpkgs.cacert"
-alias nix-install "nix-env -i"
-alias nix-remove "nix-env -e"
-alias nix-search "nix-env -qa"
 
 # npm
 alias gpm "sudo npm -g"
