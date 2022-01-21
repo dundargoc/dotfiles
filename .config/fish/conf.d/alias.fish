@@ -17,7 +17,7 @@ if grep -iq ubuntu /etc/os-release
   alias remove "sudo apt remove"
   alias prune "sudo apt autoremove"
 else
-  alias install "$HOME/.bin/install-arch-package"
+  alias install "paru -S --needed --removemake"
   alias show "paru -Si"
   alias search "paru -Ss"
   alias remove "paru -Rs"
