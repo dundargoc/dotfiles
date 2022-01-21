@@ -109,6 +109,7 @@ alias cdl="cd $HOME/programs/nvim-lspconfig"
 alias cdli="cd $HOME/programs/nvim-lspconfig/.github/workflows"
 alias cds="cd $HOME/programs/services/src"
 alias cdsv="cd $HOME/programs/services/src/services/victoria/ui"
+alias cdsva="cd $HOME/programs/services/src/services/victoria/ui/ui/components/Activity"
 alias cdv="cd $HOME/programs/vim/src"
 alias cdu="cd $HOME/programs/uncrustify"
 
