@@ -29,7 +29,7 @@ alias upgrade "topgrade"
 alias fsearch "paru -F"
 alias mirror "sudo pacman-mirrors -id"
 alias orphan 'paru --clean'
-alias gitlist "list | rg '\-git'"
+alias listgit "list | rg '\-git'"
 
 # git
 alias amend "git commit --amend --no-verify --allow-empty"
