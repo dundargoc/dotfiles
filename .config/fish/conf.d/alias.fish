@@ -226,6 +226,7 @@ alias lt "reset; languagetool --autoDetect --disable DASH_RULE,COMMA_PARENTHESIS
 
 alias gen "$PROG/neovim/scripts/gen_vimdoc.py; rm -f $PROG/neovim/runtime/doc/*.mpack"
 
+# Use full screen when using diff
 alias diff "diff -W (tput cols)"
 
 alias fd "fd --hidden"
