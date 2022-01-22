@@ -3,7 +3,7 @@ set PROG $HOME/programs
 
 #ls
 if type -q exa
-  alias ls "exa"
+    alias ls exa
 end
 alias la="ls -a"
 alias ll="la -l"
@@ -11,20 +11,20 @@ alias ll="la -l"
 alias ag "rg --ignore-case --hidden"
 
 if grep -iq ubuntu /etc/os-release
-  alias install "sudo apt install"
-  alias show "apt show"
-  alias search "apt search"
-  alias remove "sudo apt remove"
-  alias prune "sudo apt autoremove"
+    alias install "sudo apt install"
+    alias show "apt show"
+    alias search "apt search"
+    alias remove "sudo apt remove"
+    alias prune "sudo apt autoremove"
 else
-  alias install "paru -S --needed --removemake"
-  alias show "paru -Si"
-  alias search "paru -Ss"
-  alias remove "paru -Rs"
-  alias prune "sudo paccache -ruk0; paru -Scc --noconfirm"
+    alias install "paru -S --needed --removemake"
+    alias show "paru -Si"
+    alias search "paru -Ss"
+    alias remove "paru -Rs"
+    alias prune "sudo paccache -ruk0; paru -Scc --noconfirm"
 end
 
-alias upgrade "topgrade"
+alias upgrade topgrade
 
 alias fsearch "paru -F"
 alias mirror "sudo pacman-mirrors -id"
@@ -38,9 +38,9 @@ alias good "git bisect good"
 alias bad "git bisect bad"
 alias bisect "git bisect start"
 
-function fix --argument-names 'commit'
-	git add -A
-	git commit --no-verify --allow-empty --fixup="$commit"
+function fix --argument-names commit
+    git add -A
+    git commit --no-verify --allow-empty --fixup="$commit"
 end
 
 alias gac="git add -A; git commit"
@@ -58,8 +58,8 @@ alias gd="git diff"
 alias gdw="git diff --word-diff"
 alias gdc="git diff --cached"
 alias gdcw="git diff --cached --word-diff"
-alias gdm "git diff master...(git branch --show-current)" 
-alias gcd "cd (git rev-parse --show-toplevel)" 
+alias gdm "git diff master...(git branch --show-current)"
+alias gcd "cd (git rev-parse --show-toplevel)"
 alias gcl1="git clone --depth=1"
 alias gclc="git clean -fd :/"
 alias gcn="git commit --no-verify"
@@ -150,9 +150,9 @@ alias f="exec fish"
 
 # reset
 if set -q TMUX
-	alias reset="clear; tmux clearhist"
+    alias reset="clear; tmux clearhist"
 else
-	alias reset="tput reset"
+    alias reset="tput reset"
 end
 
 # wifi

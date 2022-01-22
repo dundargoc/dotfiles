@@ -1,4 +1,3 @@
 function fire
-	firefox "$argv" &>/dev/null
+    firefox "$argv" &>/dev/null
 end
-
