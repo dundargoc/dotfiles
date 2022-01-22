@@ -55,6 +55,9 @@ cabbrev he checkhealth
 " Packer
 cabbrev ps PackerSync
 
+" Stalker
+cabbrev stalk Stalk
+
 " ------------------------------------
 " Options
 
