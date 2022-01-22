@@ -11,7 +11,7 @@ require('lspconfig').sumneko_lua.setup {
         '--logpath=' .. data_path .. '/log',
         '--metapath=' .. data_path .. '/meta',
     },
-    on_attach = require("lsp").on_attach,
+    on_attach = require('lsp').on_attach,
     capabilities = capabilities,
     settings = {
         Lua = {
