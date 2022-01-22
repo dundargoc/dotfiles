@@ -242,3 +242,6 @@ alias fish-benchmark 'hyperfine --warmup 3 "exec fish"'
 
 # Upgrade neovim from commandline
 alias up "nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'"
+
+# Run custom built fish
+alias fi "$PROG/fish-shell/bin/fish"
