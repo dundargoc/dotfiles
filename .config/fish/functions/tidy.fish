@@ -1,6 +1,6 @@
 function tidy
     reset
     for i in $argv
-        clang-tidy --config-file "$HOME/.clang-tidy" "$i"
+        clang-tidy "$i"
     end
 end
