@@ -45,6 +45,9 @@ alias good "git bisect good"
 alias bad "git bisect bad"
 alias bisect "git bisect start"
 
+alias stash "git stash"
+alias pop "git stash pop"
+
 function fix --argument-names commit
     git add -A
     git commit --no-verify --allow-empty --fixup="$commit"
