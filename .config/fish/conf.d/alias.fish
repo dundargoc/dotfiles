@@ -1,14 +1,16 @@
 # Define helper paths
 set PROG $HOME/programs
 
-#ls
+# ls
 if type -q exa
     alias ls exa
 end
 alias la="ls -a"
 alias ll="la -l"
 
-alias ag "rg --ignore-case --hidden"
+# -------------------------------------------------------------------------
+# OS specific commands
+# -------------------------------------------------------------------------
 
 if grep -iq ubuntu /etc/os-release
     alias install "sudo apt install"
@@ -17,21 +19,26 @@ if grep -iq ubuntu /etc/os-release
     alias remove "sudo apt remove"
     alias prune "sudo apt-get autoremove --yes"
 else
+    # Assume manjaro
+
     alias install "paru -S --needed --removemake"
     alias show "paru -Si"
     alias search "paru -Ss"
     alias remove "paru -Rs"
     alias prune "sudo paccache -ruk0; paru -Scc --noconfirm"
+    alias fsearch "paru -F"
+    alias mirror "sudo pacman-mirrors -id"
+    alias orphan 'paru --clean'
+    alias listgit "list | rg '\-git'"
 end
 
 alias upgrade topgrade
 
-alias fsearch "paru -F"
-alias mirror "sudo pacman-mirrors -id"
-alias orphan 'paru --clean'
-alias listgit "list | rg '\-git'"
 
+# -------------------------------------------------------------------------
 # git
+# -------------------------------------------------------------------------
+
 alias amend "git commit --amend --no-verify --allow-empty"
 alias ameno "git commit --amend --no-verify --allow-empty --no-edit"
 alias good "git bisect good"
@@ -88,13 +95,17 @@ alias gl1="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgree
 alias git-add-upstream "git remote add upstream"
 alias s="hub sync"
 
+# -------------------------------------------------------------------------
 # vim
+# -------------------------------------------------------------------------
 alias vi '$EDITOR'
 alias vid "vi -d"
 alias svi 'sudo $EDITOR'
 alias view 'vi -M'
 
+# -------------------------------------------------------------------------
 # goto
+# -------------------------------------------------------------------------
 alias cdd="cd $HOME/Downloads"
 alias cdp="cd $PROG"
 alias cdf="cd $PROG/fish-shell"
@@ -113,7 +124,9 @@ alias cdsv="cd $PROG/services/src/services/victoria/ui"
 alias cdsva="cd $PROG/services/src/services/victoria/ui/ui/components/Activity"
 alias cdv="cd $PROG/vim/src"
 
-# Goto dotfiles
+# -------------------------------------------------------------------------
+# goto dotfiles
+# -------------------------------------------------------------------------
 alias dfi="cd $XDG_CONFIG_HOME/fish"
 alias dfc="cd $XDG_CONFIG_HOME/fish/completions"
 alias dfd="cd $XDG_CONFIG_HOME/fish/conf.d"
@@ -126,7 +139,9 @@ alias ft="cd $HOME/ftplugin"
 alias db="cd $HOME/.bin"
 alias dp="cd $HOME/.private-dotfiles"
 
-#config
+# -------------------------------------------------------------------------
+# config
+# -------------------------------------------------------------------------
 alias ali="$EDITOR $XDG_CONFIG_HOME/fish/conf.d/alias.fish"
 alias prc="$EDITOR $XDG_CONFIG_HOME/nvim/plugin/packer.lua"
 alias rc="$EDITOR $XDG_CONFIG_HOME/fish/config.fish"
@@ -208,22 +223,9 @@ alias scc='scc --no-complexity --no-cocomo'
 
 alias black="black -C"
 
-alias un='uncrustify -c $PROG/neovim/src/uncrustify.cfg --replace --no-backup'
-alias clint='$PROG/neovim/src/clint.py'
-alias unc-update='uncrustify -c $PROG/neovim/src/uncrustify.cfg --update-config-with-doc -o $PROG/neovim/src/uncrustify.cfg'
-
 alias codespell="codespell -H --config $HOME/.codespellrc --ignore-words=$HOME/.codespell-ignorewords"
 
-alias lint "make -C $PROG/neovim lint"
-
-alias bi "$PROG/neovim/bin/nvim"
-alias asan "UBSAN_OPTIONS=print_stacktrace=1 ASAN_OPTIONS=log_path=/tmp/nvim_asan $PROG/neovim/bin/nvim"
-
-alias asan-log "vi /tmp/nvim_asan"
-
 alias lt "reset; languagetool --autoDetect --disable DASH_RULE,COMMA_PARENTHESIS_WHITESPACE,ARROWS,UNLIKELY_OPENING_PUNCTUATION,WHITESPACE_RULE,FILE_EXTENSIONS_CASE,PLUS_MINUS,UPPERCASE_SENTENCE_START"
-
-alias gen "$PROG/neovim/scripts/gen_vimdoc.py; rm -f $PROG/neovim/runtime/doc/*.mpack"
 
 # Use full screen when using diff
 alias diff "diff -W (tput cols)"
@@ -239,8 +241,25 @@ alias cleantrash "rm -rf $HOME/.local/share/Trash/{files,info}/*"
 # Benchmark fish shell startup
 alias fish-benchmark 'hyperfine --warmup 3 "exec fish"'
 
+# Run custom built fish
+alias fi "$PROG/fish-shell/bin/fish"
+
+alias ag "rg --ignore-case --hidden"
+
+# -------------------------------------------------------------------------
+# neovim development
+# -------------------------------------------------------------------------
+
 # Upgrade neovim from commandline
 alias up "nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'"
 
-# Run custom built fish
-alias fi "$PROG/fish-shell/bin/fish"
+# Generate documentation
+alias gen "$PROG/neovim/scripts/gen_vimdoc.py; rm -f $PROG/neovim/runtime/doc/*.mpack"
+
+alias clint='$PROG/neovim/src/clint.py'
+alias un='uncrustify -c $PROG/neovim/src/uncrustify.cfg --replace --no-backup'
+alias unc-update='uncrustify -c $PROG/neovim/src/uncrustify.cfg --update-config-with-doc -o $PROG/neovim/src/uncrustify.cfg'
+alias lint "make -C $PROG/neovim lint"
+alias bi "$PROG/neovim/bin/nvim"
+alias asan "UBSAN_OPTIONS=print_stacktrace=1 ASAN_OPTIONS=log_path=/tmp/nvim_asan $PROG/neovim/bin/nvim"
+alias asan-log "vi /tmp/nvim_asan"
