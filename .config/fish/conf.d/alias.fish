@@ -15,7 +15,7 @@ if grep -iq ubuntu /etc/os-release
     alias show "apt show"
     alias search "apt search"
     alias remove "sudo apt remove"
-    alias prune "sudo apt autoremove"
+    alias prune "sudo apt-get autoremove --yes"
 else
     alias install "paru -S --needed --removemake"
     alias show "paru -Si"
