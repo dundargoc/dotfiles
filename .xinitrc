@@ -1,6 +1,4 @@
-#!/bin/sh
-#
-# ~/.xinitrc
+#!/bin/bash
 #
 # Executed by startx (run your window manager from here)
 
