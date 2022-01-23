@@ -16,7 +16,7 @@ if grep -iq ubuntu /etc/os-release
     alias install "sudo apt install"
     alias show "apt show"
     alias search "apt search"
-    alias remove "sudo apt remove"
+    alias remove "sudo apt purge"
     alias prune "sudo apt-get autoremove --yes"
 else
     # Assume manjaro
