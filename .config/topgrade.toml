@@ -2,7 +2,7 @@
 assume_yes = true
 
 # Disable specific steps - same options as the command line flag
-disable = ["gnome_shell_extensions", "pacdiff", "vim"]
+disable = ["gnome_shell_extensions", "pacdiff", "vim", "node"]
 
 # Ignore failures for these steps
 #ignore_failures = ["powershell"]
