@@ -33,7 +33,10 @@ local plugins = {
     'neovim/nvim-lspconfig',
 
     -- Stalker
-    'dundargoc/stalker.nvim',
+    {
+        'dundargoc/stalker.nvim',
+        branch = 'dev',
+    },
 
     -- Themes
     {
