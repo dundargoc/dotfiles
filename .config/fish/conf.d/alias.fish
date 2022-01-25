@@ -44,6 +44,7 @@ alias ameno "git commit --amend --no-verify --allow-empty --no-edit"
 alias good "git bisect good"
 alias bad "git bisect bad"
 alias bisect "git bisect start"
+alias create "gh pr create --fill"
 
 alias stash "git stash"
 alias pop "git stash pop"
