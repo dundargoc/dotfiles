@@ -102,7 +102,7 @@ alias s="hub sync"
 # vim
 # -------------------------------------------------------------------------
 alias vi '$EDITOR'
-alias vid "vi -d"
+alias vimdiff "vi -d"
 alias svi 'sudo $EDITOR'
 alias view 'vi -M'
 
