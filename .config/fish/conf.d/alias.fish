@@ -81,6 +81,7 @@ alias gt="git add -A; git commit -m 'chore: test commit, will likely delete afte
 alias gl="git log --graph --full-history --pretty --oneline"
 alias gla="gl --all"
 alias glp="git log -p"
+alias glpd="git log -p --word-diff"
 alias gls="git log --stat --oneline"
 alias gpa="git push --all"
 alias gpl="git pull --rebase"
