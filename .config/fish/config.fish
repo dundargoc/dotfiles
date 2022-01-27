@@ -25,7 +25,7 @@ set -U fish_greeting
 
 # Add folders to path
 fish_add_path "$HOME/.bin"
-fish_add_path "$HOME/.private-dotfiles/bin"
+fish_add_path $HOME/.private-dotfiles/*/bin
 
 for i in $HOME/.private-dotfiles/bin/*
     fish_add_path $i
