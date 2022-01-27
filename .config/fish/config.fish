@@ -27,6 +27,8 @@ set -U fish_greeting
 fish_add_path "$HOME/.bin"
 fish_add_path $HOME/.private-dotfiles/*/bin
 
+source $HOME/.private-dotfiles/fish/conf.d/*
+
 for i in $HOME/.private-dotfiles/bin/*
     fish_add_path $i
 end
