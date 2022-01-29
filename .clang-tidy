@@ -30,6 +30,7 @@ Checks: >
   -readability-misleading-indentation,
   -readability-named-parameter,
   -readability-redundant-function-ptr-dereference,
+  -readability-uppercase-literal-suffix,
 
 # Turn all the warnings from the checks above into errors.
 WarningsAsErrors: ''
