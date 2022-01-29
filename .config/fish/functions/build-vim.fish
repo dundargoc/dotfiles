@@ -1,9 +1,9 @@
 function build-vim
-    cd "$HOME/programs/vim" >/dev/null
-    touch src/**/*
+    set vim_path "$HOME/programs/vim"
+    touch $vim_path/src/**/*
     if type -q compiledb
-        compiledb make -j
+        compiledb make -C $vim_path -j
     else
-        bear -- make -j
+        bear --output $vim_path/compile_commands.json -- make -C $vim_path -j
     end
 end
