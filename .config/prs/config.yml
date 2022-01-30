@@ -1,0 +1,12 @@
+prSections:
+- title: My Pull Requests
+  filters: is:open author:@me
+- title: Needs My Review
+  filters: is:open review-requested:@me
+- title: Subscribed
+  filters: is:open -author:@me repo:neovim/neovim
+defaults:
+  preview:
+    open: true
+    width: 50
+  prsLimit: 20
