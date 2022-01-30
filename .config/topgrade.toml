@@ -57,6 +57,7 @@ arguments = "--rebase --all"
 # Sync forks 
 "Sync Neovim" = "gh repo sync dundargoc/neovim --source neovim/neovim"
 "Sync Vim" = "gh repo sync dundargoc/vim --source vim/vim"
+"Sync Nvim-treesitter" = "gh repo sync dundargoc/nvim-treesitter --source nvim-treesitter/nvim-treesitter"
 "Sync Fish" = "gh repo sync dundargoc/fish-shell --source fish-shell/fish-shell"
 
 # Custom commands
