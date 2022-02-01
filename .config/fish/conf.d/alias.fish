@@ -212,8 +212,8 @@ alias free="free -h"
 # Fast tmux
 alias t="tmux"
 
-# Print human-readable PATH and FPATH
-alias path='echo $PATH | tr " " "\n" | sort'
+# Print human-readable PATH
+alias path='echo $PATH | tr " " "\n"'
 
 alias logout="loginctl terminate-user dundar"
 
