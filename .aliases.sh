@@ -256,8 +256,8 @@ alias free="free -h"
 alias t="tmux"
 
 # Print human-readable PATH and FPATH
-alias path="tr ':' '\n' <<< $PATH | sort"
-alias fpath="tr ':' '\n' <<< $FPATH | sort"
+alias path="tr ':' '\n' <<< $PATH"
+alias fpath="tr ':' '\n' <<< $FPATH"
 
 # allow sudo to expand aliases as well as run anything in $PATH
 alias sudo='sudo env PATH="$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"	'
