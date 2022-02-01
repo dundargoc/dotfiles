@@ -23,25 +23,11 @@ xmodmap -e "keycode 49 = Escape"
 # Remove the start greeting
 set -U fish_greeting
 
-# Add folders to path
-fish_add_path "$HOME/.bin"
-fish_add_path $HOME/.private-dotfiles/*/bin
-
 source $HOME/.private-dotfiles/fish/conf.d/*
-
-for i in $HOME/.private-dotfiles/bin/*
-    fish_add_path $i
-end
 
 # Source nix if it exists
 if test -e $HOME/.nix-profile/etc/profile.d/nix.sh
     bass source $HOME/.nix-profile/etc/profile.d/nix.sh
-end
-
-# Add brew to path if it exists
-if test -e /home/linuxbrew/.linuxbrew/bin/brew
-    fish_add_path /home/linuxbrew/.linuxbrew/bin
-    fish_add_path /home/linuxbrew/.linuxbrew/sbin
 end
 
 # Enable vi mode
@@ -53,3 +39,21 @@ bind -k nul -M normal accept-autosuggestion
 
 # Make yy in normal mode copy the entire line to clipboard
 bind yy fish_clipboard_copy
+
+# --------------------------
+# Add paths and reorder them
+# --------------------------
+fish_add_path $HOME/.bin
+fish_add_path $HOME/.private-dotfiles/*/bin
+fish_add_path /home/linuxbrew/.linuxbrew/bin
+fish_add_path /home/linuxbrew/.linuxbrew/sbin
+
+set index (contains -i /home/linuxbrew/.linuxbrew/sbin $PATH)
+set tmp_path $PATH[$index]
+set -e PATH[$index]
+set PATH $PATH $tmp_path
+
+set index (contains -i /home/linuxbrew/.linuxbrew/bin $PATH)
+set tmp_path $PATH[$index]
+set -e PATH[$index]
+set PATH $PATH $tmp_path
