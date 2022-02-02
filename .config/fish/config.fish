@@ -48,12 +48,16 @@ fish_add_path $HOME/.private-dotfiles/*/bin
 fish_add_path /home/linuxbrew/.linuxbrew/bin
 fish_add_path /home/linuxbrew/.linuxbrew/sbin
 
-set index (contains -i /home/linuxbrew/.linuxbrew/sbin $PATH)
-set tmp_path $PATH[$index]
-set -e PATH[$index]
-set PATH $PATH $tmp_path
+if contains -i /home/linuxbrew/.linuxbrew/sbin $PATH >/dev/null
+    set index (contains -i /home/linuxbrew/.linuxbrew/sbin $PATH)
+    set tmp_path $PATH[$index]
+    set -e PATH[$index]
+    set PATH $PATH $tmp_path
+end
 
-set index (contains -i /home/linuxbrew/.linuxbrew/bin $PATH)
-set tmp_path $PATH[$index]
-set -e PATH[$index]
-set PATH $PATH $tmp_path
+if contains -i /home/linuxbrew/.linuxbrew/bin $PATH >/dev/null
+    set index (contains -i /home/linuxbrew/.linuxbrew/bin $PATH)
+    set tmp_path $PATH[$index]
+    set -e PATH[$index]
+    set PATH $PATH $tmp_path
+end
