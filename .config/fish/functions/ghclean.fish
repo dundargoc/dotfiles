@@ -1,8 +1,10 @@
 function ghclean
-    set merged_branches (git branch --merged upstream/master | grep -v '*' | grep -v (gh-default-branch))
+    for remote in (git remote)
+        set merged_branches (git branch --merged $remote/master | grep -v '*' | grep -v (gh-default-branch))
 
-    for branch in $merged_branches
-        gbdd (string trim $branch)
+        for branch in $merged_branches
+            gbdd (string trim $branch)
+        end
     end
 
 end
