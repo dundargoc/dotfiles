@@ -4,4 +4,9 @@ function lint
         reset
         tox -e pylint
     end
+
+    if [ $repo_path = $HOME/programs/neovim ]
+        reset
+        make -C $repo_path lint
+    end
 end
