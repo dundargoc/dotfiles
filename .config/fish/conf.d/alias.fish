@@ -45,6 +45,7 @@ alias good "git bisect good"
 alias bad "git bisect bad"
 alias bisect "git bisect start"
 alias create "gh pr create --fill"
+alias createdraft "gh pr create --fill --draft"
 
 alias stash "git stash"
 alias pop "git stash pop"
