@@ -41,9 +41,13 @@ alias upgrade topgrade
 
 alias amend "git commit --amend --no-verify --allow-empty"
 alias ameno "git commit --amend --no-verify --allow-empty --no-edit"
+
 alias good "git bisect good"
 alias bad "git bisect bad"
+alias old "git bisect old"
+alias new "git bisect new"
 alias bisect "git bisect start"
+
 alias create "gh pr create --fill"
 alias createdraft "gh pr create --fill --draft"
 
