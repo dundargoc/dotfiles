@@ -148,6 +148,7 @@ alias c="cd $XDG_CONFIG_HOME"
 alias ft="cd $HOME/ftplugin"
 alias db="cd $HOME/.bin"
 alias dp="cd $HOME/.private-dotfiles"
+alias dpp="cd $HOME/.private-dotfiles/pat"
 alias dpv="cd $HOME/.private-dotfiles/volvo"
 
 # -------------------------------------------------------------------------
