@@ -39,26 +39,6 @@ alias upgrade topgrade
 # git
 # -------------------------------------------------------------------------
 
-alias amend "git commit --amend --no-verify --allow-empty"
-alias ameno "git commit --amend --no-verify --allow-empty --no-edit"
-
-alias good "git bisect good"
-alias bad "git bisect bad"
-alias old "git bisect old"
-alias new "git bisect new"
-alias bisect "git bisect start"
-
-alias create "gh pr create --fill"
-alias createdraft "gh pr create --fill --draft"
-
-alias stash "git stash"
-alias pop "git stash pop"
-
-function fix --argument-names commit
-    git add -A
-    git commit --no-verify --allow-empty --fixup="$commit"
-end
-
 alias gac="git add -A; git commit"
 alias gaf="git add -f"
 alias gap="git add -p"
@@ -102,6 +82,27 @@ alias gs="git status"
 alias gsh="git show"
 alias gshw="git show --word-diff"
 alias gl1="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
+
+alias amend "git commit --amend --no-verify --allow-empty"
+alias ameno "git commit --amend --no-verify --allow-empty --no-edit"
+
+alias good "git bisect good"
+alias bad "git bisect bad"
+alias old "git bisect old"
+alias new "git bisect new"
+alias bisect "git bisect start"
+
+alias create "gh pr create --fill"
+alias createdraft "gh pr create --fill --draft"
+
+alias stash "git stash"
+alias pop "git stash pop"
+
+function fix --argument-names commit
+    git add -A
+    git commit --no-verify --allow-empty --fixup="$commit"
+end
+
 alias git-add-upstream "git remote add upstream"
 alias s="hub sync"
 
