@@ -32,12 +32,6 @@ local plugins = {
     -- LSP
     'neovim/nvim-lspconfig',
 
-    -- Stalker
-    {
-        'dundargoc/stalker.nvim',
-        branch = 'dev',
-    },
-
     -- Themes
     {
         'dracula/vim',
