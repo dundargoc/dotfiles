@@ -1,6 +1,6 @@
 function testpr --argument-names type
     set repo_path (git rev-parse --show-toplevel)
-    set branch _test-pr
+    set branch (basename (mktemp))
 
     if [ $repo_path != "$HOME/programs/dundar-organization/neovim" -a $repo_path != "$HOME/programs/notdundargoc/neovim" ]
         echo "Attempting dangerous command outsite of intended area. Abort"
@@ -11,8 +11,6 @@ function testpr --argument-names type
         set type chore
     end
 
-    git push origin --delete $branch
-    git branch -D $branch
     git checkout -b $branch
 
     pushd $repo_path
