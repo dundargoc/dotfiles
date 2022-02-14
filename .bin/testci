@@ -1,0 +1,35 @@
+#!/usr/bin/env python3
+
+import subprocess
+import os
+import sys
+
+
+def remove_old_test_branches():
+    all_branches = [
+        i.strip()
+        for i in subprocess.check_output(["git", "branch"], text=True).splitlines()
+    ]
+    test_branches = [i for i in all_branches if i.startswith("ci-test/")]
+    for branch in test_branches:
+        subprocess.call(["git", "push", "origin", "--delete", branch])
+        subprocess.call(["git", "branch", "--delete", "--force", branch])
+
+def create_pr():
+    subprocess.call(["testpr"])
+
+def main():
+    repo_path = subprocess.check_output(
+        ["git", "rev-parse", "--show-toplevel"], text=True
+    ).strip()
+    HOME = os.environ["HOME"]
+
+    if repo_path not in [f"{HOME}/programs/dundar-organization/neovim"]:
+        sys.exit("Attempting VERY dangerous command outsite of intended area. Abort")
+
+    remove_old_test_branches()
+
+    create_pr()
+
+if __name__ == "__main__":
+    main()
