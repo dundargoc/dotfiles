@@ -97,6 +97,20 @@ def create_pr(pr_spec):
     )
 
 
+def disable_all_workflows():
+    active_workflows = subprocess.check_output(
+        ["gh", "workflow", "list"], text=True
+    ).splitlines()
+    for workflow in active_workflows:
+        workflow_name = workflow.split("\t")[0]
+        subprocess.call(["gh", "workflow", "disable", workflow_name])
+
+
+def enable_workflows(workflows):
+    for workflow in workflows:
+        subprocess.call(["gh", "workflow", "enable", workflow])
+
+
 def main():
     repo_path = subprocess.check_output(
         ["git", "rev-parse", "--show-toplevel"], text=True
@@ -115,6 +129,8 @@ def main():
         "body": "",
     }
 
+    disable_all_workflows()
+    enable_workflows(["Pull Request Labeler", "Request reviews"])
     test_create_pr_and_label_due_to_type(pr_spec_default)
     test_create_pr_and_label_due_to_scope(pr_spec_default)
     test_create_pr_and_assign_reviewer_due_to_adding_label(pr_spec_default)
