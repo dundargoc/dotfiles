@@ -11,6 +11,7 @@ import argparse
 def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("--type", default="chore")
+    parser.add_argument("--description", default="CI test")
     args = parser.parse_args()
 
     return args
@@ -38,7 +39,9 @@ def main():
     filename.write_text("")
 
     subprocess.call(["git", "add", "-A"])
-    subprocess.call(["git", "commit", "--quiet", "-m", f"{args.type}: CI test"])
+    subprocess.call(
+        ["git", "commit", "--quiet", "-m", f"{args.type}: {args.description}"]
+    )
     subprocess.call(
         ["git", "push", "--quiet", "--set-upstream", "origin", branch],
         stdout=subprocess.DEVNULL,
