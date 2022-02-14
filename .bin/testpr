@@ -12,6 +12,7 @@ def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("--type", default="chore")
     parser.add_argument("--description", default="CI test")
+    parser.add_argument("--body", default="")
     args = parser.parse_args()
 
     return args
@@ -39,15 +40,26 @@ def main():
     filename.write_text("")
 
     subprocess.call(["git", "add", "-A"])
-    subprocess.call(
-        ["git", "commit", "--quiet", "-m", f"{args.type}: {args.description}"]
-    )
+    commit_message = f"{args.type}: {args.description}"
+    subprocess.call(["git", "commit", "--quiet", "-m", commit_message])
     subprocess.call(
         ["git", "push", "--quiet", "--set-upstream", "origin", branch],
         stdout=subprocess.DEVNULL,
         stderr=subprocess.DEVNULL,
     )
-    subprocess.call(["gh", "pr", "create", "--fill", "-R", "neodundar/neovim"])
+    subprocess.call(
+        [
+            "gh",
+            "pr",
+            "create",
+            "--title",
+            commit_message,
+            "--body",
+            args.body,
+            "-R",
+            "neodundar/neovim",
+        ]
+    )
     subprocess.call(["git", "switch", "--quiet", "master"])
 
 
