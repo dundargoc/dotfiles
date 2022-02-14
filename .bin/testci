@@ -3,6 +3,44 @@
 import subprocess
 import os
 import sys
+import secrets
+from pathlib import Path
+
+
+def create_pr(pr_spec):
+    repo_path = subprocess.check_output(
+        ["git", "rev-parse", "--show-toplevel"], text=True
+    ).strip()
+
+    branch = f"ci-test/{secrets.token_hex(5)}"
+
+    subprocess.call(["git", "checkout", "--quiet", "-b", branch])
+
+    filename = Path(repo_path) / ".test"
+    filename.write_text("")
+
+    subprocess.call(["git", "add", "-A"])
+    commit_message = f'{pr_spec["type"]}: {pr_spec["description"]}'
+    subprocess.call(["git", "commit", "--quiet", "-m", commit_message])
+    subprocess.call(
+        ["git", "push", "--quiet", "--set-upstream", "origin", branch],
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
+    )
+    subprocess.call(
+        [
+            "gh",
+            "pr",
+            "create",
+            "--title",
+            commit_message,
+            "--body",
+            pr_spec["body"],
+            "-R",
+            "neodundar/neovim",
+        ]
+    )
+    subprocess.call(["git", "switch", "--quiet", "master"])
 
 
 def main():
@@ -16,14 +54,20 @@ def main():
 
     subprocess.call(["testclean"])
 
-    expected_outcome = "\n".join(
+    pr_spec_default = {"type": "diagnostic", "description": "CI test", "body": ""}
+
+    pr_spec = {}
+    pr_spec.update(pr_spec_default)
+    pr_spec["type"] = "diagnostic"
+    pr_spec["body"] = "\n".join(
         [
             "Expected outcome:",
             "1. `diagnostic` label applied due to type",
             "2. gpanders assigned as reviewer",
         ]
     )
-    subprocess.call(["testpr", "--type", "diagnostic", "--body", expected_outcome])
+
+    create_pr(pr_spec)
 
 
 if __name__ == "__main__":
