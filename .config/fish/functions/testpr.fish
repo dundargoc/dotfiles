@@ -20,6 +20,6 @@ function testpr --argument-names type
     git add -A
     git commit -m "$type: quick update, squash later"
     git push --set-upstream origin (git branch --show-current)
-    gh pr create --fill
+    gh pr create --fill -R neodundar/neovim
     git switch (gh-default-branch)
 end
