@@ -16,7 +16,13 @@ def main():
 
     subprocess.call(["testclean"])
 
-    expected_outcome = "Expected outcome:\n1. `diagnostic` label applied\n 2. gpanders assigned as reviewer"
+    expected_outcome = "\n".join(
+        [
+            "Expected outcome:",
+            "1. `diagnostic` label applied due to type",
+            "2. gpanders assigned as reviewer",
+        ]
+    )
     subprocess.call(["testpr", "--type", "diagnostic", "--body", expected_outcome])
 
 
