@@ -11,5 +11,8 @@
 !/.config/kitty
 !/.config/polybar
 
+# Unlock .bin
+!/.bin
+
 # Ignore fish_variables that get generated
 /.config/fish/fish_variables
