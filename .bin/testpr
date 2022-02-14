@@ -5,6 +5,15 @@ import os
 import sys
 import secrets
 from pathlib import Path
+import argparse
+
+
+def parse_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--type", default="chore")
+    args = parser.parse_args()
+
+    return args
 
 
 def main():
@@ -21,13 +30,15 @@ def main():
 
     branch = f"ci-test/{secrets.token_hex(5)}"
 
+    args = parse_args()
+
     subprocess.call(["git", "checkout", "--quiet", "-b", branch])
 
     filename = Path(repo_path) / ".test"
     filename.write_text("")
 
     subprocess.call(["git", "add", "-A"])
-    subprocess.call(["git", "commit", "--quiet", "-m", "chore: CI test"])
+    subprocess.call(["git", "commit", "--quiet", "-m", f"{args.type}: CI test"])
     subprocess.call(
         ["git", "push", "--quiet", "--set-upstream", "origin", branch],
         stdout=subprocess.DEVNULL,
