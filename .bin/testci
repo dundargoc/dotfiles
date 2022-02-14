@@ -7,6 +7,36 @@ import secrets
 from pathlib import Path
 
 
+def test_create_pr_and_label_due_to_type(pr_spec_default):
+    pr_spec = {}
+    pr_spec.update(pr_spec_default)
+    pr_spec["type"] = "diagnostic"
+    pr_spec["body"] = "\n".join(
+        [
+            "Expected outcome:",
+            "1. `diagnostic` label applied due to type",
+            "2. gpanders assigned as reviewer",
+        ]
+    )
+
+    create_pr(pr_spec)
+
+
+def test_create_pr_and_label_due_to_scope(pr_spec_default):
+    pr_spec = {}
+    pr_spec.update(pr_spec_default)
+    pr_spec["scope"] = "diagnostic"
+    pr_spec["body"] = "\n".join(
+        [
+            "Expected outcome:",
+            "1. `diagnostic` label applied due to scope",
+            "2. gpanders assigned as reviewer",
+        ]
+    )
+
+    create_pr(pr_spec)
+
+
 def create_pr(pr_spec):
     repo_path = subprocess.check_output(
         ["git", "rev-parse", "--show-toplevel"], text=True
@@ -20,7 +50,11 @@ def create_pr(pr_spec):
     filename.write_text("")
 
     subprocess.call(["git", "add", "-A"])
-    commit_message = f'{pr_spec["type"]}: {pr_spec["description"]}'
+
+    if pr_spec["scope"]:
+        pr_spec["scope"] = f'({pr_spec["scope"]})'
+
+    commit_message = f'{pr_spec["type"]}{pr_spec["scope"]}: {pr_spec["description"]}'
     subprocess.call(["git", "commit", "--quiet", "-m", commit_message])
     subprocess.call(
         ["git", "push", "--quiet", "--set-upstream", "origin", branch],
@@ -54,20 +88,15 @@ def main():
 
     subprocess.call(["testclean"])
 
-    pr_spec_default = {"type": "diagnostic", "description": "CI test", "body": ""}
+    pr_spec_default = {
+        "type": "chore",
+        "scope": "",
+        "description": "test CI",
+        "body": "",
+    }
 
-    pr_spec = {}
-    pr_spec.update(pr_spec_default)
-    pr_spec["type"] = "diagnostic"
-    pr_spec["body"] = "\n".join(
-        [
-            "Expected outcome:",
-            "1. `diagnostic` label applied due to type",
-            "2. gpanders assigned as reviewer",
-        ]
-    )
-
-    create_pr(pr_spec)
+    test_create_pr_and_label_due_to_type(pr_spec_default)
+    test_create_pr_and_label_due_to_scope(pr_spec_default)
 
 
 if __name__ == "__main__":
