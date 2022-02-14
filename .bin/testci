@@ -15,8 +15,6 @@ def remove_old_test_branches():
         subprocess.call(["git", "push", "origin", "--delete", branch])
         subprocess.call(["git", "branch", "--delete", "--force", branch])
 
-def create_pr():
-    subprocess.call(["testpr"])
 
 def main():
     repo_path = subprocess.check_output(
@@ -29,7 +27,9 @@ def main():
 
     remove_old_test_branches()
 
-    create_pr()
+    expected_outcome = "Expected outcome:\n1. `diagnostic` label applied\n 2. gpanders assigned as reviewer"
+    subprocess.call(["testpr", "--type", "diagnostic", "--body", expected_outcome])
+
 
 if __name__ == "__main__":
     main()
