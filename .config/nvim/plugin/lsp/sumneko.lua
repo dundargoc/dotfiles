@@ -1,4 +1,4 @@
-local data_path = vim.fn.stdpath("data")
+local data_path = vim.fn.stdpath 'data'
 
 -- Make runtime files discoverable to the server
 local runtime_path = vim.split(package.path, ';')
