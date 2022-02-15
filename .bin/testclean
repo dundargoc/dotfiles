@@ -5,6 +5,15 @@ import os
 import sys
 
 
+def disable_all_workflows():
+    active_workflows = subprocess.check_output(
+        ["gh", "workflow", "list"], text=True
+    ).splitlines()
+    for workflow in active_workflows:
+        workflow_name = workflow.split("\t")[0]
+        subprocess.call(["gh", "workflow", "disable", workflow_name])
+
+
 def main():
     repo_path = subprocess.check_output(
         ["git", "rev-parse", "--show-toplevel"], text=True
@@ -13,6 +22,9 @@ def main():
 
     if repo_path not in [f"{HOME}/programs/dundar-organization/neovim"]:
         sys.exit("Attempting VERY dangerous command outsite of intended area. Abort")
+
+    disable_all_workflows()
+
     all_branches = [
         i.strip()
         for i in subprocess.check_output(["git", "branch"], text=True).splitlines()
