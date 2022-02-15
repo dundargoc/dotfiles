@@ -92,8 +92,8 @@ alias old "git bisect old"
 alias new "git bisect new"
 alias bisect "git bisect start"
 
-alias create "gh pr create --fill"
-alias createdraft "gh pr create --fill --draft"
+alias create "gps; gh pr create --fill"
+alias createdraft "gps; gh pr create --fill --draft"
 
 alias stash "git stash"
 alias pop "git stash pop"
