@@ -4,6 +4,7 @@ import subprocess
 import os
 import sys
 import secrets
+import argparse
 from pathlib import Path
 
 
@@ -160,6 +161,12 @@ def enable_workflows(workflows):
 
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("testnames", nargs="*", choices=[[], "all", "label", "ci"])
+    args = parser.parse_args()
+    if not args.testnames:
+        args.testnames = ["all"]
+
     repo_path = subprocess.check_output(
         ["git", "rev-parse", "--show-toplevel"], text=True
     ).strip()
@@ -179,19 +186,21 @@ def main():
     }
 
     # Test labeling and review
-    disable_all_workflows()
-    enable_workflows(["Pull Request Labeler", "Request reviews"])
+    if set(args.testnames) & {"all", "label"}:
+        disable_all_workflows()
+        enable_workflows(["Pull Request Labeler", "Request reviews"])
 
-    test_label_due_to_type(pr_spec_default)
-    test_label_due_to_scope(pr_spec_default)
-    test_add_reviewer_from_label(pr_spec_default)
-    test_dont_add_reviewer_on_draft(pr_spec_default)
+        test_label_due_to_type(pr_spec_default)
+        test_label_due_to_scope(pr_spec_default)
+        test_add_reviewer_from_label(pr_spec_default)
+        test_dont_add_reviewer_on_draft(pr_spec_default)
 
     # Test CI tests
-    disable_all_workflows()
-    enable_workflows(["CI"])
+    if set(args.testnames) & {"all", "ci"}:
+        disable_all_workflows()
+        enable_workflows(["CI"])
 
-    test_run_ci_from_pull_request(pr_spec_default)
+        test_run_ci_from_pull_request(pr_spec_default)
 
 
 if __name__ == "__main__":
