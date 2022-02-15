@@ -7,7 +7,7 @@ import secrets
 from pathlib import Path
 
 
-def test_create_pr_and_label_due_to_type(pr_spec_default):
+def test_label_due_to_type(pr_spec_default):
     pr_spec = {}
     pr_spec.update(pr_spec_default)
     pr_spec["type"] = "diagnostic"
@@ -24,7 +24,7 @@ def test_create_pr_and_label_due_to_type(pr_spec_default):
     subprocess.call(["git", "switch", "--quiet", "master"])
 
 
-def test_create_pr_and_label_due_to_scope(pr_spec_default):
+def test_label_due_to_scope(pr_spec_default):
     pr_spec = {}
     pr_spec.update(pr_spec_default)
     pr_spec["scope"] = "diagnostic"
@@ -41,7 +41,7 @@ def test_create_pr_and_label_due_to_scope(pr_spec_default):
     subprocess.call(["git", "switch", "--quiet", "master"])
 
 
-def test_create_pr_and_assign_reviewer_due_to_adding_label(pr_spec_default):
+def test_add_reviewer_from_label(pr_spec_default):
     pr_spec = {}
     pr_spec.update(pr_spec_default)
     pr_spec["description"] = "reviewer is added due to manually adding label"
@@ -58,7 +58,7 @@ def test_create_pr_and_assign_reviewer_due_to_adding_label(pr_spec_default):
     subprocess.call(["git", "switch", "--quiet", "master"])
 
 
-def test_create_pr(pr_spec_default):
+def test_run_ci_from_pull_request(pr_spec_default):
     pr_spec = {}
     pr_spec.update(pr_spec_default)
     pr_spec["body"] = "\n".join(["Expected outcome:", "1. CI tests pass"])
@@ -141,14 +141,16 @@ def main():
     # Test labeling and review
     disable_all_workflows()
     enable_workflows(["Pull Request Labeler", "Request reviews"])
-    test_create_pr_and_label_due_to_type(pr_spec_default)
-    test_create_pr_and_label_due_to_scope(pr_spec_default)
-    test_create_pr_and_assign_reviewer_due_to_adding_label(pr_spec_default)
+
+    test_label_due_to_type(pr_spec_default)
+    test_label_due_to_scope(pr_spec_default)
+    test_add_reviewer_from_label(pr_spec_default)
 
     # Test CI tests
     disable_all_workflows()
     enable_workflows(["CI"])
-    test_create_pr(pr_spec_default)
+
+    test_run_ci_from_pull_request(pr_spec_default)
 
 
 if __name__ == "__main__":
