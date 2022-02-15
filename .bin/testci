@@ -58,6 +58,24 @@ def test_add_reviewer_from_label(pr_spec_default):
     subprocess.call(["git", "switch", "--quiet", "master"])
 
 
+def test_dont_add_reviewer_on_draft(pr_spec_default):
+    pr_spec = {}
+    pr_spec.update(pr_spec_default)
+    pr_spec["description"] = "reviewer not added on draft PRs if label is added"
+    pr_spec["draft"] = True
+    pr_spec["body"] = "\n".join(
+        [
+            "Expected outcome:",
+            "1. `diagnostic` label applied",
+            "2. No reviewers assigned",
+        ]
+    )
+
+    create_pr(pr_spec)
+    subprocess.call(["gh", "pr", "edit", "--add-label", "diagnostic"])
+    subprocess.call(["git", "switch", "--quiet", "master"])
+
+
 def test_run_ci_from_pull_request(pr_spec_default):
     pr_spec = {}
     pr_spec.update(pr_spec_default)
@@ -91,19 +109,21 @@ def create_pr(pr_spec):
         stdout=subprocess.DEVNULL,
         stderr=subprocess.DEVNULL,
     )
-    subprocess.call(
-        [
-            "gh",
-            "pr",
-            "create",
-            "--title",
-            commit_message,
-            "--body",
-            pr_spec["body"],
-            "-R",
-            "neodundar/neovim",
-        ]
-    )
+
+    gh_command = [
+        "gh",
+        "pr",
+        "create",
+        "--title",
+        commit_message,
+        "--body",
+        pr_spec["body"],
+        "-R",
+        "neodundar/neovim",
+    ]
+    if pr_spec["draft"]:
+        gh_command.append("--draft")
+    subprocess.call(gh_command)
 
 
 def disable_all_workflows():
@@ -136,6 +156,7 @@ def main():
         "scope": "",
         "description": "test CI",
         "body": "",
+        "draft": False,
     }
 
     # Test labeling and review
@@ -145,6 +166,7 @@ def main():
     test_label_due_to_type(pr_spec_default)
     test_label_due_to_scope(pr_spec_default)
     test_add_reviewer_from_label(pr_spec_default)
+    test_dont_add_reviewer_on_draft(pr_spec_default)
 
     # Test CI tests
     disable_all_workflows()
