@@ -66,12 +66,31 @@ def test_dont_add_reviewer_on_draft(pr_spec_default):
     pr_spec["body"] = "\n".join(
         [
             "Expected outcome:",
-            "1. `diagnostic` label applied",
+            "1. `diagnostic` label applied on draft PR",
             "2. No reviewers assigned",
         ]
     )
 
     create_pr(pr_spec)
+    subprocess.call(["gh", "pr", "edit", "--add-label", "diagnostic"])
+    subprocess.call(["git", "switch", "--quiet", "master"])
+
+
+def test_dont_add_reviewer_on_closed(pr_spec_default):
+    pr_spec = {}
+    pr_spec.update(pr_spec_default)
+    pr_spec["description"] = "reviewer not added on closed PRs if label is added"
+    pr_spec["draft"] = True
+    pr_spec["body"] = "\n".join(
+        [
+            "Expected outcome:",
+            "1. `diagnostic` label applied on closed PR",
+            "2. No reviewers assigned",
+        ]
+    )
+
+    create_pr(pr_spec)
+    subprocess.call(["gh", "pr", "close"])
     subprocess.call(["gh", "pr", "edit", "--add-label", "diagnostic"])
     subprocess.call(["git", "switch", "--quiet", "master"])
 
