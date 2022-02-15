@@ -171,7 +171,7 @@ def main():
     subprocess.call(["testclean"])
 
     pr_spec_default = {
-        "type": "chore",
+        "type": "test",
         "scope": "",
         "description": "test CI",
         "body": "",
