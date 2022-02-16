@@ -14,6 +14,16 @@ def disable_all_workflows():
         subprocess.call(["gh", "workflow", "disable", workflow_name])
 
 
+def cancel_all_runs():
+    runs = subprocess.check_output(["gh", "run", "list"], text=True).splitlines()
+    for run in runs:
+        splitrun = run.split("\t")
+        run_status = splitrun[0]
+        id = splitrun[6]
+        if run_status in ["queued", "in_progress"]:
+            subprocess.call(["gh", "run", "cancel", id])
+
+
 def main():
     repo_path = subprocess.check_output(
         ["git", "rev-parse", "--show-toplevel"], text=True
@@ -24,6 +34,7 @@ def main():
         sys.exit("Attempting VERY dangerous command outsite of intended area. Abort")
 
     disable_all_workflows()
+    cancel_all_runs()
 
     all_branches = [
         i.strip()
