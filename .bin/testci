@@ -78,6 +78,8 @@ def test_dont_add_reviewer_on_draft(pr_spec_default):
 
 
 def test_dont_add_reviewer_on_closed(pr_spec_default):
+    # Doesn't work at the moment. `gh pr close` doesn't automatically detect
+    # current branch PR.
     pr_spec = {}
     pr_spec.update(pr_spec_default)
     pr_spec["description"] = "reviewer not added on closed PRs if label is added"
