@@ -120,6 +120,7 @@ alias view 'vi -M'
 alias cdd="cd $HOME/Downloads"
 alias cdp="cd $PROG"
 alias cdf="cd $PROG/fish-shell"
+alias cdi="cd (git rev-parse --show-toplevel)/.github/workflows"
 alias cdfc="cd $PROG/fish-shell/share/completions"
 alias cdn="cd $PROG/neovim"
 alias cdnd="cd $PROG/neovim/runtime/doc"
