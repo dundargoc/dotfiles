@@ -55,7 +55,7 @@ def test_add_reviewer_from_label(pr_spec_default):
     )
 
     create_pr(pr_spec)
-    subprocess.call(["gh", "pr", "edit", "--add-label", "diagnostic"])
+    gh_add_label("diagnostic")
     subprocess.call(["git", "switch", "--quiet", "master"])
 
 
@@ -73,8 +73,13 @@ def test_dont_add_reviewer_on_draft(pr_spec_default):
     )
 
     create_pr(pr_spec)
-    subprocess.call(["gh", "pr", "edit", "--add-label", "diagnostic"])
+    gh_add_label("diagnostic")
     subprocess.call(["git", "switch", "--quiet", "master"])
+
+
+def gh_add_label(label):
+    login("dundargoc")
+    subprocess.call(["gh", "pr", "edit", "--add-label", label])
 
 
 def test_dont_add_reviewer_on_closed(pr_spec_default):
@@ -108,6 +113,8 @@ def test_run_ci_from_pull_request(pr_spec_default):
 
 
 def create_pr(pr_spec):
+    login("notdundargoc")
+
     repo_path = subprocess.check_output(
         ["git", "rev-parse", "--show-toplevel"], text=True
     ).strip()
@@ -149,6 +156,7 @@ def create_pr(pr_spec):
 
 
 def disable_all_workflows():
+    login("dundargoc")
     active_workflows = subprocess.check_output(
         ["gh", "workflow", "list"], text=True
     ).splitlines()
@@ -158,8 +166,21 @@ def disable_all_workflows():
 
 
 def enable_workflows(workflows):
+    login("dundargoc")
     for workflow in workflows:
         subprocess.call(["gh", "workflow", "enable", workflow])
+
+
+def login(user):
+    hosts_path = Path(os.environ["XDG_CONFIG_HOME"]) / "gh" / "hosts.yml"
+    hosts_path.unlink(missing_ok=True)
+
+    token_path = (
+        Path(os.environ["HOME"]) / ".private-dotfiles" / "token" / f"{user}-gh-cli"
+    )
+
+    with open(token_path) as f:
+        subprocess.run(["gh", "auth", "login", "--with-token"], text=True, stdin=f)
 
 
 def main():
@@ -203,6 +224,8 @@ def main():
         enable_workflows(["CI"])
 
         test_run_ci_from_pull_request(pr_spec_default)
+
+    login("dundargoc")
 
 
 if __name__ == "__main__":
