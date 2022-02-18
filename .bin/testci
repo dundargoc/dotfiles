@@ -245,7 +245,7 @@ def main():
     subprocess.call(["testclean"])
 
     pr_spec_default = {
-        "type": "test",
+        "type": "ci-test",
         "scope": "",
         "description": "test CI",
         "body": "",
