@@ -3,6 +3,7 @@
 import subprocess
 import os
 import sys
+from pathlib import Path
 
 
 def disable_all_workflows():
@@ -24,6 +25,18 @@ def cancel_all_runs():
             subprocess.call(["gh", "run", "cancel", id])
 
 
+def login(user):
+    hosts_path = Path(os.environ["XDG_CONFIG_HOME"]) / "gh" / "hosts.yml"
+    hosts_path.unlink(missing_ok=True)
+
+    token_path = (
+        Path(os.environ["HOME"]) / ".private-dotfiles" / "token" / f"{user}-gh-cli"
+    )
+
+    with open(token_path) as f:
+        subprocess.run(["gh", "auth", "login", "--with-token"], text=True, stdin=f)
+
+
 def main():
     repo_path = subprocess.check_output(
         ["git", "rev-parse", "--show-toplevel"], text=True
@@ -33,9 +46,11 @@ def main():
     if repo_path not in [f"{HOME}/programs/dundar-organization/neovim"]:
         sys.exit("Attempting VERY dangerous command outsite of intended area. Abort")
 
+    login("dundargoc")
     disable_all_workflows()
     cancel_all_runs()
 
+    login("notdundargoc")
     all_branches = [
         i.strip()
         for i in subprocess.check_output(["git", "branch"], text=True).splitlines()
@@ -44,6 +59,8 @@ def main():
     for branch in test_branches:
         subprocess.call(["git", "push", "origin", "--delete", branch])
         subprocess.call(["git", "branch", "--delete", "--force", branch])
+
+    login("dundargoc")
 
 
 if __name__ == "__main__":
