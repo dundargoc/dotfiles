@@ -9,7 +9,6 @@ local plugins = {
 
     -- git plugins
     'tpope/vim-fugitive',
-    'tpope/vim-rhubarb',
 
     -- tmux
     'edkolev/tmuxline.vim',
