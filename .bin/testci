@@ -60,11 +60,34 @@ def test_labeler_documentation(pr_spec_default):
     pr_spec.update(pr_spec_default)
     pr_spec[
         "description"
-    ] = "apply `documentation` when file under `runtime/doc` changes"
-    pr_spec["filename"] = Path(repo_path) / "runtime" / "doc" / "api.txt"
+    ] = "apply `documentation` label if file in `runtime/doc` changes"
+    pr_spec["filenames"] = [Path(repo_path) / "runtime" / "doc" / "api.txt"]
     pr_spec["body"] = build_body(
-        "PR opened -  file `runtime/doc/api.txt` has changed.",
+        "PR opened -  file `runtime/doc/api.txt` is changed.",
         ["`documentation` label applied", "clason requested as reviewer"],
+    )
+
+    create_pr(pr_spec)
+    subprocess.call(["git", "switch", "--quiet", "master"])
+
+
+def test_labeler_documentation2(pr_spec_default):
+    repo_path = subprocess.check_output(
+        ["git", "rev-parse", "--show-toplevel"], text=True
+    ).strip()
+
+    pr_spec = {}
+    pr_spec.update(pr_spec_default)
+    pr_spec[
+        "description"
+    ] = "don't apply `documentation` if file not in `runtime/doc` changes"
+    pr_spec["filenames"] = [
+        Path(repo_path) / "runtime" / "doc" / "api.txt",
+        Path(repo_path) / "runtime" / "delmenu.vim",
+    ]
+    pr_spec["body"] = build_body(
+        "PR opened - files `runtime/doc/api.txt` and `Makefile` is changed.",
+        ["No labels applied"],
     )
 
     create_pr(pr_spec)
@@ -142,12 +165,13 @@ def create_pr(pr_spec):
 
     subprocess.call(["git", "checkout", "--quiet", "-b", branch])
 
-    if pr_spec["filename"] is None:
+    if pr_spec["filenames"] is None:
         filename = Path(repo_path) / ".test"
         filename.write_text("")
     else:
-        with open(pr_spec["filename"], "a") as f:
-            f.write("Appended text.")
+        for filename in pr_spec["filenames"]:
+            with open(filename, "a") as f:
+                f.write("Appended text.")
 
     subprocess.call(["git", "add", "-A"])
 
@@ -229,7 +253,7 @@ def main():
         "description": "test CI",
         "body": "",
         "draft": False,
-        "filename": None,
+        "filenames": None,
     }
 
     # Test labeling and review
@@ -242,6 +266,7 @@ def main():
         test_add_reviewer_from_label(pr_spec_default)
         test_dont_add_reviewer_on_draft(pr_spec_default)
         test_labeler_documentation(pr_spec_default)
+        test_labeler_documentation2(pr_spec_default)
 
     # Test CI tests
     if set(args.testnames) & {"all", "ci"}:
