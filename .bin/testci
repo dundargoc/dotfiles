@@ -58,6 +58,7 @@ def test_labeler_documentation(pr_spec_default):
 
     pr_spec = {}
     pr_spec.update(pr_spec_default)
+    pr_spec["type"] = "labeler"
     pr_spec[
         "description"
     ] = "apply `documentation` label if file in `runtime/doc` changes"
@@ -71,13 +72,14 @@ def test_labeler_documentation(pr_spec_default):
     subprocess.call(["git", "switch", "--quiet", "master"])
 
 
-def test_labeler_documentation2(pr_spec_default):
+def test_labeler_no_documentation(pr_spec_default):
     repo_path = subprocess.check_output(
         ["git", "rev-parse", "--show-toplevel"], text=True
     ).strip()
 
     pr_spec = {}
     pr_spec.update(pr_spec_default)
+    pr_spec["type"] = "labeler"
     pr_spec[
         "description"
     ] = "don't apply `documentation` if file not in `runtime/doc` changes"
@@ -266,7 +268,7 @@ def main():
         test_add_reviewer_from_label(pr_spec_default)
         test_dont_add_reviewer_on_draft(pr_spec_default)
         test_labeler_documentation(pr_spec_default)
-        test_labeler_documentation2(pr_spec_default)
+        test_labeler_no_documentation(pr_spec_default)
 
     # Test CI tests
     if set(args.testnames) & {"all", "ci"}:
