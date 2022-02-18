@@ -15,9 +15,11 @@ def test_label_due_to_type(pr_spec_default):
     pr_spec["description"] = "label is applied due to type"
     pr_spec["body"] = "\n".join(
         [
+            "Trigger: PR opened - title has `diagnostic` as its type.",
+            "",
             "Expected outcome:",
             "1. `diagnostic` label applied due to type",
-            "2. gpanders assigned as reviewer",
+            "2. gpanders requested as reviewer",
         ]
     )
 
@@ -32,9 +34,11 @@ def test_label_due_to_scope(pr_spec_default):
     pr_spec["description"] = "label is applied due to scope"
     pr_spec["body"] = "\n".join(
         [
+            "Trigger: PR opened - title has `diagnostic` as its scope.",
+            "",
             "Expected outcome:",
             "1. `diagnostic` label applied due to scope",
-            "2. gpanders assigned as reviewer",
+            "2. gpanders requested as reviewer",
         ]
     )
 
@@ -54,7 +58,13 @@ def test_labeler_documentation(pr_spec_default):
     ] = "apply `documentation` when file under `runtime/doc` changes"
     pr_spec["filename"] = Path(repo_path) / "runtime" / "doc" / "api.txt"
     pr_spec["body"] = "\n".join(
-        ["Expected outcome:", "1. `documentation` label applied"]
+        [
+            "Trigger: PR opened -  file `runtime/doc/api.txt` has changed.",
+            "",
+            "Expected outcome:",
+            "1. `documentation` label applied",
+            "2. clason requested as reviewer",
+        ]
     )
 
     create_pr(pr_spec)
@@ -67,9 +77,12 @@ def test_add_reviewer_from_label(pr_spec_default):
     pr_spec["description"] = "reviewer is added due to manually adding label"
     pr_spec["body"] = "\n".join(
         [
+            "Prerequisites: Open, non-draft PR",
+            "",
+            "Trigger: `diagnostic` label added",
+            "",
             "Expected outcome:",
-            "1. `diagnostic` label manually applied",
-            "2. gpanders assigned as reviewer",
+            "gpanders requested as reviewer",
         ]
     )
 
@@ -85,9 +98,12 @@ def test_dont_add_reviewer_on_draft(pr_spec_default):
     pr_spec["draft"] = True
     pr_spec["body"] = "\n".join(
         [
+            "Prerequisites: Open, draft PR",
+            "",
+            "Trigger: `diagnostic` label added",
+            "",
             "Expected outcome:",
-            "1. `diagnostic` label applied on draft PR",
-            "2. No reviewers assigned",
+            "No reviewers requested",
         ]
     )
 
@@ -110,9 +126,12 @@ def test_dont_add_reviewer_on_closed(pr_spec_default):
     pr_spec["draft"] = True
     pr_spec["body"] = "\n".join(
         [
+            "Prerequisites: Closed PR",
+            "",
+            "Trigger: `diagnostic` label added",
+            "",
             "Expected outcome:",
-            "1. `diagnostic` label applied on closed PR",
-            "2. No reviewers assigned",
+            "No reviewers requested",
         ]
     )
 
@@ -125,7 +144,9 @@ def test_dont_add_reviewer_on_closed(pr_spec_default):
 def test_run_ci_from_pull_request(pr_spec_default):
     pr_spec = {}
     pr_spec.update(pr_spec_default)
-    pr_spec["body"] = "\n".join(["Expected outcome:", "1. CI tests pass"])
+    pr_spec["body"] = "\n".join(
+        ["Trigger: open PR", "", "Expected outcome:", "1. CI tests pass"]
+    )
 
     create_pr(pr_spec)
     subprocess.call(["git", "switch", "--quiet", "master"])
