@@ -61,3 +61,5 @@ if contains -i /home/linuxbrew/.linuxbrew/bin $PATH >/dev/null
     set -e PATH[$index]
     set PATH $PATH $tmp_path
 end
+
+set fish_complete_path $fish_complete_path /home/linuxbrew/.linuxbrew/share/fish/vendor_completions.d
