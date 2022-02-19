@@ -31,6 +31,9 @@ local plugins = {
     -- LSP
     'neovim/nvim-lspconfig',
 
+    -- AnsiEsc mostly for github logs
+    'powerman/vim-plugin-AnsiEsc',
+
     -- Themes
     {
         'dracula/vim',
