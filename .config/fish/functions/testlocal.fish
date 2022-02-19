@@ -8,7 +8,7 @@ function testlocal
     touch .test-file
 
     git add -A
-    git commit -m 'test: pull request test'
+    git commit -m 'ci-test: pull request test'
 
     createlocal
 
