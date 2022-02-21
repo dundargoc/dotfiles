@@ -55,7 +55,18 @@ def main():
         i.strip()
         for i in subprocess.check_output(["git", "branch"], text=True).splitlines()
     ]
+    remote_branches = [
+        i.strip()
+        for i in subprocess.check_output(
+            ["git", "branch", "--remote"], text=True
+        ).splitlines()
+    ]
+    api_branch = "origin/marvim/api-doc-update/master"
+
     test_branches = [i for i in all_branches if i.startswith("ci-test/")]
+    if api_branch in remote_branches:
+        test_branches.append(api_branch.replace("origin/", ""))
+
     for branch in test_branches:
         subprocess.call(["git", "push", "origin", "--delete", branch])
         subprocess.call(["git", "branch", "--delete", "--force", branch])
