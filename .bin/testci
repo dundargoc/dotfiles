@@ -147,6 +147,10 @@ def test_dont_add_reviewer_on_closed(pr_spec_default):
     subprocess.call(["git", "switch", "--quiet", "master"])
 
 
+def test_api():
+    subprocess.call(["gh", "workflow", "run", "api-docs.yml"])
+
+
 def test_run_ci_from_pull_request(pr_spec_default):
     pr_spec = {}
     pr_spec.update(pr_spec_default)
@@ -234,7 +238,9 @@ def login(user):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("testnames", nargs="*", choices=[[], "all", "label", "ci"])
+    parser.add_argument(
+        "testnames", nargs="*", choices=[[], "all", "label", "ci", "api"]
+    )
     args = parser.parse_args()
     if not args.testnames:
         args.testnames = ["all"]
@@ -261,7 +267,7 @@ def main():
     # Test labeling and review
     if set(args.testnames) & {"all", "label"}:
         disable_all_workflows()
-        enable_workflows(["Pull Request Labeler", "Request reviews"])
+        enable_workflows(["labeler.yml", "reviews.yml"])
 
         test_label_due_to_type(pr_spec_default)
         test_label_due_to_scope(pr_spec_default)
@@ -270,12 +276,19 @@ def main():
         test_labeler_documentation(pr_spec_default)
         test_labeler_no_documentation(pr_spec_default)
 
-    # Test CI tests
+    # Test CI
     if set(args.testnames) & {"all", "ci"}:
         disable_all_workflows()
-        enable_workflows(["CI"])
+        enable_workflows(["ci.yml"])
 
         test_run_ci_from_pull_request(pr_spec_default)
+
+    # Test api documentation regeneration
+    if set(args.testnames) & {"all", "api"}:
+        disable_all_workflows()
+        enable_workflows(["api-docs.yml"])
+
+        test_api()
 
     login("dundargoc")
 
