@@ -32,6 +32,7 @@ Checks: >
   -readability-magic-numbers,
   -readability-misleading-indentation,
   -readability-named-parameter,
+  -readability-non-const-parameter,
   -readability-redundant-function-ptr-dereference,
   -readability-uppercase-literal-suffix,
 
