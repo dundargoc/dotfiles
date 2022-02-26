@@ -64,7 +64,6 @@ cabbrev stalk Stalk
 set clipboard+=unnamedplus
 
 set autoindent
-set tabstop=2
 set shiftwidth=4
 set softtabstop=-1
 set listchars+=tab:<->
