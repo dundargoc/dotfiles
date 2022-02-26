@@ -1,3 +1,3 @@
 function grem
-    git rebase (gh-default-branch)
+    git rebase (gh-default-branch) $argv
 end
