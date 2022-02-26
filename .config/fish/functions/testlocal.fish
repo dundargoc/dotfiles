@@ -1,5 +1,5 @@
 function testlocal
-    set branch "_test-branch"
+    set branch _test-branch
     git push origin --delete $branch
     git branch -D $branch
 
