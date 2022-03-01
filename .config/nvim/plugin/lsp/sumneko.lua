@@ -36,6 +36,7 @@ require('lspconfig').sumneko_lua.setup {
                     'setup',
                     'teardown',
                     'pending',
+                    'copcall',
                 },
                 disable = { 'lowercase-global' },
             },
