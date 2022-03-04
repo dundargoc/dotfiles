@@ -1,0 +1,9 @@
+function cbuild
+    set path (git rev-parse --show-toplevel)
+    set build_path "$path/build"
+
+    cmake -S $path -B $build_path -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -G Ninja
+    cmake --build $build_path
+
+    command cp $build_path/compile_commands.json $path
+end
