@@ -1,4 +1,4 @@
-local use_clangd = false
+local use_clangd = true
 
 if use_clangd then
     require('lspconfig')['clangd'].setup {
