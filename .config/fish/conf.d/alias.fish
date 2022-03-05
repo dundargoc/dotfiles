@@ -1,5 +1,6 @@
 # Define helper paths
 set PROG $HOME/programs
+set WORK $HOME/work
 
 # ls
 if type -q exa
@@ -132,12 +133,12 @@ alias cdns="cd $PROG/neovim/src"
 alias cdnt="cd $PROG/neovim/test"
 alias cdnot="cd $PROG/notdundargoc/neovim"
 alias cdorg="cd $PROG/dundar-organization/neovim"
-alias cds="cd $PROG/services/src"
-alias cdsr="cd $PROG/services/src/services/chain/execute/runner"
+alias cds="cd $WORK/services/src"
+alias cdsr="cd $WORK/services/src/services/chain/execute/runner"
 alias cdt="cd $PROG/nvim-treesitter"
-alias cdspa="cd $PROG/confighub_spa2/cynosure_product_cli"
-alias cdsv="cd $PROG/services/src/services/victoria/ui"
-alias cdsva="cd $PROG/services/src/services/victoria/ui/ui/components/Activity"
+alias cdspa="cd $WORK/confighub_spa2/cynosure_product_cli"
+alias cdsv="cd $WORK/services/src/services/victoria/ui"
+alias cdsva="cd $WORK/services/src/services/victoria/ui/ui/components/Activity"
 alias cdv="cd $PROG/vim/src"
 alias cdw="cd $HOME/work"
 
