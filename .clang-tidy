@@ -23,6 +23,7 @@ Checks: >
   -performance-no-int-to-ptr,
   portability-*,
   readability-*,
+  -readability-avoid-const-params-in-decls,
   -readability-braces-around-statements,
   -readability-else-after-return,
   -readability-function-cognitive-complexity,
