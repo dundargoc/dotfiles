@@ -261,7 +261,7 @@ alias fish-benchmark 'hyperfine --warmup 3 "exec fish"'
 # Run custom built fish
 alias fi "$PROG/fish-shell/bin/fish"
 
-alias ag "rg --ignore-case --hidden"
+alias ag "rg --ignore-case --hidden --glob '!.git'"
 
 # -------------------------------------------------------------------------
 # neovim development
