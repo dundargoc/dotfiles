@@ -84,7 +84,7 @@ alias gshw="git show --word-diff"
 alias gl1="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
 
 alias amend "git commit --amend --no-verify --allow-empty"
-alias ameno "git commit --amend --no-verify --allow-empty --no-edit"
+alias ameno "git commit --amend --no-verify --allow-empty --no-edit; gpf"
 
 alias good "git bisect good"
 alias bad "git bisect bad"
