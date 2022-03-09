@@ -140,6 +140,7 @@ alias cdt="cd $PROG/nvim-treesitter"
 alias cdsv="cd $PROG/services/src/services/victoria/ui"
 alias cdsva="cd $PROG/services/src/services/victoria/ui/ui/components/Activity"
 alias cdv="cd $PROG/vim/src"
+alias cdw="cd $HOME/work"
 
 # -------------------------------------------------------------------------
 # goto dotfiles
