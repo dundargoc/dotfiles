@@ -2,10 +2,13 @@
 
 import subprocess
 import os
+import time
 import sys
 import secrets
 import argparse
 from pathlib import Path
+
+NUMBER_OF_ITERATIONS = 1
 
 
 def build_body(trigger, expected, prerequisites=""):
@@ -281,7 +284,9 @@ def main():
         disable_all_workflows()
         enable_workflows(["ci.yml"])
 
-        test_run_ci_from_pull_request(pr_spec_default)
+        for _ in range(NUMBER_OF_ITERATIONS):
+            test_run_ci_from_pull_request(pr_spec_default)
+            time.sleep(1)
 
     # Test api documentation regeneration
     if set(args.testnames) & {"all", "api"}:
