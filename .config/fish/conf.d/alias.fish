@@ -142,6 +142,7 @@ alias cdspa="cd $WORK/confighub_spa2/cynosure_product_cli"
 alias cdsv="cd $WORK/services/src/services/victoria/ui"
 alias cdsva="cd $WORK/services/src/services/victoria/ui/ui/components/Activity"
 alias cdv="cd $PROG/vim/src"
+alias cdw="cd $HOME/work"
 
 # -------------------------------------------------------------------------
 # goto dotfiles
