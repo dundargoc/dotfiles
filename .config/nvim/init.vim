@@ -25,7 +25,7 @@ endif
 " highlight Folded ctermfg=204
 " highlight Folded ctermbg=000
 
-colorscheme dracula
+colorscheme tokyonight
 
 " ------------------------------------
 " Custom commands

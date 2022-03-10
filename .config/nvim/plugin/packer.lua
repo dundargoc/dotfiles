@@ -48,6 +48,7 @@ local plugins = {
     'Badacadabra/vim-archery',
     'mhartington/oceanic-next',
     'bluz71/vim-moonfly-colors',
+    'folke/tokyonight.nvim',
 }
 
 local config = {
