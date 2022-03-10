@@ -1,4 +1,5 @@
 function cbuild
+    set -x CC clang
     set path (git rev-parse --show-toplevel)
     set build_path "$path/build"
 
