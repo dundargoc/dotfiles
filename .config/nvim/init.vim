@@ -12,6 +12,10 @@ endif
 " colorscheme molokai
 " highlight Folded ctermfg=204
 
+" colorscheme synthwave
+" highlight Folded ctermfg=204
+" highlight Folded ctermbg=000
+
 " colorscheme badwolf
 " colorscheme onehalfdark
 " colorscheme purify
@@ -19,13 +23,8 @@ endif
 " colorscheme amora
 " colorscheme archery
 " colorscheme OceanicNext
-" colorscheme dracula
-
-" colorscheme synthwave
-" highlight Folded ctermfg=204
-" highlight Folded ctermbg=000
-
-colorscheme tokyonight
+colorscheme dracula
+"colorscheme tokyonight
 
 " ------------------------------------
 " Custom commands
