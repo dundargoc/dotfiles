@@ -61,7 +61,7 @@ cabbrev ps PackerSync
 set clipboard+=unnamedplus
 
 set autoindent
-set shiftwidth=4
+set shiftwidth=2
 set softtabstop=-1
 set listchars+=tab:<->
 
