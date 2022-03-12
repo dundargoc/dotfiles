@@ -1,5 +1,6 @@
 function cleanbuild
     set neovim_path "$HOME/programs/neovim"
+    set -x CC clang
 
     reset
     make -C "$neovim_path" distclean
