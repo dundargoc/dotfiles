@@ -4,6 +4,9 @@ local plugins = {
     -- Save position of last place in text
     'farmergreg/vim-lastplace',
 
+    -- Easier neovim development
+    -- { 'neovim/nvimdev.nvim', requires = { 'neomake/neomake', 'nvim-lua/plenary.nvim' } },
+
     -- Reference for lua language features
     'bfredl/luarefvim',
 
