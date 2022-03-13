@@ -1,5 +1,8 @@
 local plugins = {
-    'wbthomason/packer.nvim',
+    {
+        'dundargoc/packer.nvim',
+        branch = 'feat/autoremove',
+    },
 
     -- Save position of last place in text
     'farmergreg/vim-lastplace',
@@ -69,6 +72,7 @@ local config = {
             update = 'pull --ff-only --progress --rebase',
         },
     },
+    autoremove = true,
 }
 
 require('packer').startup { plugins, config = config }
