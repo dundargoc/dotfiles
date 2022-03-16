@@ -5,6 +5,7 @@
 	bisect-all = !git bisect start && git bisect bad && git bisect good $(git rev-list --max-parents=0 --first-parent HEAD)
 	uncommit = "!sh -c \"git reset --hard HEAD~$1\""
 	back = reset HEAD~
+	reback = "!sh -c \"git revert --no-edit HEAD; git back\""
   ls = ls-files
 [merge]
 	tool = meld
