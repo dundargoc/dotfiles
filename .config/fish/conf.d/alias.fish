@@ -277,3 +277,4 @@ alias unc-update='uncrustify -c $PROG/neovim/src/uncrustify.cfg --update-config-
 alias bi "$PROG/neovim/bin/nvim"
 alias asan "UBSAN_OPTIONS=print_stacktrace=1 ASAN_OPTIONS=log_path=/tmp/nvim_asan $PROG/neovim/bin/nvim"
 alias asan-log "vi /tmp/nvim_asan"
+alias swapdel "rm -rf /home/dgoc/.local/share/nvim/swap/*"
