@@ -37,6 +37,10 @@ nnoremap <esc> :noh<return><esc>
 " Disable adding an extra comment on the new line when pressing "o"
 map <buffer> \c :set formatoptions-=cro<Enter>
 
+" Make newline after comments create three forward slashes.
+" Useful for modifying doxygen comments.
+map <buffer> \d :set comments^=:///<Enter>
+
 " ------------------------------------
 " Abbreviations
 
