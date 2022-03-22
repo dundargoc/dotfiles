@@ -150,8 +150,22 @@ def test_dont_add_reviewer_on_closed(pr_spec_default):
     subprocess.call(["git", "switch", "--quiet", "master"])
 
 
-def test_api():
-    subprocess.call(["gh", "workflow", "run", "api-docs.yml"])
+def test_api(pr_spec_default):
+    repo_path = subprocess.check_output(
+        ["git", "rev-parse", "--show-toplevel"], text=True
+    ).strip()
+
+    pr_spec = {}
+    pr_spec.update(pr_spec_default)
+    pr_spec["description"] = "test doc generation."
+    pr_spec["filenames"] = [Path(repo_path) / "src" / "nvim" / "api" / "autocmd.c"]
+    pr_spec["body"] = build_body(
+        "PR opened - files `runtime/doc/api.txt` and `Makefile` is changed.",
+        ["CI job successful."],
+    )
+
+    create_pr(pr_spec)
+    subprocess.call(["git", "switch", "--quiet", "master"])
 
 
 def test_run_ci_from_pull_request(pr_spec_default):
@@ -291,9 +305,9 @@ def main():
     # Test api documentation regeneration
     if set(args.testnames) & {"all", "api"}:
         disable_all_workflows()
-        enable_workflows(["api-docs.yml"])
+        enable_workflows(["api-docs.yml", "api-docs-check.yml"])
 
-        test_api()
+        test_api(pr_spec_default)
 
     login("dundargoc")
 
