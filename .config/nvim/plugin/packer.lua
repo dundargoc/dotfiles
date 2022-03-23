@@ -1,10 +1,5 @@
 local plugins = {
-    -- My own branch of packer that automatically removes disabled plugins.
-    -- Opened a pull request to packer.nvim, waiting for it to get merged.
-    {
-        'dundargoc/packer.nvim',
-        branch = 'feat/autoremove',
-    },
+    'wbthomason/packer.nvim',
 
     -- Save position of last place in text
     'farmergreg/vim-lastplace',
