@@ -23,8 +23,9 @@ endif
 " colorscheme amora
 " colorscheme archery
 " colorscheme OceanicNext
-colorscheme dracula
-"colorscheme tokyonight
+" colorscheme dracula
+" colorscheme tokyonight
+colorscheme gruvbox
 
 " ------------------------------------
 " Custom commands
