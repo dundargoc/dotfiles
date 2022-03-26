@@ -52,6 +52,7 @@ local plugins = {
     'mhartington/oceanic-next',
     'bluz71/vim-moonfly-colors',
     'folke/tokyonight.nvim',
+    'morhetz/gruvbox',
 }
 
 local config = {
