@@ -25,7 +25,8 @@ endif
 " colorscheme OceanicNext
 " colorscheme dracula
 " colorscheme tokyonight
-colorscheme gruvbox
+" colorscheme gruvbox
+colorscheme catppuccin
 
 " ------------------------------------
 " Custom commands
