@@ -53,6 +53,7 @@ local plugins = {
     'bluz71/vim-moonfly-colors',
     'folke/tokyonight.nvim',
     'morhetz/gruvbox',
+    { 'catppuccin/nvim', as = 'catppuccin' },
 }
 
 local config = {
