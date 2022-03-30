@@ -280,3 +280,4 @@ alias unc-update='uncrustify -c $PROG/neovim/src/uncrustify.cfg --update-config-
 alias bi "$PROG/neovim/bin/nvim"
 alias swapdel "rm -rf /home/dgoc/.local/share/nvim/swap/*"
 alias clean "rm -rf $PROG/neovim/build"
+alias vimclean "find $PROG/neovim -type f -name '*.rej' -delete; find $PROG/neovim -maxdepth 1 -type f -name '*.patch' -delete; make -C $PROG/neovim/src/nvim/testdir clean"
