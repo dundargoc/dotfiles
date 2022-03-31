@@ -54,9 +54,6 @@ cabbrev w up
 cabbrev gb G blame
 cabbrev gs G status
 
-" Healthcheck
-cabbrev he checkhealth
-
 " Packer
 cabbrev ps PackerSync
 
