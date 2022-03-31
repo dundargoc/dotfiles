@@ -101,11 +101,6 @@ alias fork "gh repo fork --clone=true"
 alias stash "git stash"
 alias pop "git stash pop"
 
-function fix --argument-names commit
-    git add -A
-    git commit --no-verify --allow-empty --fixup="$commit"
-end
-
 alias git-add-upstream "git remote add upstream"
 alias s="hub sync"
 
