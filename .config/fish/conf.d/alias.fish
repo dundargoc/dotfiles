@@ -96,6 +96,7 @@ alias bisect "git bisect start"
 
 alias create "gps; gh pr create --fill"
 alias createdraft "gps; gh pr create --fill --draft"
+alias fork "gh repo fork --clone=true"
 
 alias stash "git stash"
 alias pop "git stash pop"
