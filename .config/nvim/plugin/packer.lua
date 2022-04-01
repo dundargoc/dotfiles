@@ -34,6 +34,9 @@ local plugins = {
     -- LSP
     'neovim/nvim-lspconfig',
 
+    -- Cool
+    'dundargoc/nvim-cool',
+
     -- AnsiEsc mostly for github logs
     'powerman/vim-plugin-AnsiEsc',
 
