@@ -33,9 +33,6 @@ colorscheme catppuccin
 
 nnoremap <C-Z> <NOP>
 
-" <Esc> will remove highlighed text
-nnoremap <esc> :noh<return><esc>
-
 " Disable adding an extra comment on the new line when pressing "o"
 map <buffer> \c :set formatoptions-=cro<Enter>
 
