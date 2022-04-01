@@ -85,6 +85,9 @@ set completeopt-=preview
 " Use single global status at the bottom
 set laststatus=3
 
+" Fold max number of identical lines when diffing
+set diffopt=filler,context:1
+
 "------------------------------------
 " Other
 
