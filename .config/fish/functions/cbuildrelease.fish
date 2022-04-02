@@ -1,0 +1,10 @@
+function cbuildrelease
+    set -x CC clang
+    set path (git rev-parse --show-toplevel)
+    set build_path "$path/build"
+
+    cmake -S $path -B $build_path -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Release -G Ninja
+    cmake --build $build_path
+
+    command cp $build_path/compile_commands.json $path
+end
