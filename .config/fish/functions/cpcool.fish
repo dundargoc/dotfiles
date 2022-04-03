@@ -4,4 +4,5 @@ function cpcool
 
   cp $coolpath/lua/cool.lua $pluginpath/lua/cool.lua
   cp $coolpath/plugin/cool.vim $pluginpath/plugin/cool.vim
+  sed '/nvim-cool/d' -i $XDG_CONFIG_HOME/nvim/plugin/packer.lua
 end
