@@ -54,6 +54,22 @@ cabbrev gs G status
 " Packer
 cabbrev ps PackerSync
 
+"------------------------------------
+" Other
+
+" Nicer terminal mappings
+tnoremap <esc> <C-\><C-n>
+autocmd TermOpen * startinsert
+
+" Disable firenvim by default
+let g:firenvim_config = {'globalSettings': {},'localSettings': {'.*': {'takeover': 'never'},},}
+
+" Disable providers
+let g:loaded_perl_provider = 0
+let g:loaded_ruby_provider = 0
+let g:loaded_node_provider = 0
+let g:loaded_python3_provider = 0
+
 " ------------------------------------
 " Options
 
@@ -84,19 +100,3 @@ set laststatus=3
 
 " Fold max number of identical lines when diffing
 set diffopt=filler,context:1
-
-"------------------------------------
-" Other
-
-" Nicer terminal mappings
-tnoremap <esc> <C-\><C-n>
-autocmd TermOpen * startinsert
-
-" Disable firenvim by default
-let g:firenvim_config = {'globalSettings': {},'localSettings': {'.*': {'takeover': 'never'},},}
-
-" Disable providers
-let g:loaded_perl_provider = 0
-let g:loaded_ruby_provider = 0
-let g:loaded_node_provider = 0
-let g:loaded_python3_provider = 0
