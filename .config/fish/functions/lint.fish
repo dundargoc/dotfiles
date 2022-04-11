@@ -1,6 +1,6 @@
 function lint
     set repo_path (git rev-parse --show-toplevel)
-    if [ $repo_path = $HOME/programs/confighub_spa2 ]
+    if [ $repo_path = $HOME/work/confighub_spa2 ]
         reset
         tox -e pylint
     end
