@@ -72,7 +72,7 @@ let g:loaded_python3_provider = 0
 set clipboard+=unnamedplus
 
 set autoindent
-set shiftwidth=8
+set shiftwidth=4
 set softtabstop=-1
 set listchars+=tab:<->
 
