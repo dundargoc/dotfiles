@@ -121,6 +121,29 @@ def test_labeler_no_documentation_markdown(pr_spec_default):
     create_pr(pr_spec)
     subprocess.call(["git", "switch", "--quiet", "master"])
 
+def test_labeler_documentation_doc_and_markdown(pr_spec_default):
+    repo_path = subprocess.check_output(
+        ["git", "rev-parse", "--show-toplevel"], text=True
+    ).strip()
+
+    pr_spec = {}
+    pr_spec.update(pr_spec_default)
+    pr_spec["type"] = "labeler"
+    pr_spec[
+        "description"
+    ] = "apply `documentation` if markdown + doc file is changed."
+    pr_spec["filenames"] = [
+        Path(repo_path) / "README.md",
+        Path(repo_path) / "runtime" / "doc" / "nvim.txt",
+    ]
+    pr_spec["body"] = build_body(
+        "PR opened - files `runtime/doc/nvim.txt` and `README.md` is changed.",
+        ["`documentation` label applied"],
+    )
+
+    create_pr(pr_spec)
+    subprocess.call(["git", "switch", "--quiet", "master"])
+
 
 def test_add_reviewer_from_label(pr_spec_default):
     pr_spec = {}
@@ -316,6 +339,7 @@ def main():
         test_labeler_documentation(pr_spec_default)
         test_labeler_no_documentation(pr_spec_default)
         test_labeler_no_documentation_markdown(pr_spec_default)
+        test_labeler_documentation_doc_and_markdown(pr_spec_default)
 
     # Test CI
     if set(args.testnames) & {"all", "ci"}:
