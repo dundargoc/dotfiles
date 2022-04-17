@@ -276,7 +276,7 @@ alias un='uncrustify -c $PROG/neovim/src/uncrustify.cfg --replace --no-backup'
 alias bun='$PROG/uncrustify/build/uncrustify -c $PROG/neovim/src/uncrustify.cfg --replace --no-backup'
 alias unc-update='uncrustify -c $PROG/neovim/src/uncrustify.cfg --update-config-with-doc -o $PROG/neovim/src/uncrustify.cfg'
 alias bunc-update='$PROG/uncrustify/build/uncrustify -c $PROG/neovim/src/uncrustify.cfg --update-config-with-doc -o $PROG/neovim/src/uncrustify.cfg'
-alias bi "buildinstall; $PROG/neovim/bin/nvim"
+alias bi "build; buildinstall; $PROG/neovim/bin/nvim"
 alias si "bi --clean -S minimal.vim $argv"
 alias ui "bi --clean -u minimal.vim $argv"
 alias gi "buildinstall; gdb -ex=run --args neovim/bin/nvim -S minimal.vim"
