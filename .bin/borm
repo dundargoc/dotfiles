@@ -1,0 +1,15 @@
+#!/bin/bash
+shopt -s nullglob
+shopt -s globstar
+
+nvim_path="$HOME/programs/neovim/src/nvim"
+cd "$nvim_path" >/dev/null
+
+$HOME/programs/uncrustify/build/uncrustify -c $HOME/programs/neovim/src/uncrustify.cfg --update-config-with-doc -o $HOME/programs/neovim/src/uncrustify.cfg
+
+format_files=(**/*.{c,h})
+
+for i in "${format_files[@]}"; do
+	$HOME/programs/uncrustify/build/uncrustify -c $HOME/programs/neovim/src/uncrustify.cfg --replace --no-backup "$i" &
+done
+wait
