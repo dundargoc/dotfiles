@@ -275,6 +275,7 @@ alias up "nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSyn
 alias clint='$PROG/neovim/src/clint.py'
 alias un='uncrustify -c $PROG/neovim/src/uncrustify.cfg --replace --no-backup'
 alias bun='$PROG/uncrustify/build/uncrustify -c $PROG/neovim/src/uncrustify.cfg --replace --no-backup'
+alias fun='$PROG/uncrustify/build/uncrustify -c config.cfg -f test.cpp'
 alias dun='$PROG/uncrustify/build/uncrustify -c config.cfg -f test.cpp -p output.p -L A 2>output.A'
 alias unc-update='uncrustify -c $PROG/neovim/src/uncrustify.cfg --update-config-with-doc -o $PROG/neovim/src/uncrustify.cfg'
 alias bunc-update='$PROG/uncrustify/build/uncrustify -c $PROG/neovim/src/uncrustify.cfg --update-config-with-doc -o $PROG/neovim/src/uncrustify.cfg'
