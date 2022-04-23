@@ -1,5 +1,6 @@
 function lint
     set repo_path (git rev-parse --show-toplevel)
+
     if [ $repo_path = $HOME/work/confighub_spa2 ]
         reset
         tox -e pylint
@@ -8,5 +9,10 @@ function lint
     if [ $repo_path = $HOME/programs/neovim ]
         reset
         make -C $repo_path lint
+    end
+
+    if [ $repo_path = $HOME/programs/uncrustify ]
+        reset
+        ctest --test-dir $repo_path/build -j(nproc)
     end
 end
