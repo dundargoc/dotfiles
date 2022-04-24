@@ -3,46 +3,70 @@
 #
 #
 Checks: >
-  -*,
-  bugprone-*,
-  -bugprone-easily-swappable-parameters,
-  -bugprone-narrowing-conversions,
-  -bugprone-sizeof-expression,
+  *,
+  -altera-*,
+  -android-*,
   -bugprone-branch-clone,
+  -bugprone-easily-swappable-parameters,
+  -bugprone-implicit-widening-of-multiplication-result,
   -bugprone-macro-parentheses,
-  clang-analyzer-*,
-  google-*,
+  -bugprone-narrowing-conversions,
+  -bugprone-not-null-terminated-result,
+  -bugprone-reserved-identifier,
+  -bugprone-sizeof-expression,
+  -bugprone-suspicious-string-compare,
+  -bugprone-too-small-loop-variable,
+  -cert-*,
+  -concurrency-*,
+  -cppcoreguidelines-*,
+  -fuchsia-default-arguments-calls,
+  -fuchsia-default-arguments-declarations,
+  -fuchsia-overloaded-operator,
+  -fuchsia-statically-constructed-objects,
   -google-build-using-namespace,
   -google-readability-braces-around-statements,
   -google-readability-function-size,
   -google-readability-todo,
-  misc-*,
+  -google-runtime-int,
+  -hicpp-*,
+  -llvm-*,
+  -llvmlibc-*,
   -misc-no-recursion,
+  -misc-non-private-member-variables-in-classes,
   -misc-unused-parameters,
-  performance-*,
+  -modernize-avoid-c-arrays,
+  -modernize-deprecated-headers,
+  -modernize-use-auto,
+  -modernize-use-trailing-return-type,
+  -modernize-use-using,
   -performance-no-int-to-ptr,
-  portability-*,
-  readability-*,
   -readability-avoid-const-params-in-decls,
   -readability-braces-around-statements,
   -readability-else-after-return,
   -readability-function-cognitive-complexity,
   -readability-function-size,
+  -readability-identifier-length,
   -readability-identifier-naming,
+  -readability-implicit-bool-conversion,
+  -readability-inconsistent-declaration-parameter-name,
   -readability-isolate-declaration,
   -readability-magic-numbers,
   -readability-misleading-indentation,
   -readability-named-parameter,
   -readability-non-const-parameter,
+  -readability-qualified-auto,
   -readability-redundant-function-ptr-dereference,
+  -readability-suspicious-call-argument,
   -readability-uppercase-literal-suffix,
 
 # Turn all the warnings from the checks above into errors.
 WarningsAsErrors: ''
 
-HeaderFilterRegex: ' ' 
+HeaderFilterRegex: ' '
 
 CheckOptions:
+  - key: hicpp-signed-bitwise.IgnorePositiveIntegerLiterals
+    value: true
   - key: readability-identifier-naming.NamespaceCase
     value: lower_case
   - key: readability-identifier-naming.StructCase
@@ -58,19 +82,18 @@ CheckOptions:
   - key: readability-identifier-naming.ClassMemberSuffix
     value: _
   - key: readability-identifier-naming.EnumConstantCase
-    value: CamelCase 
+    value: CamelCase
   - key: readability-identifier-naming.EnumConstantPrefix
     value: k
   - key: readability-identifier-naming.GlobalConstantCase
-    value: CamelCase 
+    value: CamelCase
   - key: readability-identifier-naming.GlobalConstantPrefix
     value: k
   - key: readability-identifier-naming.MemberConstantCase
-    value: CamelCase 
+    value: CamelCase
   - key: readability-identifier-naming.MemberConstantPrefix
     value: k
   - key: readability-identifier-naming.StaticConstantCase
-    value: CamelCase 
+    value: CamelCase
   - key: readability-identifier-naming.StaticConstantPrefix
     value: k
-...
