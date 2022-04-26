@@ -14,5 +14,8 @@
 # Unlock .bin
 !/.bin
 
+# Unlock .misc
+!/.misc
+
 # Ignore fish_variables that get generated
 /.config/fish/fish_variables
