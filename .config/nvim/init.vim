@@ -36,6 +36,9 @@ nnoremap <C-Z> <NOP>
 " Disable adding an extra comment on the new line when pressing "o"
 map <buffer> \c :set formatoptions-=cro<Enter>
 
+" Define leader key
+map <space> <leader>
+
 " ------------------------------------
 " Abbreviations
 
