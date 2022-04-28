@@ -4,7 +4,7 @@ function lint
 
     if [ $repo_path = $HOME/work/confighub_spa2 ]
         sed 's/python/python3.6/' -i $HOME/work/confighub_spa2/tox.ini
-        tox -e pylint
+        tox -e pylint -q
         git restore $HOME/work/confighub_spa2/tox.ini
     end
 
