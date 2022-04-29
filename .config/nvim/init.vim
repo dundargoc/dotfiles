@@ -31,10 +31,10 @@ colorscheme catppuccin
 " ------------------------------------
 " Custom commands
 
-nnoremap <C-Z> <NOP>
+nnoremap <c-z> <nop>
 
 " Disable adding an extra comment on the new line when pressing "o"
-nnoremap \c <cmd>setlocal formatoptions-=cro<Enter>
+nnoremap \c <cmd>setlocal formatoptions-=cro<enter>
 
 " Define leader key
 let g:mapleader = ' '
@@ -57,7 +57,7 @@ cabbrev ps PackerSync
 " Other
 
 " Nicer terminal mappings
-tnoremap <esc> <C-\><C-n>
+tnoremap <esc> <c-\><c-n>
 autocmd TermOpen * startinsert
 
 " Disable firenvim by default
