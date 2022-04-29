@@ -34,7 +34,7 @@ colorscheme catppuccin
 nnoremap <C-Z> <NOP>
 
 " Disable adding an extra comment on the new line when pressing "o"
-map \c :set formatoptions-=cro<Enter>
+map \c :setlocal formatoptions-=cro<Enter>
 
 " Define leader key
 let g:mapleader = ' '
