@@ -37,7 +37,7 @@ nnoremap <C-Z> <NOP>
 map <buffer> \c :set formatoptions-=cro<Enter>
 
 " Define leader key
-map <space> <leader>
+let g:mapleader = ' '
 
 " ------------------------------------
 " Abbreviations
