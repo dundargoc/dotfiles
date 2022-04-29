@@ -2,7 +2,7 @@
 " Install packer
 let install_path = stdpath("data") . "/site/pack/packer/start/packer.nvim"
 
-if empty(glob(install_path)) > 0
+if !isdirectory(install_path)
   execute("!git clone https://github.com/wbthomason/packer.nvim " . install_path)
 endif
 
