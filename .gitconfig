@@ -8,7 +8,7 @@
 	reback = "!sh -c \"git revert --no-edit HEAD; git back\""
   ls = ls-files
 [merge]
-	tool = meld
+	tool = fugitive
 	conflictstyle = diff3
 [rerere]
 	enabled = true
@@ -31,3 +31,5 @@
 	rebase = true
 [advice]
 	detachedHead = false
+[mergetool "fugitive"]
+	cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
