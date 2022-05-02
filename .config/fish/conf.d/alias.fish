@@ -284,3 +284,4 @@ alias swapdel "rm -rf /home/dgoc/.local/share/nvim/swap/*"
 alias clean "rm -rf $PROG/neovim/build"
 alias vimclean "find $PROG/neovim -type f -name '*.rej' -delete; find $PROG/neovim -maxdepth 1 -type f -name '*.patch' -delete; make -C $PROG/neovim/src/nvim/testdir clean"
 alias cvim "nvim --clean"
+alias func '$PROG/uncrustify/build/uncrustify -c $PROG/uncrustify/forUncrustifySources.cfg --replace --no-backup $PROG/uncrustify/src/*.{cpp,h}; gres $PROG/uncrustify/src/ChunkStack.h'
