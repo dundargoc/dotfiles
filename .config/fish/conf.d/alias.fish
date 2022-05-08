@@ -70,7 +70,7 @@ alias gl="git log --graph --full-history --pretty --oneline"
 alias gla="gl --all"
 alias glp="git log -p"
 alias glpd="git log -p --word-diff"
-alias gls="git log --stat --oneline"
+alias gls "git log --stat --oneline (gh-default-branch)...(git branch --show-current)"
 alias gpa="git push --all"
 alias gpl="git pull --rebase"
 alias gpf='git push --force-with-lease --quiet'
