@@ -1,15 +1,29 @@
 #!/bin/bash
-shopt -s nullglob
 shopt -s globstar
 
 nvim_path="$HOME/programs/neovim/src/nvim"
-cd "$nvim_path" >/dev/null
 
-uncrustify -c $HOME/programs/neovim/src/uncrustify.cfg --update-config-with-doc -o $HOME/programs/neovim/src/uncrustify.cfg
+(
+    # cd to nvim due to small bug in uncrustify:
+    # adds an extra space after "#include <math.h>" in math.c
+    cd $nvim_path >/dev/null || exit
 
-format_files=(**/*.{c,h})
+    # Update uncrustify config file
+    uncrustify -c $HOME/programs/neovim/src/uncrustify.cfg --update-config-with-doc -o $HOME/programs/neovim/src/uncrustify.cfg
 
-for i in "${format_files[@]}"; do
-	uncrustify -c $HOME/programs/neovim/src/uncrustify.cfg --replace --no-backup "$i" &
-done
-wait
+    default_branch=$(git rev-parse --abbrev-ref origin/HEAD | sed 's|origin/||')
+    current_branch=$(git branch --show-current)
+
+    if [[ $default_branch == "$current_branch" ]]; then
+        format_files=(**/*.{c,h})
+    else
+        files=$(git diff --name-only $default_branch...$current_branch | sed 's|src/nvim/||')
+        files2=$(git diff --name-only | sed 's|src/nvim/||')
+        format_files=( $files $files2 )
+    fi
+
+    for i in "${format_files[@]}"; do
+	    uncrustify -c $HOME/programs/neovim/src/uncrustify.cfg --replace --no-backup "$i" &
+    done
+    wait
+)
