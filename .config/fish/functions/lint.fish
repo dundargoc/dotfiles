@@ -13,6 +13,7 @@ function lint
     end
 
     if [ $repo_path = $HOME/programs/uncrustify ]
+        cbuild
         ctest --test-dir $repo_path/build -j(nproc)
     end
 end
