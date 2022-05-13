@@ -99,3 +99,6 @@ set laststatus=3
 
 " Fold max number of identical lines when diffing
 set diffopt=filler,context:1
+
+" Enable persistent undo
+set undofile
