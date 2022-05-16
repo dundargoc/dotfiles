@@ -19,7 +19,8 @@ nvim_path="$HOME/programs/neovim/src/nvim"
     else
         ancestor_commit=$(git merge-base $default_branch $current_branch)
         files=$(git diff --name-only $ancestor_commit...$current_branch | sed 's|src/nvim/||' | grep -E '\.c$')
-        files2=$(git diff --name-only | sed 's|src/nvim/||')
+        files2=$(git diff --name-only | sed 's|src/nvim/||' | grep -E '\.c$')
+        files2=$(git diff --cached --name-only | sed 's|src/nvim/||' | grep -E '\.c$')
         format_files=( $files $files2 )
         format_files=($(echo "${format_files[@]}" | tr ' ' '\n' | sort -u | tr '\n' ' '))
     fi
