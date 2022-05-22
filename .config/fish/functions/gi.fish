@@ -6,6 +6,6 @@ function gi
     else if test -f minimal.lua
         build
         buildinstall
-        cgdb -ex=run --args neovim/bin/nvim -S minimal.vim
+        cgdb -ex=run --args neovim/bin/nvim -S minimal.lua
     end
 end
