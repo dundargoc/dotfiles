@@ -40,6 +40,9 @@ local plugins = {
     -- AnsiEsc mostly for github logs
     'powerman/vim-plugin-AnsiEsc',
 
+    -- Editorconfig
+    'gpanders/editorconfig.nvim',
+
     -- Themes
     {
         'dracula/vim',
