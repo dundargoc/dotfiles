@@ -1,0 +1,17 @@
+#!/bin/bash
+shopt -s globstar
+
+nvim_path="$HOME/programs/neovim/src/nvim"
+
+(
+    # cd to nvim due to small bug in uncrustify:
+    # adds an extra space after "#include <math.h>" in math.c
+    cd "$nvim_path" >/dev/null || exit
+
+    format_files=(**/*.{c,h})
+
+    for i in "${format_files[@]}"; do
+	    uncrustify -c "$HOME"/programs/neovim/src/uncrustify.cfg --replace --no-backup "$i" &
+    done
+    wait
+)
