@@ -47,6 +47,7 @@ fish_add_path $HOME/.bin
 fish_add_path $HOME/.private-dotfiles/*/bin
 fish_add_path /home/linuxbrew/.linuxbrew/bin
 fish_add_path /home/linuxbrew/.linuxbrew/sbin
+fish_add_path /home/dgoc/.cargo/bin
 
 if contains -i /home/linuxbrew/.linuxbrew/sbin $PATH >/dev/null
     set index (contains -i /home/linuxbrew/.linuxbrew/sbin $PATH)
