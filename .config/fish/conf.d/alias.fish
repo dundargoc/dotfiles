@@ -40,6 +40,7 @@ alias upgrade topgrade
 # git
 # -------------------------------------------------------------------------
 
+alias ga="git add -A"
 alias gac="git add -A; git commit"
 alias gaf="git add -f"
 alias gap="git add -p"
