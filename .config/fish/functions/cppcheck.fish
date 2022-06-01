@@ -7,7 +7,7 @@ function cppcheck
     else if [ $repo_path = $HOME/programs/neovim ]
         command cppcheck --project=compile_commands.json --enable=all --quiet -j(nproc) --std=c99 $argv
     else if [ $repo_path = $HOME/programs/vim ]
-        command cppcheck --project=compile_commands.json --enable=all --quiet -j(nproc) --std=c89 $argv
+        command cppcheck --project=compile_commands.json --enable=all --quiet -j(nproc) --std=c99 $argv
     else
         command cppcheck $argv
     end

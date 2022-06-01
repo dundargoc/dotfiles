@@ -7,7 +7,7 @@ function tidy
     else if [ $repo_path = $HOME/programs/neovim ]
         set extra "-extra-arg=-std=c99"
     else if [ $repo_path = $HOME/programs/vim ]
-        set extra "-extra-arg=-std=c89"
+        set extra "-extra-arg=-std=c99"
     end
 
     for i in $argv
