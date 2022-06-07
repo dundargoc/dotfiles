@@ -1,11 +1,11 @@
 # Ignore everything
 /*
 
-# Unlock .config but ignore all of its contents
+# Unlock .config but ignore all of its contents...
 !/.config
 /.config/*
 
-# except for these
+# ...except for these
 !/.config/fish
 !/.config/nvim
 !/.config/kitty
