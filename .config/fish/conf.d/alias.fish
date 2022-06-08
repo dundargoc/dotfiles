@@ -285,3 +285,7 @@ alias vimclean "find $PROG/neovim -type f -name '*.rej' -delete; find $PROG/neov
 alias cvim "nvim --clean"
 alias func '$PROG/uncrustify/build/uncrustify -c $PROG/uncrustify/forUncrustifySources.cfg --replace --no-backup $PROG/uncrustify/src/*.{cpp,h}; gres $PROG/uncrustify/src/ChunkStack.h'
 alias v '$HOME/programs/vim/bin/vim'
+
+# cmake
+alias cm "cmake -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -G Ninja"
+alias cb "cmake --build build"
