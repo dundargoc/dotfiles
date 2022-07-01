@@ -1,9 +1,6 @@
 local plugins = {
     'wbthomason/packer.nvim',
 
-    -- Save position of last place in text
-    'farmergreg/vim-lastplace',
-
     -- Easier neovim development
     -- { 'neovim/nvimdev.nvim', requires = { 'neomake/neomake', 'nvim-lua/plenary.nvim' } },
 
