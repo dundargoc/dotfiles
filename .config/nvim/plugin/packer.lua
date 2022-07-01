@@ -43,6 +43,9 @@ local plugins = {
     -- Editorconfig
     'gpanders/editorconfig.nvim',
 
+    -- Fast commenting
+    'tpope/vim-commentary',
+
     -- Themes
     {
         'dracula/vim',
