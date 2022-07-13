@@ -43,6 +43,8 @@ local plugins = {
     -- Fast commenting
     'tpope/vim-commentary',
 
+    'tpope/vim-surround',
+
     -- Themes
     {
         'dracula/vim',
