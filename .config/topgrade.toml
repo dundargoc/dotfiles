@@ -53,10 +53,7 @@ arguments = "--rebase --all"
 
 # Commands to run before anything
 [pre_commands]
-
-# Sync forks 
-"Sync Neovim" = "gh repo sync dundargoc/neovim --source neovim/neovim"
-"Sync Vim" = "gh repo sync dundargoc/vim --source vim/vim"
+"Sync Neovim fork" = "gh repo sync dundargoc/neovim --source neovim/neovim"
 
 # Custom commands
 [commands]
