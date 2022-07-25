@@ -4,6 +4,6 @@ function ss
     reset
 
     gh repo sync dundargoc/$repo_name
-    git -C $repo_path fetch --tags
+    git -C $repo_path fetch --tags --force
     git -C $repo_path pull --rebase --all
 end
