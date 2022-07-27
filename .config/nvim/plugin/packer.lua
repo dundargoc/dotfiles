@@ -45,6 +45,9 @@ local plugins = {
 
     'tpope/vim-surround',
 
+    -- Save last cursor position in file
+    'farmergreg/vim-lastplace',
+
     -- Themes
     {
         'dracula/vim',
