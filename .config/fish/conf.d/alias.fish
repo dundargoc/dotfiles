@@ -116,6 +116,7 @@ alias view 'vi -M'
 alias cdd="cd $HOME/Downloads"
 alias cdp="cd $PROG"
 alias cdi="cd (git rev-parse --show-toplevel)/.github/workflows"
+alias cdb="cd $HOME/books"
 alias cdn="cd $PROG/neovim"
 alias cdnd="cd $PROG/neovim/runtime/doc"
 alias cdni="cd $PROG/neovim/.github/workflows"
