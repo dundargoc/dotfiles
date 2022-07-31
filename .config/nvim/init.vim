@@ -26,7 +26,12 @@ endif
 " colorscheme dracula
 " colorscheme tokyonight
 " colorscheme gruvbox
-colorscheme catppuccin
+"colorscheme catppuccin
+" Vim
+let g:onedark_config = {
+    \ 'style': 'deep',
+\}
+colorscheme onedark
 
 " ------------------------------------
 " Custom commands
