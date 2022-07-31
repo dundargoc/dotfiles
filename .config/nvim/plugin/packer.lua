@@ -64,6 +64,7 @@ local plugins = {
     'bluz71/vim-moonfly-colors',
     'folke/tokyonight.nvim',
     'morhetz/gruvbox',
+    'navarasu/onedark.nvim',
     { 'catppuccin/nvim', as = 'catppuccin' },
 }
 
