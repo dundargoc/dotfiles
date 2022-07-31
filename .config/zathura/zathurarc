@@ -1,0 +1,5 @@
+# copy selection to system clipboard
+set selection-clipboard clipboard
+
+# enable incremental search
+set incremental-search true
