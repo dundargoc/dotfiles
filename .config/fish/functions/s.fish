@@ -1,4 +1,4 @@
-function ss
+function s
     set repo_path (git rev-parse --show-toplevel)
     set repo_name (basename $repo_path)
     reset
