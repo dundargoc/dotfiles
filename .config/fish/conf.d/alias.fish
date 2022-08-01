@@ -100,7 +100,6 @@ alias stash "git stash"
 alias pop "git stash pop"
 
 alias git-add-upstream "git remote add upstream"
-alias s="hub sync"
 
 # -------------------------------------------------------------------------
 # vim
