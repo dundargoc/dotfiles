@@ -115,7 +115,10 @@ alias cdd="cd $HOME/Downloads"
 alias cdp="cd $PROG"
 alias cdi="cd (git rev-parse --show-toplevel)/.github/workflows"
 alias cdb="cd $HOME/books"
+
+# Neovim
 alias cdn="cd $PROG/neovim"
+alias cddep="cd $PROG/neovim/cmake.deps/cmake"
 alias cdnd="cd $PROG/neovim/runtime/doc"
 alias cdni="cd $PROG/neovim/.github/workflows"
 alias cdnl="cd $PROG/neovim/runtime/lua/vim"
@@ -128,6 +131,7 @@ alias cdnt="cd $PROG/neovim/test"
 alias cdnv="cd $PROG/neovim/src/nvim/testdir"
 alias cdnot="cd $PROG/notdundargoc/neovim"
 alias cdorg="cd $PROG/dundar-organization/neovim"
+
 alias cds="cd $WORK/services/src/services"
 alias cdsr="cd $WORK/services/src/services/chain/execute/runner"
 alias cdt="cd $PROG/nvim-treesitter"
