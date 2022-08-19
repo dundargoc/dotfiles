@@ -23,7 +23,9 @@ xmodmap -e "keycode 49 = Escape"
 # Remove the start greeting
 set -U fish_greeting
 
-source $HOME/.private-dotfiles/fish/conf.d/*
+if test -e $HOME/.private-dotfiles
+    source $HOME/.private-dotfiles/fish/conf.d/*
+end
 
 # Source nix if it exists
 if test -e $HOME/.nix-profile/etc/profile.d/nix.sh
@@ -44,7 +46,9 @@ bind yy fish_clipboard_copy
 # Add paths and reorder them
 # --------------------------
 fish_add_path $HOME/.bin
-fish_add_path $HOME/.private-dotfiles/*/bin
+if test -e $HOME/.private-dotfiles
+    fish_add_path $HOME/.private-dotfiles/*/bin
+end
 fish_add_path /home/linuxbrew/.linuxbrew/bin
 fish_add_path /home/linuxbrew/.linuxbrew/sbin
 fish_add_path /home/dgoc/.cargo/bin
