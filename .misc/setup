@@ -8,3 +8,5 @@ git checkout -f master
 
 # To get gh-default-branch to work
 git remote set-head origin -a
+
+git clone --depth=1 https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
