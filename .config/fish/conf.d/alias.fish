@@ -22,14 +22,22 @@ if grep -iq ubuntu /etc/os-release
 else
     # Assume manjaro
 
-    alias install "paru -S --needed --removemake"
-    alias show "paru -Si"
-    alias search "paru -Ss"
-    alias remove "paru -Rs"
-    alias prune "sudo paccache -ruk0; paru -Scc --noconfirm"
-    alias fsearch "paru -F"
+    if type -q paru
+        set installer paru
+    else if type -q yay
+        set installer yay
+    else
+        set installer "sudo pacman"
+    end
+
+    alias install "$installer -S --needed --removemake"
+    alias show "$installer -Si"
+    alias search "$installer -Ss"
+    alias remove "$installer -Rs"
+    alias prune "sudo paccache -ruk0; $installer -Scc --noconfirm"
+    alias fsearch "$installer -F"
     alias mirror "sudo pacman-mirrors -id"
-    alias orphan 'paru --clean'
+    alias orphan '$installer --clean'
     alias listgit "list | rg '\-git'"
 end
 
