@@ -2,7 +2,7 @@
 
 cd ~
 git init
-git remote add origin git@github.com:dundargoc/dotfiles-windows.git
+git remote add origin git@github.com:dundargoc/dotfiles.git
 git fetch
 git checkout -f master
 
