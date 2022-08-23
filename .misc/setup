@@ -9,4 +9,8 @@ git checkout -f master
 # To get gh-default-branch to work
 git remote set-head origin -a
 
+# Tmux plugin manager
 git clone --depth=1 https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+# Vim-plug
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
