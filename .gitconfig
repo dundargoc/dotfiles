@@ -6,7 +6,6 @@
 	uncommit = "!sh -c \"git reset --hard HEAD~$1\""
 	back = reset HEAD~
 	reback = "!sh -c \"git revert --no-edit HEAD; git back\""
-  ls = ls-files
 [merge]
 	tool = fugitive
 	conflictstyle = diff3
