@@ -91,6 +91,7 @@ alias gsh="git show"
 alias gshw="git show --word-diff"
 alias gl1="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
 
+alias ame "ga; git commit --amend --no-verify --allow-empty --no-edit"
 alias amend "git commit --amend --no-verify --allow-empty"
 alias ameno "git commit --amend --no-verify --allow-empty --no-edit; gpf"
 
