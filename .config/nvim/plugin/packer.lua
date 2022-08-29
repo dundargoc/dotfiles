@@ -65,7 +65,6 @@ local plugins = {
     'folke/tokyonight.nvim',
     'morhetz/gruvbox',
     'navarasu/onedark.nvim',
-    { 'catppuccin/nvim', as = 'catppuccin' },
 }
 
 local config = {

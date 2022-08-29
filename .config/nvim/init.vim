@@ -24,9 +24,8 @@ endif
 " colorscheme archery
 " colorscheme OceanicNext
 " colorscheme dracula
-" colorscheme tokyonight
+colorscheme tokyonight
 " colorscheme gruvbox
-colorscheme catppuccin
 
 "let g:onedark_config = { 'style': 'deep', }
 "colorscheme onedark
