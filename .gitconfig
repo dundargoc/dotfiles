@@ -1,5 +1,5 @@
 [user]
-	name = Dundar Göc
+	name = dundargoc
 	email = gocdundar@gmail.com
 [alias]
 	bisect-all = !git bisect start && git bisect bad && git bisect good $(git rev-list --max-parents=0 --first-parent HEAD)
