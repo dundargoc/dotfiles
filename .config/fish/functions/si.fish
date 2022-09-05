@@ -1,7 +1,8 @@
 function si
-    if test -f minimal.vim
-        bi --clean -S minimal.vim $argv
-    else if test -f minimal.lua
-        bi --clean -S minimal.lua $argv
+    set PROG $HOME/programs
+    if test -f $PROG/minimal.vim
+        bi --clean -S $PROG/minimal.vim $argv
+    else if test -f $PROG/minimal.lua
+        bi --clean -S $PROG/minimal.lua $argv
     end
 end

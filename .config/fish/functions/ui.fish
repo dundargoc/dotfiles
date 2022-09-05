@@ -1,7 +1,8 @@
 function ui
-    if test -f minimal.vim
-        bi --clean -u minimal.vim $argv
-    else if test -f minimal.lua
-        bi --clean -u minimal.lua $argv
+    set PROG $HOME/programs
+    if test -f $PROG/minimal.vim
+        bi --clean -u $PROG/minimal.vim $argv
+    else if test -f $PROG/minimal.lua
+        bi --clean -u $PROG/minimal.lua $argv
     end
 end
