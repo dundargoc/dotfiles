@@ -82,7 +82,6 @@ alias gpl="git pull --rebase"
 alias gpf='git push --force-with-lease --quiet'
 alias gpt="git push --tags"
 alias gr="git remote"
-alias gre="git rebase"
 alias grec="git rebase --continue || git revert --continue"
 alias groot="git rebase --root -i"
 alias gs="git status"
