@@ -1,0 +1,57 @@
+#!/usr/bin/env python
+
+"""
+Automatically update PR text on github to be the same as the commit messages.
+"""
+
+import subprocess
+import tempfile
+from pathlib import Path
+
+
+def call(command):
+    """
+    Helper function for call for simple cases.
+    """
+    return subprocess.call(command.split())
+
+
+def co(command):
+    """
+    Helper function for check_output for simple cases.
+    """
+    return subprocess.check_output(command.split(), text=True).strip()
+
+
+def get_default_branch():
+    """
+     Get default branch from github. May need to use
+    `git remote set-head origin -a` once on the repo beforehand if this doesn't
+    work.
+    """
+
+    return co("git rev-parse --abbrev-ref origin/HEAD").split("/")[1]
+
+
+def main():
+    default_branch = get_default_branch()
+    current_branch = co("git branch --show-current")
+
+    if default_branch == current_branch:
+        exit(f"Current branch is same as default branch: {default_branch}. Abort")
+
+    ancestor_commit = co(f"git merge-base {current_branch} {default_branch}")
+    all_commits = co(f"git rev-list {ancestor_commit}...{current_branch}").splitlines()
+
+    all_messages = []
+    for commit in all_commits:
+        commit_message = "- " + co(f"git log --format=%B -n 1 {commit}")
+        all_messages.append(commit_message)
+    pr_text = "\n\n".join(reversed(all_messages))
+    with tempfile.NamedTemporaryFile() as tmp:
+        Path(tmp.name).write_text(pr_text)
+        call(f"gh pr edit --body-file {tmp.name}")
+
+
+if __name__ == "__main__":
+    main()
