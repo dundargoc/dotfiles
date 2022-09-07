@@ -9,6 +9,6 @@ function cppcheck
     else if [ $repo_path = $HOME/programs/vim ]
         command cppcheck --project=compile_commands.json --enable=all --quiet -j(nproc) --std=c99 $argv
     else
-        command cppcheck $argv
+        command cppcheck --project=compile_commands.json --enable=all --quiet -j(nproc) $argv
     end
 end
