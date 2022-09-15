@@ -46,9 +46,6 @@ bind yy fish_clipboard_copy
 # Add paths and reorder them
 # --------------------------
 fish_add_path $HOME/.bin
-if test -e $HOME/.private-dotfiles
-    fish_add_path $HOME/.private-dotfiles/*/bin
-end
 fish_add_path /home/linuxbrew/.linuxbrew/bin
 fish_add_path /home/linuxbrew/.linuxbrew/sbin
 fish_add_path /home/dgoc/.cargo/bin
