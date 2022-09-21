@@ -290,5 +290,4 @@ alias func 'cmake --build $PROG/uncrustify/build --target format-sources'
 alias v '$HOME/programs/vim/bin/vim'
 
 # cmake
-alias cm "cmake -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -G Ninja"
 alias cb "cmake --build build"
