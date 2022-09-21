@@ -290,4 +290,4 @@ alias func 'cmake --build $PROG/uncrustify/build --target format-sources'
 alias v '$HOME/programs/vim/bin/vim'
 
 # cmake
-alias cb "cmake --build build"
+alias cb "$PROG/CMake/build/bin/cmake"
