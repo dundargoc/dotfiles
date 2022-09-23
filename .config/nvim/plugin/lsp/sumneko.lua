@@ -29,7 +29,7 @@ require('lspconfig').sumneko_lua.setup {
                 -- Make the server aware of Neovim runtime files
                 library = vim.api.nvim_get_runtime_file('', true),
                 maxPreload = 1000,
-                preloadFileSize = 350,
+                preloadFileSize = 500,
                 checkThirdParty = false,
             },
             completion = { callSnippet = 'Replace', showWord = 'Disable' },
