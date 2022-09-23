@@ -4,9 +4,6 @@ local plugins = {
     -- Easier neovim development
     -- { 'neovim/nvimdev.nvim', requires = { 'neomake/neomake', 'nvim-lua/plenary.nvim' } },
 
-    -- Reference for lua language features
-    'bfredl/luarefvim',
-
     -- git plugins
     'tpope/vim-fugitive',
 
