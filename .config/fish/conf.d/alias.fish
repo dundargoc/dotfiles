@@ -183,13 +183,6 @@ alias z="exec zsh -o NO_GLOBAL_RCS"
 alias b="exec bash"
 alias f="exec fish"
 
-# reset
-if set -q TMUX
-    alias reset="clear; tmux clearhist"
-else
-    alias reset="tput reset"
-end
-
 # wifi
 alias wifi="sudo nmtui"
 
