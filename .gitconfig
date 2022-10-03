@@ -30,5 +30,6 @@
 	rebase = true
 [advice]
 	detachedHead = false
+	skippedCherryPicks = false
 [mergetool "fugitive"]
 	cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
