@@ -16,6 +16,13 @@ def call(command):
     return subprocess.call(command.split())
 
 
+def call_shell(command):
+    """
+    Helper function for call for simple cases. Use shell = true
+    """
+    return subprocess.call(command, shell=True)
+
+
 def co(command):
     """
     Helper function for check_output for simple cases.
@@ -43,14 +50,19 @@ def main():
     ancestor_commit = co(f"git merge-base {current_branch} {default_branch}")
     all_commits = co(f"git rev-list {ancestor_commit}...{current_branch}").splitlines()
 
-    all_messages = []
-    for commit in all_commits:
-        commit_message = "- " + co(f"git log --format=%B -n 1 {commit}")
-        all_messages.append(commit_message)
-    pr_text = "\n\n".join(reversed(all_messages))
-    with tempfile.NamedTemporaryFile() as tmp:
-        Path(tmp.name).write_text(pr_text)
-        call(f"gh pr edit --body-file {tmp.name}")
+    if len(all_commits) == 1:
+        commit = all_commits[0]
+        message_body = co(f"git log --format=%b -n 1 {commit}")
+        message_subject = co(f"git log --format=%s -n 1 {commit}")
+        call_shell(f'gh pr edit --title "{message_subject}"')
+        call_shell(f'gh pr edit --body "{message_body}"')
+    else:
+        all_messages = []
+        for commit in all_commits:
+            commit_message = "- " + co(f"git log --format=%B -n 1 {commit}")
+            all_messages.append(commit_message)
+        pr_text = "\n\n".join(reversed(all_messages))
+        call_shell(f'gh pr edit --body "{pr_text}"')
 
 
 if __name__ == "__main__":
