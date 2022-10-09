@@ -124,6 +124,7 @@ alias cdb="cd $HOME/books"
 # Neovim
 alias cdn="cd $PROG/neovim"
 alias cddep="cd $PROG/neovim/cmake.deps/cmake"
+alias cdna="cd $PROG/neovim/.github/actions"
 alias cdnd="cd $PROG/neovim/runtime/doc"
 alias cdni="cd $PROG/neovim/.github/workflows"
 alias cdnl="cd $PROG/neovim/runtime/lua/vim"
