@@ -55,14 +55,18 @@ def main():
         message_body = co(f"git log --format=%b -n 1 {commit}")
         message_subject = co(f"git log --format=%s -n 1 {commit}")
         call_shell(f'gh pr edit --title "{message_subject}"')
-        call_shell(f'gh pr edit --body "{message_body}"')
+        with tempfile.NamedTemporaryFile() as tmp:
+            Path(tmp.name).write_text(message_body)
+            call(f"gh pr edit --body-file {tmp.name}")
     else:
         all_messages = []
         for commit in all_commits:
             commit_message = "- " + co(f"git log --format=%B -n 1 {commit}")
             all_messages.append(commit_message)
         pr_text = "\n\n".join(reversed(all_messages))
-        call_shell(f'gh pr edit --body "{pr_text}"')
+        with tempfile.NamedTemporaryFile() as tmp:
+            Path(tmp.name).write_text(pr_text)
+            call(f"gh pr edit --body-file {tmp.name}")
 
 
 if __name__ == "__main__":
