@@ -283,3 +283,4 @@ alias v '$HOME/programs/vim/bin/vim'
 
 # cmake
 alias cb "$PROG/CMake/build/bin/cmake"
+alias cm="$EDITOR $NVIM/CMakeLists.txt"
