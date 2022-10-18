@@ -31,6 +31,7 @@ Checks: >
   -hicpp-*,
   -llvm-*,
   -llvmlibc-*,
+  -misc-const-correctness,
   -misc-no-recursion,
   -misc-non-private-member-variables-in-classes,
   -misc-unused-parameters,
