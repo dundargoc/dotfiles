@@ -233,7 +233,7 @@ alias scc='scc --no-complexity --no-cocomo'
 
 alias black="black -C"
 
-alias codespell="codespell -H --config $HOME/.codespellrc --ignore-words=$HOME/.codespell-ignorewords"
+alias codespell="reset; command codespell -H --config $HOME/.codespellrc --ignore-words=$HOME/.codespell-ignorewords"
 alias typos="reset; command typos"
 
 alias lt "reset; languagetool --autoDetect --disable DASH_RULE,COMMA_PARENTHESIS_WHITESPACE,ARROWS,UNLIKELY_OPENING_PUNCTUATION,WHITESPACE_RULE,FILE_EXTENSIONS_CASE,PLUS_MINUS,UPPERCASE_SENTENCE_START"
