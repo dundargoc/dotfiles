@@ -46,9 +46,9 @@ bind yy fish_clipboard_copy
 # Add paths and reorder them
 # --------------------------
 fish_add_path $HOME/.bin
+fish_add_path $HOME/.cargo/bin
 fish_add_path /home/linuxbrew/.linuxbrew/bin
 fish_add_path /home/linuxbrew/.linuxbrew/sbin
-fish_add_path /home/dgoc/.cargo/bin
 
 if contains -i /home/linuxbrew/.linuxbrew/sbin $PATH >/dev/null
     set index (contains -i /home/linuxbrew/.linuxbrew/sbin $PATH)
