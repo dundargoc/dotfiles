@@ -99,6 +99,7 @@ alias fork "gh repo fork"
 
 alias stash "git stash"
 alias pop "git stash pop"
+alias apply "git stash apply"
 
 alias git-add-upstream "git remote add upstream"
 
