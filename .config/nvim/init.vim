@@ -62,9 +62,6 @@ cabbrev ps PackerSync
 tnoremap <esc> <c-\><c-n>
 autocmd TermOpen * startinsert
 
-" Disable firenvim by default
-let g:firenvim_config = {'globalSettings': {},'localSettings': {'.*': {'takeover': 'never'},},}
-
 " Disable providers
 let g:loaded_perl_provider = 0
 let g:loaded_ruby_provider = 0
@@ -104,3 +101,9 @@ set diffopt=filler,context:1
 
 " Enable persistent undo
 set undofile
+
+" ------------------------------------
+" Plugin configuration
+
+" Disable firenvim by default
+let g:firenvim_config = {'globalSettings': {},'localSettings': {'.*': {'takeover': 'never'},},}
