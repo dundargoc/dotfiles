@@ -5,6 +5,7 @@ local plugins = {
     -- { 'neovim/nvimdev.nvim', requires = { 'neomake/neomake', 'nvim-lua/plenary.nvim' } },
 
     -- git plugins
+    'lewis6991/gitsigns.nvim',
     'tpope/vim-fugitive',
 
     -- tmux
