@@ -9,6 +9,10 @@ function upgrade
         sudo apt upgrade -y
     end
 
+    if type -q paru
+        paru
+    end
+
     if type -q nvim
         nvim --headless -c 'autocmd User PackerComplete quitall' -c PackerSync
     end
