@@ -102,6 +102,9 @@ set diffopt=filler,context:1
 " Enable persistent undo
 set undofile
 
+" Disable timeout
+set notimeout
+
 " ------------------------------------
 " Plugin configuration
 
