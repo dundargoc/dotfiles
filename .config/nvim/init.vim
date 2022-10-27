@@ -107,5 +107,3 @@ set undofile
 
 " Disable firenvim by default
 let g:firenvim_config = {'globalSettings': {},'localSettings': {'.*': {'takeover': 'never'},},}
-
-lua require('gitsigns').setup()
