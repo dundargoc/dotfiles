@@ -10,7 +10,7 @@ function upgrade
     end
 
     if type -q paru
-        paru
+        paru -Syu --noconfirm
     end
 
     if type -q nvim
