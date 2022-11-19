@@ -103,6 +103,10 @@ set undofile
 " Disable timeout
 set notimeout
 
+" Split right and below
+set splitbelow
+set splitright
+
 " ------------------------------------
 " Clipboard
 
