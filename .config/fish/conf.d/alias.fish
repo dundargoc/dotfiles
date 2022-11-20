@@ -85,6 +85,8 @@ alias gs="git status"
 alias gsh="git show"
 alias gshw="git show --word-diff"
 
+alias abs "git absorb --and-rebase"
+
 alias ame "ga; git commit --amend --no-verify --allow-empty --no-edit"
 alias amend "git commit --amend --no-verify --allow-empty"
 alias ameno "git commit --amend --no-verify --allow-empty --no-edit; gpf"
