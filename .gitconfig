@@ -33,3 +33,5 @@
 	skippedCherryPicks = false
 [mergetool "fugitive"]
 	cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
+[absorb]
+	maxStack=50
