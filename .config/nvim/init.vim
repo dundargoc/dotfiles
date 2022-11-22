@@ -23,8 +23,8 @@ endif
 " colorscheme amora
 " colorscheme archery
 " colorscheme OceanicNext
-colorscheme dracula
-" colorscheme tokyonight
+" colorscheme dracula
+colorscheme tokyonight
 " colorscheme gruvbox
 
 "let g:onedark_config = { 'style': 'deep', }
