@@ -17,8 +17,6 @@ endif
 " highlight Folded ctermbg=000
 
 " colorscheme badwolf
-" colorscheme onehalfdark
-" colorscheme purify
 " colorscheme moonfly
 " colorscheme amora
 " colorscheme archery

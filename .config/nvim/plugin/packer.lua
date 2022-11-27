@@ -51,8 +51,6 @@ local plugins = {
         'dracula/vim',
         as = 'dracula',
     },
-    { 'sonph/onehalf', rtp = 'vim' },
-    { 'kyoz/purify', rtp = 'vim' },
     'owozsh/amora',
     'tomasr/molokai',
     'sjl/badwolf',
