@@ -7,6 +7,16 @@ if !isdirectory(install_path)
 endif
 
 " ----------------------
+" Helper function
+
+" Helper function to create command line abbreviations with wanted behavior.
+" This will only change a command if it's at the start of the command line.
+function! Cabbrev(lhs, rhs) abort
+  exe printf("cnoreabbrev <expr>%s (getcmdtype()==#':'&&getcmdline()==#'%s')?'%s':'%s'",
+    \ a:lhs, a:lhs, a:rhs, a:lhs)
+endfunction
+
+" ----------------------
 " Themes
 
 " colorscheme molokai
@@ -43,15 +53,15 @@ let g:mapleader = ' '
 " Abbreviations
 
 " Replace "write" with "update"
-cabbrev wq x
-cabbrev w up
+call Cabbrev('wq', 'x')
+call Cabbrev('w', 'up')
 
 " Git fugitive
-cabbrev gb G blame
-cabbrev gs Gitsigns
+call Cabbrev('gb', 'G blame')
+call Cabbrev('gs', 'Gitsigns')
 
 " Packer
-cabbrev ps PackerSync
+call Cabbrev('ps', 'PackerSync')
 
 "------------------------------------
 " Other
