@@ -43,9 +43,6 @@ colorscheme tokyonight
 
 nnoremap <c-z> <nop>
 
-" Disable adding an extra comment on the new line when pressing "o"
-nnoremap \c <cmd>setlocal formatoptions-=cro<enter>
-
 " Define leader key
 let g:mapleader = ' '
 
