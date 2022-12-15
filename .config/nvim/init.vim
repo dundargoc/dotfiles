@@ -1,5 +1,5 @@
 " ----------------------
-" Install packer
+" Install plugin manager
 let install_path = stdpath("data") . "/site/pack/packer/start/packer.nvim"
 
 if !isdirectory(install_path)

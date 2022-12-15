@@ -161,7 +161,7 @@ alias dp="cd $HOME/.private-dotfiles"
 # config
 # -------------------------------------------------------------------------
 alias ali="$EDITOR $XDG_CONFIG_HOME/fish/conf.d/alias.fish"
-alias prc="$EDITOR $XDG_CONFIG_HOME/nvim/plugin/packer.lua"
+alias prc="$EDITOR $XDG_CONFIG_HOME/nvim/plugin/plugins.lua"
 alias rc="$EDITOR $XDG_CONFIG_HOME/fish/config.fish"
 alias brc="$EDITOR $HOME/.bashrc"
 alias frc="$EDITOR $XDG_CONFIG_HOME/fish/config.fish"
