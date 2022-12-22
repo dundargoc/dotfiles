@@ -1,6 +1,7 @@
 require('lspconfig').sumneko_lua.setup {
     on_attach = require('lsp').on_attach,
     root_dir = require('lspconfig').util.root_pattern { '.git', 'init.vim' },
+    cmd_env= {HOME = ''},
     settings = {
         Lua = {
             runtime = {
