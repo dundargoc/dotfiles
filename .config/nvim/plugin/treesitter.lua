@@ -1,6 +1,6 @@
 require('nvim-treesitter.configs').setup {
-    ensure_installed = 'all',
-    ignore_install = { 'phpdoc' },
+    auto_install = true,
+    ignore_install = { 'phpdoc', 'c', 'lua', 'help', 'vim' },
     highlight = {
         enable = true,
         disable = { 'markdown' },
