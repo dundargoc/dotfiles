@@ -24,7 +24,7 @@ require('lspconfig').sumneko_lua.setup {
                     'pending',
                     'copcall',
                 },
-                disable = { 'lowercase-global' },
+                disable = { 'lowercase-global', 'assign-type-mismatch' },
             },
             workspace = {
                 -- Make the server aware of Neovim runtime files
