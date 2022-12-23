@@ -1,4 +1,3 @@
--- ----------------------
 -- Install plugin manager
 
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
@@ -18,46 +17,26 @@ vim.opt.runtimepath:prepend(lazypath)
 vim.g.mapleader = ' '
 
 require('lazy').setup ({
-    -- Git plugins
     'lewis6991/gitsigns.nvim',
     'tpope/vim-fugitive',
-
-    -- tmux
     'edkolev/tmuxline.vim',
     'christoomey/vim-tmux-navigator',
-
-    -- Firenvim
          {
              'glacambre/firenvim',
              build = function()
                  vim.fn['firenvim#install'](0)
              end,
          },
-
-    -- Treesitter
     {
         'nvim-treesitter/nvim-treesitter',
         build = ':TSUpdate',
     },
-
-    -- LSP
     'neovim/nvim-lspconfig',
-
-    -- Cool
     'dundargoc/nvim-cool',
-
-    -- AnsiEsc mostly for github logs
     'powerman/vim-plugin-AnsiEsc',
-
-    -- Editorconfig
     'gpanders/editorconfig.nvim',
-
-    -- Fast commenting
     'tpope/vim-commentary',
-
     'tpope/vim-surround',
-
-    -- Save last cursor position in file
     'farmergreg/vim-lastplace',
 
     -- Themes
@@ -79,10 +58,9 @@ require('lazy').setup ({
   lockfile = vim.fn.stdpath("state") .. "lazy/lazy-lock.json",
 })
 
--- ----------------------
--- Helper function
+-- Helper functions
 
--- Helper function to create command line abbreviations with wanted behavior.
+-- Create command line abbreviations with wanted behavior.
 -- This will only change a command if it's at the start of the command line.
 vim.cmd [[
 function! Cabbrev(lhs, rhs) abort
@@ -91,7 +69,6 @@ function! Cabbrev(lhs, rhs) abort
 endfunction
 ]]
 
--- ----------------------
 -- Themes
 
 -- colorscheme molokai
@@ -113,18 +90,15 @@ vim.cmd.colorscheme 'tokyonight'
 --let g:onedark_config = { 'style': 'deep', }
 --colorscheme onedark
 
--- ------------------------------------
 -- Custom commands
 
 vim.cmd [[
 nnoremap <c-z> <nop>
+]]
 
-" Define leader key
-" let g:mapleader = ' '
+-- Abbreviations
 
-" ------------------------------------
-" Abbreviations
-
+vim.cmd[[
 " Replace "write" with "update"
 call Cabbrev('wq', 'x')
 call Cabbrev('w', 'up')
@@ -135,9 +109,10 @@ call Cabbrev('gs', 'Gitsigns')
 
 " Plugin
 call Cabbrev('lazy', 'Lazy')
+]]
 
-"------------------------------------
-" Other
+-- Other
+vim.cmd[[
 
 " Nicer terminal mappings
 tnoremap <esc> <c-\><c-n>
@@ -148,10 +123,10 @@ let g:loaded_perl_provider = 0
 let g:loaded_ruby_provider = 0
 let g:loaded_node_provider = 0
 let g:loaded_python3_provider = 0
+]]
 
-" ------------------------------------
-" Options
-
+-- Options
+vim.cmd[[
 set shiftwidth=4
 set softtabstop=-1
 set listchars+=tab:<->
@@ -183,10 +158,10 @@ set notimeout
 " Split right and below
 set splitbelow
 set splitright
+]]
 
-" ------------------------------------
-" Clipboard
-
+-- Clipboard
+vim.cmd[[
 nnoremap <leader>y  "+y
 nnoremap <leader>Y  "+y$
 nnoremap <leader>p  "+p
@@ -198,10 +173,10 @@ xnoremap <leader>p  "+p
 xnoremap <leader>P  "+P
 xnoremap <leader>gp "+gp
 xnoremap <leader>gP "+gP
+]]
 
-" ------------------------------------
-" Plugin configuration
-
+-- Plugin configuration
+vim.cmd[[
 " Disable firenvim by default
 let g:firenvim_config = {'globalSettings': {},'localSettings': {'.*': {'takeover': 'never'},},}
 ]]
