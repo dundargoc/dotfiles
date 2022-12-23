@@ -16,17 +16,17 @@ vim.opt.runtimepath:prepend(lazypath)
 -- Define leader key
 vim.g.mapleader = ' '
 
-require('lazy').setup ({
+require('lazy').setup({
     'lewis6991/gitsigns.nvim',
     'tpope/vim-fugitive',
     'edkolev/tmuxline.vim',
     'christoomey/vim-tmux-navigator',
-         {
-             'glacambre/firenvim',
-             build = function()
-                 vim.fn['firenvim#install'](0)
-             end,
-         },
+    {
+        'glacambre/firenvim',
+        build = function()
+            vim.fn['firenvim#install'](0)
+        end,
+    },
     {
         'nvim-treesitter/nvim-treesitter',
         build = ':TSUpdate',
@@ -54,8 +54,8 @@ require('lazy').setup ({
     'folke/tokyonight.nvim',
     'morhetz/gruvbox',
     'navarasu/onedark.nvim',
-},{
-  lockfile = vim.fn.stdpath("state") .. "lazy/lazy-lock.json",
+}, {
+    lockfile = vim.fn.stdpath 'state' .. 'lazy/lazy-lock.json',
 })
 
 -- Helper functions
@@ -98,7 +98,7 @@ nnoremap <c-z> <nop>
 
 -- Abbreviations
 
-vim.cmd[[
+vim.cmd [[
 " Replace "write" with "update"
 call Cabbrev('wq', 'x')
 call Cabbrev('w', 'up')
@@ -112,7 +112,7 @@ call Cabbrev('lazy', 'Lazy')
 ]]
 
 -- Other
-vim.cmd[[
+vim.cmd [[
 
 " Nicer terminal mappings
 tnoremap <esc> <c-\><c-n>
@@ -126,7 +126,7 @@ let g:loaded_python3_provider = 0
 ]]
 
 -- Options
-vim.cmd[[
+vim.cmd [[
 set shiftwidth=4
 set softtabstop=-1
 set listchars+=tab:<->
@@ -161,7 +161,7 @@ set splitright
 ]]
 
 -- Clipboard
-vim.cmd[[
+vim.cmd [[
 nnoremap <leader>y  "+y
 nnoremap <leader>Y  "+y$
 nnoremap <leader>p  "+p
@@ -176,7 +176,7 @@ xnoremap <leader>gP "+gP
 ]]
 
 -- Plugin configuration
-vim.cmd[[
+vim.cmd [[
 " Disable firenvim by default
 let g:firenvim_config = {'globalSettings': {},'localSettings': {'.*': {'takeover': 'never'},},}
 ]]
