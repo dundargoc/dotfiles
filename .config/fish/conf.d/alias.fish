@@ -138,7 +138,7 @@ alias cdnt="cd $PROG/neovim/test"
 alias cdnv="cd $PROG/neovim/src/nvim/testdir"
 alias cdnot="cd $PROG/notdundargoc/neovim"
 alias cdorg="cd $PROG/dundar-organization/neovim"
-alias cdpack "cd $HOME/.local/share/nvim/site/pack/packer/start"
+alias cdl "cd $HOME/.local/share/nvim/lazy"
 
 alias cdt="cd $PROG/nvim-treesitter"
 alias cdu="cd $PROG/uncrustify"
