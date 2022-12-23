@@ -33,7 +33,10 @@ require('lazy').setup({
     },
     'neovim/nvim-lspconfig',
     'dundargoc/nvim-cool',
-    'powerman/vim-plugin-AnsiEsc',
+    {
+        'powerman/vim-plugin-AnsiEsc',
+        cmd = 'AnsiEsc',
+    },
     'gpanders/editorconfig.nvim',
     'tpope/vim-commentary',
     'tpope/vim-surround',
