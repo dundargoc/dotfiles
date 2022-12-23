@@ -82,12 +82,12 @@ endfunction
 -- highlight Folded ctermbg=000
 
 -- colorscheme badwolf
--- colorscheme moonfly
--- colorscheme amora
--- colorscheme archery
--- colorscheme OceanicNext
--- colorscheme dracula
-vim.cmd.colorscheme 'tokyonight'
+-- vim.cmd.colorscheme'moonfly'
+-- vim.cmd.colorscheme'amora'
+-- vim.cmd.colorscheme'archery'
+vim.cmd.colorscheme 'OceanicNext'
+-- vim.cmd.colorscheme 'dracula'
+-- vim.cmd.colorscheme 'tokyonight'
 -- colorscheme gruvbox
 
 --let g:onedark_config = { 'style': 'deep', }
