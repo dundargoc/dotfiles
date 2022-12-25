@@ -120,13 +120,13 @@ vim.cmd([[
 " Nicer terminal mappings
 tnoremap <esc> <c-\><c-n>
 autocmd TermOpen * startinsert
-
-" Disable providers
-let g:loaded_perl_provider = 0
-let g:loaded_ruby_provider = 0
-let g:loaded_node_provider = 0
-let g:loaded_python3_provider = 0
 ]])
+
+-- Disable providers
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_ruby_provider = 0
+vim.g.loaded_node_provider = 0
+vim.g.loaded_python3_provider = 0
 
 -- Options
 vim.cmd([[
@@ -179,7 +179,6 @@ xnoremap <leader>gP "+gP
 ]])
 
 -- Plugin configuration
-vim.cmd([[
-" Disable firenvim by default
-let g:firenvim_config = {'globalSettings': {},'localSettings': {'.*': {'takeover': 'never'},},}
-]])
+
+-- Disable firenvim by default
+vim.g.firenvim_config = {globalSettings= {},localSettings= {['.*']= {takeover= 'never'},},}
