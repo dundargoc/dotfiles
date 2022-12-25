@@ -85,13 +85,13 @@ endfunction
 -- vim.cmd.colorscheme('moonfly')
 -- vim.cmd.colorscheme('amora')
 -- vim.cmd.colorscheme('archery')
-vim.cmd.colorscheme('OceanicNext')
+-- vim.cmd.colorscheme('OceanicNext')
 -- vim.cmd.colorscheme('dracula')
 -- vim.cmd.colorscheme('tokyonight')
 -- vim.cmd.colorscheme('gruvbox')
 
--- vim.cmd.colorscheme('onedark')
---let g:onedark_config = { 'style': 'deep', }
+vim.g.onedark_config = { style = 'deep', }
+vim.cmd.colorscheme('onedark')
 
 -- Custom commands
 
