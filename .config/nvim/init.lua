@@ -74,24 +74,24 @@ endfunction
 
 -- Themes
 
--- colorscheme molokai
+-- vim.cmd.colorscheme('molokai')
 -- highlight Folded ctermfg=204
 
--- colorscheme synthwave
+-- vim.cmd.colorscheme('synthwave')
 -- highlight Folded ctermfg=204
 -- highlight Folded ctermbg=000
 
--- colorscheme badwolf
--- vim.cmd.colorscheme'moonfly'
--- vim.cmd.colorscheme'amora'
--- vim.cmd.colorscheme'archery'
+-- vim.cmd.colorscheme('badwolf')
+-- vim.cmd.colorscheme('moonfly')
+-- vim.cmd.colorscheme('amora')
+-- vim.cmd.colorscheme('archery')
 vim.cmd.colorscheme('OceanicNext')
--- vim.cmd.colorscheme 'dracula'
--- vim.cmd.colorscheme 'tokyonight'
--- colorscheme gruvbox
+-- vim.cmd.colorscheme('dracula')
+-- vim.cmd.colorscheme('tokyonight')
+-- vim.cmd.colorscheme('gruvbox')
 
+-- vim.cmd.colorscheme('onedark')
 --let g:onedark_config = { 'style': 'deep', }
---colorscheme onedark
 
 -- Custom commands
 
