@@ -1,15 +1,15 @@
 -- Install plugin manager
 
-local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
+local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
-    vim.fn.system {
+    vim.fn.system({
         'git',
         'clone',
         '--filter=blob:none',
         '--single-branch',
         'https://github.com/folke/lazy.nvim.git',
         lazypath,
-    }
+    })
 end
 vim.opt.runtimepath:prepend(lazypath)
 
@@ -58,19 +58,19 @@ require('lazy').setup({
     'morhetz/gruvbox',
     'navarasu/onedark.nvim',
 }, {
-    lockfile = vim.fn.stdpath 'state' .. 'lazy/lazy-lock.json',
+    lockfile = vim.fn.stdpath('state') .. 'lazy/lazy-lock.json',
 })
 
 -- Helper functions
 
 -- Create command line abbreviations with wanted behavior.
 -- This will only change a command if it's at the start of the command line.
-vim.cmd [[
+vim.cmd([[
 function! Cabbrev(lhs, rhs) abort
   exe printf("cnoreabbrev <expr>%s (getcmdtype()==#':'&&getcmdline()==#'%s')?'%s':'%s'",
     \ a:lhs, a:lhs, a:rhs, a:lhs)
 endfunction
-]]
+]])
 
 -- Themes
 
@@ -85,7 +85,7 @@ endfunction
 -- vim.cmd.colorscheme'moonfly'
 -- vim.cmd.colorscheme'amora'
 -- vim.cmd.colorscheme'archery'
-vim.cmd.colorscheme 'OceanicNext'
+vim.cmd.colorscheme('OceanicNext')
 -- vim.cmd.colorscheme 'dracula'
 -- vim.cmd.colorscheme 'tokyonight'
 -- colorscheme gruvbox
@@ -95,13 +95,13 @@ vim.cmd.colorscheme 'OceanicNext'
 
 -- Custom commands
 
-vim.cmd [[
+vim.cmd([[
 nnoremap <c-z> <nop>
-]]
+]])
 
 -- Abbreviations
 
-vim.cmd [[
+vim.cmd([[
 " Replace "write" with "update"
 call Cabbrev('wq', 'x')
 call Cabbrev('w', 'up')
@@ -112,10 +112,10 @@ call Cabbrev('gs', 'Gitsigns')
 
 " Plugin
 call Cabbrev('lazy', 'Lazy')
-]]
+]])
 
 -- Other
-vim.cmd [[
+vim.cmd([[
 
 " Nicer terminal mappings
 tnoremap <esc> <c-\><c-n>
@@ -126,10 +126,10 @@ let g:loaded_perl_provider = 0
 let g:loaded_ruby_provider = 0
 let g:loaded_node_provider = 0
 let g:loaded_python3_provider = 0
-]]
+]])
 
 -- Options
-vim.cmd [[
+vim.cmd([[
 set shiftwidth=4
 set softtabstop=-1
 set listchars+=tab:<->
@@ -161,10 +161,10 @@ set notimeout
 " Split right and below
 set splitbelow
 set splitright
-]]
+]])
 
 -- Clipboard
-vim.cmd [[
+vim.cmd([[
 nnoremap <leader>y  "+y
 nnoremap <leader>Y  "+y$
 nnoremap <leader>p  "+p
@@ -176,10 +176,10 @@ xnoremap <leader>p  "+p
 xnoremap <leader>P  "+P
 xnoremap <leader>gp "+gp
 xnoremap <leader>gP "+gP
-]]
+]])
 
 -- Plugin configuration
-vim.cmd [[
+vim.cmd([[
 " Disable firenvim by default
 let g:firenvim_config = {'globalSettings': {},'localSettings': {'.*': {'takeover': 'never'},},}
-]]
+]])
