@@ -129,38 +129,39 @@ vim.g.loaded_node_provider = 0
 vim.g.loaded_python3_provider = 0
 
 -- Options
+vim.o.shiftwidth=4
+vim.o.softtabstop=-1
+
+-- Make tabs spaces - required for neovim development
+vim.o.expandtab=true
+
+vim.o.ignorecase=true
+vim.o.smartcase=true
+
+-- Enable true colors.
+vim.o.termguicolors=true
+
+-- Set default font and font size for GUI.
+vim.o.guifont="Fira Code:h11"
+
+-- Enable persistent undo
+vim.o.undofile=true
+
+-- Disable timeout
+vim.o.timeout=false
+
+-- Split right and below
+vim.o.splitbelow=true
+vim.o.splitright=true
+
 vim.cmd([[
-set shiftwidth=4
-set softtabstop=-1
 set listchars+=tab:<->
-
-" Make tabs spaces - required for neovim development
-set expandtab
-
-set ignorecase
-set smartcase
-
-" Enable true colors.
-set termguicolors
-
-" Set default font and font size for GUI.
-set guifont=Fira\ Code:h11
 
 " Disable autopreview when using omnicompletion
 set completeopt-=preview
 
 " Fold max number of identical lines when diffing
 set diffopt=filler,context:1
-
-" Enable persistent undo
-set undofile
-
-" Disable timeout
-set notimeout
-
-" Split right and below
-set splitbelow
-set splitright
 ]])
 
 -- Clipboard
