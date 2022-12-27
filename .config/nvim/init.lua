@@ -90,14 +90,12 @@ endfunction
 -- vim.cmd.colorscheme('tokyonight')
 -- vim.cmd.colorscheme('gruvbox')
 
-vim.g.onedark_config = { style = 'deep', }
+vim.g.onedark_config = { style = 'deep' }
 vim.cmd.colorscheme('onedark')
 
 -- Custom commands
 
-vim.cmd([[
-nnoremap <c-z> <nop>
-]])
+vim.keymap.set('n', '<c-z>', '<nop>')
 
 -- Abbreviations
 
@@ -115,12 +113,12 @@ call Cabbrev('lazy', 'Lazy')
 ]])
 
 -- Other
-vim.cmd([[
 
-" Nicer terminal mappings
-tnoremap <esc> <c-\><c-n>
-autocmd TermOpen * startinsert
-]])
+-- Nicer terminal mappings
+vim.api.nvim_create_autocmd({ 'TermOpen' }, {
+    command = 'startinsert',
+})
+vim.keymap.set('t', '<esc>', '<c-\\><c-n>')
 
 -- Disable providers
 vim.g.loaded_perl_provider = 0
@@ -129,30 +127,30 @@ vim.g.loaded_node_provider = 0
 vim.g.loaded_python3_provider = 0
 
 -- Options
-vim.o.shiftwidth=4
-vim.o.softtabstop=-1
+vim.o.shiftwidth = 4
+vim.o.softtabstop = -1
 
 -- Make tabs spaces - required for neovim development
-vim.o.expandtab=true
+vim.o.expandtab = true
 
-vim.o.ignorecase=true
-vim.o.smartcase=true
+vim.o.ignorecase = true
+vim.o.smartcase = true
 
 -- Enable true colors.
-vim.o.termguicolors=true
+vim.o.termguicolors = true
 
 -- Set default font and font size for GUI.
-vim.o.guifont="Fira Code:h11"
+vim.o.guifont = 'Fira Code:h11'
 
 -- Enable persistent undo
-vim.o.undofile=true
+vim.o.undofile = true
 
 -- Disable timeout
-vim.o.timeout=false
+vim.o.timeout = false
 
 -- Split right and below
-vim.o.splitbelow=true
-vim.o.splitright=true
+vim.o.splitbelow = true
+vim.o.splitright = true
 
 vim.cmd([[
 set listchars+=tab:<->
@@ -165,21 +163,14 @@ set diffopt=filler,context:1
 ]])
 
 -- Clipboard
-vim.cmd([[
-nnoremap <leader>y  "+y
-nnoremap <leader>Y  "+y$
-nnoremap <leader>p  "+p
-nnoremap <leader>P  "+P
-nnoremap <leader>gp "+gp
-nnoremap <leader>gP "+gP
-xnoremap <leader>y  "+y
-xnoremap <leader>p  "+p
-xnoremap <leader>P  "+P
-xnoremap <leader>gp "+gp
-xnoremap <leader>gP "+gP
-]])
+vim.keymap.set({ 'n', 'x' }, '<leader>y', '"+y')
+vim.keymap.set('n', '<leader>Y', '"+y$')
+vim.keymap.set({ 'n', 'x' }, '<leader>p', '"+p')
+vim.keymap.set({ 'n', 'x' }, '<leader>P', '"+P')
+vim.keymap.set({ 'n', 'x' }, '<leader>gp', '"+gp')
+vim.keymap.set({ 'n', 'x' }, '<leader>gP', '"+gP')
 
 -- Plugin configuration
 
 -- Disable firenvim by default
-vim.g.firenvim_config = {globalSettings= {},localSettings= {['.*']= {takeover= 'never'},},}
+vim.g.firenvim_config = { globalSettings = {}, localSettings = { ['.*'] = { takeover = 'never' } } }
