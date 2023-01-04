@@ -37,7 +37,6 @@ require('lazy').setup({
         'powerman/vim-plugin-AnsiEsc',
         cmd = 'AnsiEsc',
     },
-    'gpanders/editorconfig.nvim',
     'tpope/vim-commentary',
     'tpope/vim-surround',
     'farmergreg/vim-lastplace',
