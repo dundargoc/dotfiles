@@ -1,7 +1,6 @@
 # Define helper paths
 set PROG $HOME/programs
 set NVIM $PROG/neovim
-set WORK $HOME/work
 
 # ls
 if type -q exa
