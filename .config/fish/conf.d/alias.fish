@@ -201,9 +201,6 @@ alias rmd="rmdir * 2>/dev/null"
 # Restore dotfiles
 alias restore="git -C $HOME checkout .; reload"
 
-# Download youtube as mp3
-alias yget="youtube-dl --extract-audio --audio-format mp3"
-
 # Brightness
 alias x="brightnessctl set"
 alias x+="brightnessctl set +3%"
