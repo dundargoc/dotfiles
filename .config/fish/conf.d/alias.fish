@@ -155,7 +155,6 @@ alias dm="cd $HOME/.misc"
 alias dn="cd $XDG_CONFIG_HOME/nvim"
 alias dnp="cd $XDG_CONFIG_HOME/nvim/plugin"
 alias c="cd $XDG_CONFIG_HOME"
-alias ft="cd $HOME/ftplugin"
 alias db="cd $HOME/.bin"
 alias dp="cd $HOME/.private-dotfiles"
 
