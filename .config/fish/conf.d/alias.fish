@@ -265,9 +265,6 @@ alias ag "rg --ignore-case --hidden --glob '!.git'"
 # neovim development
 # -------------------------------------------------------------------------
 
-# Upgrade neovim from commandline
-alias up "nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'"
-
 alias clint='$PROG/neovim/src/clint.py'
 alias un='uncrustify -c $PROG/neovim/src/uncrustify.cfg --replace --no-backup'
 alias bun='$PROG/uncrustify/build/uncrustify -c $PROG/neovim/src/uncrustify.cfg --replace --no-backup'
