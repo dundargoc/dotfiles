@@ -132,15 +132,9 @@ alias cdnv="cd $PROG/neovim/src/nvim/testdir"
 alias cdnot="cd $PROG/notdundargoc/neovim"
 alias cdorg="cd $PROG/dundar-organization/neovim"
 
-alias cds="cd $WORK/services/src/services"
-alias cdsr="cd $WORK/services/src/services/chain/execute/runner"
 alias cdt="cd $PROG/nvim-treesitter"
-alias cdspa="cd $WORK/confighub_spa2/cynosure_product_cli"
-alias cdsv="cd $WORK/services/src/services/victoria/ui"
-alias cdsva="cd $WORK/services/src/services/victoria/ui/ui/components/Activity"
 alias cdu="cd $PROG/uncrustify"
 alias cdv="cd $PROG/vim/src"
-alias cdw="cd $HOME/work"
 
 # -------------------------------------------------------------------------
 # goto dotfiles
