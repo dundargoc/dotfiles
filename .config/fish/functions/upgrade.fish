@@ -14,6 +14,7 @@ function upgrade
     end
 
     if type -q nvim
+        nvim --headless "+Lazy! sync" +qa
     end
 
     git -C $HOME pull
