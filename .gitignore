@@ -14,6 +14,9 @@
 # Unlock .bin
 !/.bin
 
+# Ignore
+/.bin/uncrustify
+
 # Unlock .misc
 !/.misc
 
