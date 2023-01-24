@@ -4,6 +4,6 @@ function check
     if [ $repo_path = $HOME ]
         echo "Current repo is \$HOME. Abort."
     else
-        gh pr checkout -R neovim/neovim $argv
+        gh pr checkout $argv
     end
 end
