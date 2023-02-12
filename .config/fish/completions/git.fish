@@ -2288,7 +2288,7 @@ complete -f -c git -n '__fish_git_using_command config' -l show-origin -d 'Show 
 complete -f -c git -n '__fish_git_using_command config' -n '__fish_seen_argument get' -l default -d 'Use default value when missing entry'
 
 ### for-each-ref
-complete -f -c git -n __fish_git_needs_command -a "for-each-ref" -d "Format and output info on each ref"
+complete -f -c git -n __fish_git_needs_command -a for-each-ref -d "Format and output info on each ref"
 complete -f -c git -n '__fish_git_using_command for-each-ref' -l count -d "Limit to n results"
 # Any one of --shell, --perl, --python, or --tcl
 set -l for_each_ref_interpreters shell perl python tcl
