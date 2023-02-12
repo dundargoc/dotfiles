@@ -3,12 +3,12 @@ function cppcheck
     reset
 
     if [ $repo_path = $HOME/programs/uncrustify ]
-        command cppcheck --project=compile_commands.json --enable=all --quiet -j(nproc) --std=c++11 $argv
+        set flags --std=c++11
     else if [ $repo_path = $HOME/programs/neovim ]
-        command cppcheck --project=compile_commands.json --enable=all --quiet -j(nproc) --std=c99 $argv
+        set flags --std=c99
     else if [ $repo_path = $HOME/programs/vim ]
-        command cppcheck --project=compile_commands.json --enable=all --quiet -j(nproc) --std=c99 $argv
-    else
-        command cppcheck --project=compile_commands.json --enable=all --quiet -j(nproc) $argv
+        set flags --std=c99
     end
+
+    command cppcheck --project=compile_commands.json --enable=all --disable=unusedFunction --quiet -j(nproc) $flags $argv
 end
