@@ -5,9 +5,12 @@ set NVIM $PROG/neovim
 # ls
 if type -q exa
     alias ls exa
+    alias la "exa -a"
+    alias ll "exa -l"
+else
+    alias la "ls -A"
+    alias ll "la -l"
 end
-alias la="ls -a"
-alias ll="la -l"
 
 # -------------------------------------------------------------------------
 # OS specific commands
