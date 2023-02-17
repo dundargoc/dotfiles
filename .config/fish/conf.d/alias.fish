@@ -26,7 +26,7 @@ else if grep -iq tumbleweed /etc/os-release
     alias install "sudo zypper install"
     alias show "zypper info"
     alias search "zypper search"
-    alias remove "sudo zypper remove"
+    alias remove "sudo zypper remove --clean-deps"
 else
     # Assume manjaro
 
