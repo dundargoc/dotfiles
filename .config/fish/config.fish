@@ -15,7 +15,7 @@ if type -q vivid
 end
 
 # Change capslock to control
-setxkbmap -option "ctrl:nocaps"
+#setxkbmap -option "ctrl:nocaps"
 
 # Remove the start greeting
 set -U fish_greeting
