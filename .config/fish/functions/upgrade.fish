@@ -9,6 +9,10 @@ function upgrade
         sudo apt upgrade -y
     end
 
+    if type -q zypper
+        sudo zypper update -y
+    end
+
     if type -q paru
         paru -Syu --noconfirm
     end
