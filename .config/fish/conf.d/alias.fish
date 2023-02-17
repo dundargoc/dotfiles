@@ -24,8 +24,9 @@ if grep -iq ubuntu /etc/os-release
     alias prune "sudo apt-get autoremove --yes"
 else if grep -iq tumbleweed /etc/os-release
     alias install "sudo zypper install"
-    alias remove "sudo zypper remove"
+    alias show "zypper info"
     alias search "zypper search"
+    alias remove "sudo zypper remove"
 else
     # Assume manjaro
 
