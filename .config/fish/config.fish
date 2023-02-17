@@ -17,9 +17,6 @@ end
 # Change capslock to control
 setxkbmap -option "ctrl:nocaps"
 
-# Change "paragraph" symbol to escape. Only works on the terminal for now.
-xmodmap -e "keycode 49 = Escape"
-
 # Remove the start greeting
 set -U fish_greeting
 
