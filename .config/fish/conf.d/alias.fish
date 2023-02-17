@@ -286,3 +286,5 @@ alias v '$HOME/programs/vim/bin/vim'
 alias cb "$PROG/CMake/build/bin/cmake"
 alias cm="$EDITOR CMakeLists.txt"
 alias cmd="$EDITOR $NVIM/cmake.deps/CMakeLists.txt"
+
+alias podmannuke "podman image prune --all --external; podman system reset"
