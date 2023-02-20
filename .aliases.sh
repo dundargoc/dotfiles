@@ -8,10 +8,6 @@ if command -v exa &>/dev/null; then
 	alias ls="exa"
 fi
 
-install() {
-	$HOME/.bin/install-arch-package "$@"
-}
-
 alias show="yay -Si"
 alias search="yay -Ss"
 alias fsearch="yay -F"
@@ -123,7 +119,6 @@ alias gs="git status"
 alias gopen="git open"
 
 alias gl1="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
-alias sync="hub sync"
 
 # vim
 alias vi='$EDITOR'
@@ -145,15 +140,12 @@ alias cdnn="cd $NEOVIM/src/nvim"
 alias cdns="cd $NEOVIM/src"
 alias cdp="cd $PROGRAMS"
 alias cdv="cd $PROGRAMS/vim/src"
-alias cdu="cd $PROGRAMS/uncrustify"
-alias cdus="cd $PROGRAMS/uncrustify/src"
 alias d="cd $DOT"
 alias n="cd .config/nvim"
 alias c="cd .config"
 
 #config
 alias ali="$EDITOR $HOME/.aliases.sh"
-alias prc="$EDITOR .config/nvim/plugin/packer.lua"
 alias rc="$EDITOR $HOME/.zshrc"
 alias brc="$EDITOR $HOME/.bashrc"
 alias frc="$EDITOR .config/fish/config.fish"
@@ -187,19 +179,6 @@ fi
 # wifi
 alias wifi="sudo nmtui"
 
-# zsh-only aliases (mostly global aliases)
-if [ -n "$ZSH_VERSION" ]; then
-	alias -g A="| ack -i"
-	alias -g R="| rg -i"
-	alias -g C="| xclip -selection clipboard"
-	alias -g L="| less"
-	alias -g NE="2> /dev/null"
-	alias -g NUL="&> /dev/null"
-
-	# Remove first dollar in commands
-	alias \$=''
-fi
-
 # Safe/verbose ops
 alias rm="rm -iv"
 alias mv="mv -iv"
@@ -223,9 +202,6 @@ alias rmd="rmdir * 2>/dev/null"
 # Restore dotfiles
 alias restore="pushd -q && cd -q $DOT && git checkout . && popd -q && reload"
 
-# Download youtube as mp3
-alias yget="youtube-dl --extract-audio --audio-format mp3"
-
 # Don't record in history.
 alias vlc=" vlc"
 
@@ -241,18 +217,12 @@ alias x-="brightnessctl set 3%-"
 alias xmax="brightnessctl set 100%"
 alias xmin="brightnessctl set 1%"
 
-# Use make without printing the input and automatically use parallel jobs.
+# Use make without printing the input
 alias make="make -s"
 
 # So ag doesn't print "Permission denied"
 alias ag="ag --hidden --smart-case --silent --ignore .git"
 
-# Make commands human-readable.
-alias du="du -h"
-alias df="df -h"
-alias free="free -h"
-
-# Fast tmux
 alias t="tmux"
 
 # Print human-readable PATH and FPATH
@@ -280,36 +250,7 @@ activate() {
 	source $activate_file
 }
 
-alias logout="loginctl terminate-user dundar"
-
-alias hook="cd .git/hooks"
-
-alias ch="reset; shellcheck -x -e SC2086"
-alias chs="ch -S style"
-alias chi="ch -S info"
-alias chw="ch -S warning"
-alias che="ch -S error"
-
-alias q="shellcheck -f diff"
-
-chr() {
-	reset
-	find . -name "*.sh" -exec shellcheck -x -W 0 -e SC2086 "$@" {} \;
-}
-
-chra() {
-	reset
-	find . -type f -exec shellcheck -x -W 0 -e SC2086 "$@" {} \;
-}
-
 alias fo="shfmt -w -s"
-
-lower() {
-	for filename in "$@"; do
-		filename_lower=$(echo $filename | tr '[:upper:]' '[:lower:]')
-		mv -n $filename $filename_lower
-	done
-}
 
 alias rename="perl-rename -i"
 
@@ -328,51 +269,7 @@ mpv() {
 	command mpv ${@:-*}
 }
 
-mp4copy() {
-	ffmpeg -i $1 -c copy ${1%.*}.mp4
-}
-
 alias scc='scc --no-complexity --no-cocomo'
-
-nuke() {
-	if [[ $(pwd) != /home/dundar/programs/nvim-typo ]]; then
-		echo "RUNNING DANGEROUS COMMAND OUTSITE OF TESTING AREA. ABORT"
-		return 1
-	fi
-
-	while read -r branch; do
-		[[ -n $branch ]] || continue
-
-		git push origin --delete "$branch"
-	done <<<"$(git branch --remotes | grep -v "main" | grep -v "master" | grep -v "HEAD" | sed 's|origin/||')"
-
-	while read -r branch; do
-		[[ -n $branch ]] || continue
-
-		git branch -D "$branch"
-	done <<<"$(git branch | grep -v main | grep -v master)"
-}
-
-gooo() {
-	#nuke
-	#branch="$*"
-	#gcbb "$branch"
-	#git commit --allow-empty -m "$branch"
-	#gp
-	#gh pr create --fill
-	#gis master
-
-	nuke
-	branch="$*"
-	gcbb "$branch"
-	sed -i "s|$branch||g" src/nvim/highlight.c
-	git add -A
-	git commit -m "$branch"
-	git push
-	gh pr create --fill
-	gh pr edit --add-label typo
-	git switch master
-}
 
 cleanbuild() (
 	cd $NEOVIM
@@ -395,51 +292,6 @@ buildinstall() {
 	make -C $NEOVIM install
 }
 
-build-uncrustify() {
-	local uncrustify_build_path="$PROGRAMS/uncrustify/build"
-
-	mkdir -p $uncrustify_build_path
-
-	(
-		cd $uncrustify_build_path >/dev/null
-
-		git reset --hard 0dfafb27
-
-		cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Release ..
-		cmake --build .
-	)
-}
-
-build-uncrustify-latest() {
-	local uncrustify_build_path="$PROGRAMS/uncrustify/build"
-
-	mkdir -p $uncrustify_build_path
-
-	(
-		cd $uncrustify_build_path >/dev/null
-
-		git pull
-
-		cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Release ..
-		cmake --build .
-	)
-
-	command cp -f $PROGRAMS/uncrustify/build/compile_commands.json $PROGRAMS/uncrustify/
-}
-
-build-uncrustify-current() {
-	local uncrustify_build_path="$PROGRAMS/uncrustify/build"
-
-	mkdir -p $uncrustify_build_path
-
-	(
-		cd $uncrustify_build_path >/dev/null
-
-		cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Release ..
-		cmake --build .
-	)
-}
-
 build-vim() (
 	local vim_path="$PROGRAMS/vim"
 
@@ -448,132 +300,7 @@ build-vim() (
 	bear -- make -j
 )
 
-alias black="black -C"
-
 alias cl='clang-format -i'
-#alias un='uncrustify -c $NEOVIM/src/uncrustify.cfg --replace --no-backup'
-#alias bun='$PROGRAMS/uncrustify/build/uncrustify -c $NEOVIM/src/uncrustify.cfg --replace --no-backup'
 alias un='$PROGRAMS/uncrustify/build/uncrustify -c $NEOVIM/src/uncrustify.cfg --replace --no-backup'
 alias clint='$NEOVIM/src/clint.py'
-#alias unc-update='uncrustify -c $NEOVIM/src/uncrustify.cfg --update-config-with-doc -o $NEOVIM/src/uncrustify.cfg'
-#alias bunc-update='$PROGRAMS/uncrustify/build/uncrustify -c $NEOVIM/src/uncrustify.cfg --update-config-with-doc -o $NEOVIM/src/uncrustify.cfg'
 alias unc-update='$PROGRAMS/uncrustify/build/uncrustify -c $NEOVIM/src/uncrustify.cfg --update-config-with-doc -o $NEOVIM/src/uncrustify.cfg'
-
-form() (
-	setopt null_glob
-	nvim_path="$NEOVIM/src/nvim"
-	cd "$nvim_path" >/dev/null
-
-	unc-update
-
-	format_files=(**/*.{c,h})
-
-	for i in "${format_files[@]}"; do
-		un "$i" &
-	done
-	wait
-)
-
-tidy() {
-	for i in "$@"; do
-		clang-tidy --config-file "$HOME/.clang-tidy" "$i"
-	done
-}
-
-alias codespell="codespell --config $HOME/.codespellrc"
-
-vs() {
-	while read -r file; do rg -iH "Maintainer:.*$@" $file; done <<<$(codespell | awk -F: '{print $1}' | sort -u)
-}
-
-pre-commit-enable() {
-	root=$(git rev-parse --show-toplevel)
-	hook_path=$root/.git/hooks
-	mv $hook_path/pre-commit-disable $hook_path/pre-commit
-}
-
-pre-commit-disable() {
-	root=$(git rev-parse --show-toplevel)
-	hook_path=$root/.git/hooks
-	mv $hook_path/pre-commit $hook_path/pre-commit-disable
-}
-
-countcast() {
-	for i in char char_u; do
-		rg "\((const)? *$i *\**\)" --stats --quiet **/*.c **/*.h | head -n2
-	done | grep . | awk '{print $1}' | paste -sd+ | bc
-}
-
-vp1() {
-	file="$1"
-	file_basename="$(basename "$1")"
-
-	if [[ $file_basename != *.c && $file_basename != *.h ]]; then
-		return
-	fi
-
-	rm -f after.c before.c
-
-	cp -f $file after.c
-	un after.c
-
-	git uncommit
-
-	cp -f $file before.c
-	un before.c
-
-	diff -Naur before.c after.c >vim-patch
-
-	sed -i "s|before.c|a/src/nvim/$file_basename|" vim-patch
-	sed -i "s|after.c|b/src/nvim/$file_basename|" vim-patch
-
-	mv -f vim-patch $NEOVIM
-
-	(
-		cd $NEOVIM
-		patch -l -p1 -N -t --no-backup-if-mismatch <vim-patch
-	)
-}
-
-vp() {
-	rm -f **/*.rej *.patch
-	version="$1"
-	scripts/vim-patch.sh -p "$version"
-
-	patch -l -p1 -N -t --no-backup-if-mismatch <*.patch
-
-	(
-		cd .vim-src
-		git checkout "$version"
-
-		while read -r file; do
-			git checkout "$version"
-			vp1 "$file"
-		done <<<"$(git diff-tree --no-commit-id --name-only -r $version)"
-
-		git checkout master
-	)
-
-	rm -f vim-patch **/*.orig
-}
-
-profile() {
-	flamegraph --open $NEOVIM/bin/nvim "$@"
-}
-
-build-asan() (
-	cd $NEOVIM
-
-	make CMAKE_INSTALL_PREFIX=$NEOVIM CMAKE_EXTRA_FLAGS="-DCMAKE_C_COMPILER=clang -DCLANG_ASAN_UBSAN=1" CMAKE_BUILD_TYPE=RelWithDebInfo
-	make install
-)
-
-asan() {
-	UBSAN_OPTIONS=print_stacktrace=1 ASAN_OPTIONS=log_path=/tmp/nvim_asan $NEOVIM/bin/nvim "$@"
-}
-
-asan-log() {
-	vi /tmp/nvim_asan
-}
-
-alias dvi="$NEOVIM/bin/nvim"
