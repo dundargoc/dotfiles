@@ -4,7 +4,12 @@ function create
     set repo_path (git rev-parse --show-toplevel)
 
     if [ $repo_path = $HOME/programs/dundar-org/neovim ]
-        echo "Current repo is neodundar. Abort."
+        echo "Currently on neodundar. Abort."
+        return
+    end
+
+    if [ $repo_path = $HOME/programs/dundar-org/nvim-treesitter ]
+        echo "Currently on neodundar. Abort."
         return
     end
 
