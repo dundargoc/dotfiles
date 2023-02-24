@@ -28,7 +28,7 @@ require('lspconfig').lua_ls.setup({
             },
             workspace = {
                 -- Make the server aware of Neovim runtime files
-                library = vim.api.nvim_get_runtime_file('', true),
+                library = vim.api.nvim_get_runtime_file('*.lua', true),
                 maxPreload = 1000,
                 preloadFileSize = 500,
                 checkThirdParty = false,
