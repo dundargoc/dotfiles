@@ -1,7 +1,12 @@
 # Define environment variables
-superset EDITOR nvim
-superset VISUAL nvim
-superset MANPAGER 'nvim +Man!'
+if type -q nvim
+    superset EDITOR nvim
+    superset VISUAL nvim
+    superset MANPAGER 'nvim +Man!'
+else
+    superset EDITOR vim
+    superset VISUAL vim
+end
 
 superset XDG_CONFIG_HOME $HOME/.config
 superset XDG_CACHE_HOME $HOME/.cache
