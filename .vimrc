@@ -139,6 +139,14 @@ endif
 let s:shadadir   = s:datadir  . '/shada'
 let &viminfofile.= s:shadadir . '/viminfo'
 
+" Neovim creates directories if they don't exist
+function! s:MakeDirs()
+  for dir in [&backupdir, &directory, &undodir, &viewdir, s:shadadir]
+    call mkdir(dir, "p")
+  endfor
+endfunction
+autocmd VimEnter * call s:MakeDirs()
+
 """"""""""""""""""""""""""""""""""""""""""""
 " Personal config 
 set undofile
