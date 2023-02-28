@@ -149,4 +149,71 @@ autocmd VimEnter * call s:MakeDirs()
 
 """"""""""""""""""""""""""""""""""""""""""""
 " Personal config 
+
+nnoremap <c-z> <nop>
+
+" Define leader key
+let g:mapleader = ' '
+
+" ------------------------------------
+" Abbreviations
+
+" Helper function to create command line abbreviations with wanted behavior.
+" This will only change a command if it's at the start of the command line.
+function! Cabbrev(lhs, rhs) abort
+  exe printf("cnoreabbrev <expr>%s (getcmdtype()==#':'&&getcmdline()==#'%s')?'%s':'%s'",
+    \ a:lhs, a:lhs, a:rhs, a:lhs)
+endfunction
+
+" Replace "write" with "update"
+call Cabbrev('wq', 'x')
+call Cabbrev('w', 'up')
+
+" ------------------------------------
+" Options
+
+set shiftwidth=4
+set softtabstop=-1
+
+" Make tabs spaces - required for neovim development
+set expandtab
+
+set ignorecase
+set smartcase
+
+" Enable true colors.
+set termguicolors
+
+" Set default font and font size for GUI.
+set guifont=Fira\ Code:h11
+
+" Disable autopreview when using omnicompletion
+set completeopt-=preview
+
+" Fold max number of identical lines when diffing
+set diffopt=filler,context:1
+
+" Enable persistent undo
 set undofile
+
+" Disable timeout
+set notimeout
+
+" Split right and below
+set splitbelow
+set splitright
+
+" ------------------------------------
+" Clipboard
+
+nnoremap <leader>y  "+y
+nnoremap <leader>Y  "+y$
+nnoremap <leader>p  "+p
+nnoremap <leader>P  "+P
+nnoremap <leader>gp "+gp
+nnoremap <leader>gP "+gP
+xnoremap <leader>y  "+y
+xnoremap <leader>p  "+p
+xnoremap <leader>P  "+P
+xnoremap <leader>gp "+gp
+xnoremap <leader>gP "+gP
