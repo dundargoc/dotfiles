@@ -1,4 +1,4 @@
-function fix --argument-names commit
+function fix
     git add -A
-    git commit --no-verify --allow-empty --fixup="$commit"
+    git commit -m "fixup: $argv"
 end
