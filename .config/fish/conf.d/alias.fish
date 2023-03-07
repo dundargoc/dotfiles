@@ -190,11 +190,6 @@ end
 # reload current shell
 alias reload="exec fish"
 
-# Exec new shell
-alias z="exec zsh -o NO_GLOBAL_RCS"
-alias b="exec bash"
-alias f="exec fish"
-
 # wifi
 alias wifi="sudo nmtui"
 
