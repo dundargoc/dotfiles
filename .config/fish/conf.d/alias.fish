@@ -274,7 +274,7 @@ alias fun='$PROG/uncrustify/build/uncrustify -c config.cfg -f test.cpp'
 alias dun='$PROG/uncrustify/build/uncrustify -c config.cfg -f test.cpp -p output.p -L A 2>output.A'
 alias unc-update='uncrustify -c $PROG/neovim/src/uncrustify.cfg --update-config-with-doc -o $PROG/neovim/src/uncrustify.cfg'
 alias bunc-update='$PROG/uncrustify/build/uncrustify -c $PROG/neovim/src/uncrustify.cfg --update-config-with-doc -o $PROG/neovim/src/uncrustify.cfg'
-alias bi "build; buildinstall; $PROG/neovim/bin/nvim"
+alias bi "build; buildinstall; $PROG/neovim/bin/bin/nvim"
 alias swapdel "rm -rf /home/dgoc/.local/share/nvim/swap/*"
 alias clean "rm -rf $PROG/neovim/build"
 alias vimclean "find $PROG/neovim -type f -name '*.rej' -delete; find $PROG/neovim -maxdepth 1 -type f -name '*.patch' -delete; make -C $PROG/neovim/src/nvim/testdir clean"
