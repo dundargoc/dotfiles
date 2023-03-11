@@ -1,0 +1,67 @@
+#!/usr/bin/env python
+
+import subprocess
+
+
+def call(command):
+    return subprocess.call(command.split())
+
+
+def call_shell(command):
+    return subprocess.call(command, shell=True)
+
+
+def co(command):
+    return subprocess.check_output(command.split(), text=True).strip().splitlines()
+
+
+def get_workflow_ids():
+    workflows = co("gh run list --workflow test.yml")
+    workflow_ids = []
+    for line in workflows:
+        line_split = line.split("\t")
+        branch = line_split[4]
+        if branch != "master":
+            continue
+        workflow_ids.append(line_split[6])
+    return workflow_ids
+
+
+def get_total_workflow_duration(id):
+    runs = co(f"gh run view {id}")
+    runs = [i for i in runs if "in" in i]
+    runs = [i for i in runs if "ID" in i]
+    durations = []
+    for run in runs:
+        durations.append(run.split()[-3])
+
+    total_duration = sum(
+        convert_duration_to_seconds(duration) for duration in durations
+    )
+    return total_duration
+
+
+def convert_duration_to_seconds(duration_str):
+    duration_list = duration_str.split("m")
+    minutes = 0
+
+    if len(duration_list) == 2:
+        minutes = int(duration_list[0])
+        seconds_str = duration_list[1]
+    else:
+        seconds_str = duration_list[0]
+
+    seconds = int(seconds_str.split("s")[0])
+    duration = minutes * 60 + seconds
+
+    return duration
+
+
+def main():
+    workflow_ids = get_workflow_ids()
+    for id in workflow_ids:
+        print(get_total_workflow_duration(id))
+
+
+if __name__ == "__main__":
+    main()
