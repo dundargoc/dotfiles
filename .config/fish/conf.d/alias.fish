@@ -146,7 +146,6 @@ alias cdnot="cd $PROG/notdundargoc/neovim"
 alias cdorg="cd $PROG/dundar-organization/neovim"
 alias cdl "cd $HOME/.local/share/nvim/lazy"
 
-alias cdt="cd $PROG/nvim-treesitter"
 alias cdu="cd $PROG/uncrustify"
 alias cdv="cd $PROG/vim/src"
 
