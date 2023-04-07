@@ -2,5 +2,9 @@
 # doing this, but couldn't find anything.
 
 function gpatch
-    git format-patch $argv~1..$argv
+    if count $argv >/dev/null
+        git format-patch $argv~1..$argv
+    else
+        git format-patch HEAD~1..HEAD
+    end
 end
