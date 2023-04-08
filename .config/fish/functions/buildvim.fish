@@ -1,4 +1,4 @@
-function build-vim
+function buildvim
     set -x CC clang
     set vim_path "$HOME/programs/vim"
     if type -q compiledb
