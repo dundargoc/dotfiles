@@ -51,8 +51,6 @@ require('lazy').setup({
         'dracula/vim',
         name = 'dracula',
     },
-    'owozsh/amora',
-    'tomasr/molokai',
     'sjl/badwolf',
     'Badacadabra/vim-archery',
     'mhartington/oceanic-next',
@@ -77,14 +75,12 @@ endfunction
 
 -- Themes
 
-vim.cmd.colorscheme('molokai')
 -- vim.cmd.colorscheme('badwolf')
 -- vim.cmd.colorscheme('moonfly')
--- vim.cmd.colorscheme('amora')
 -- vim.cmd.colorscheme('archery')
 -- vim.cmd.colorscheme('OceanicNext')
 -- vim.cmd.colorscheme('dracula')
--- vim.cmd.colorscheme('tokyonight')
+vim.cmd.colorscheme('tokyonight')
 -- vim.cmd.colorscheme('gruvbox')
 
 -- vim.g.onedark_config = { style = 'deep' }
