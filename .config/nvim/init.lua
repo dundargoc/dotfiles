@@ -54,7 +54,6 @@ require('lazy').setup({
     'owozsh/amora',
     'tomasr/molokai',
     'sjl/badwolf',
-    'TroyFletcher/vim-colors-synthwave',
     'Badacadabra/vim-archery',
     'mhartington/oceanic-next',
     'bluz71/vim-moonfly-colors',
@@ -78,13 +77,7 @@ endfunction
 
 -- Themes
 
--- vim.cmd.colorscheme('molokai')
--- highlight Folded ctermfg=204
-
--- vim.cmd.colorscheme('synthwave')
--- highlight Folded ctermfg=204
--- highlight Folded ctermbg=000
-
+vim.cmd.colorscheme('molokai')
 -- vim.cmd.colorscheme('badwolf')
 -- vim.cmd.colorscheme('moonfly')
 -- vim.cmd.colorscheme('amora')
@@ -94,8 +87,8 @@ endfunction
 -- vim.cmd.colorscheme('tokyonight')
 -- vim.cmd.colorscheme('gruvbox')
 
-vim.g.onedark_config = { style = 'deep' }
-vim.cmd.colorscheme('onedark')
+-- vim.g.onedark_config = { style = 'deep' }
+-- vim.cmd.colorscheme('onedark')
 
 -- Custom commands
 
