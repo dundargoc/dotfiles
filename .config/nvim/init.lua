@@ -80,7 +80,7 @@ endfunction
 -- vim.cmd.colorscheme('archery')
 -- vim.cmd.colorscheme('OceanicNext')
 -- vim.cmd.colorscheme('dracula')
-vim.cmd.colorscheme('tokyonight')
+vim.cmd.colorscheme('tokyonight-moon')
 -- vim.cmd.colorscheme('gruvbox')
 
 -- vim.g.onedark_config = { style = 'deep' }
