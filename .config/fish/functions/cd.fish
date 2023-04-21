@@ -1,4 +1,3 @@
 function cd
-    builtin cd $argv
-    la
+    builtin cd $argv && la
 end
