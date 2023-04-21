@@ -191,9 +191,6 @@ alias reload="exec fish"
 # wifi
 alias wifi="sudo nmtui"
 
-# Make "dangerous" operations interactive
-alias rm="rm -i"
-
 alias mkdir="mkdir -p"
 
 # xclip
