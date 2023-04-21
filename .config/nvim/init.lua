@@ -104,6 +104,8 @@ call Cabbrev('gs', 'Gitsigns')
 " Plugin
 call Cabbrev('lazy', 'Lazy')
 call Cabbrev('up', 'Lazy update')
+
+call Cabbrev('man', 'Man')
 ]])
 
 -- Other
