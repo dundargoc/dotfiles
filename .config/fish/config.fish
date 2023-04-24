@@ -50,21 +50,7 @@ bind yy fish_clipboard_copy
 fish_add_path $HOME/.bin
 fish_add_path $HOME/.bin/*/bin
 fish_add_path $HOME/.cargo/bin
+
 fish_add_path /home/linuxbrew/.linuxbrew/bin
 fish_add_path /home/linuxbrew/.linuxbrew/sbin
-
-if contains -i /home/linuxbrew/.linuxbrew/sbin $PATH >/dev/null
-    set index (contains -i /home/linuxbrew/.linuxbrew/sbin $PATH)
-    set tmp_path $PATH[$index]
-    set -e PATH[$index]
-    set PATH $PATH $tmp_path
-end
-
-if contains -i /home/linuxbrew/.linuxbrew/bin $PATH >/dev/null
-    set index (contains -i /home/linuxbrew/.linuxbrew/bin $PATH)
-    set tmp_path $PATH[$index]
-    set -e PATH[$index]
-    set PATH $PATH $tmp_path
-end
-
 set fish_complete_path $fish_complete_path /home/linuxbrew/.linuxbrew/share/fish/vendor_completions.d
