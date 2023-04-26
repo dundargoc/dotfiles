@@ -18,6 +18,10 @@ vim.g.mapleader = ' '
 
 require('lazy').setup({
     {
+        'nvim-telescope/telescope.nvim',
+        dependencies = { 'nvim-lua/plenary.nvim' },
+    },
+    {
         'williamboman/mason.nvim',
         build = ':MasonUpdate',
         config = true,
