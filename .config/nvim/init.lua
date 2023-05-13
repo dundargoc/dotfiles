@@ -84,8 +84,8 @@ endfunction
 -- vim.cmd.colorscheme('dracula')
 -- vim.cmd.colorscheme('gruvbox')
 
--- vim.g.onedark_config = { style = 'deep' }
--- vim.cmd.colorscheme('onedark')
+vim.g.onedark_config = { style = 'deep' }
+vim.cmd.colorscheme('onedark')
 
 -- Custom commands
 
