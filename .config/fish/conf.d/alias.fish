@@ -16,7 +16,14 @@ end
 # OS specific commands
 # -------------------------------------------------------------------------
 
-if grep -iq ubuntu /etc/os-release
+if ! test -e /etc/os-release
+    # Assume mac
+    alias install "brew install"
+    alias show "brew info"
+    alias search "brew search"
+    alias remove "brew remove"
+    alias prune "brew autoremove"
+else if grep -iq ubuntu /etc/os-release
     alias install "sudo apt install"
     alias show "apt show"
     alias search "apt search"
