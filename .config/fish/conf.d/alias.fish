@@ -221,7 +221,7 @@ alias free="free -h"
 alias t="tmux"
 
 # Print human-readable PATH
-alias path='echo $PATH | tr " " "\n"'
+#alias path='echo $PATH | tr " " "\n"'
 
 alias logout="loginctl terminate-user dundar"
 
