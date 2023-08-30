@@ -5,8 +5,10 @@ function upgrade
     end
 
     if type -q apt
-        sudo apt update
-        sudo apt upgrade -y
+        if test (uname) != Darwin
+            sudo apt update
+            sudo apt upgrade -y
+        end
     end
 
     if type -q zypper
