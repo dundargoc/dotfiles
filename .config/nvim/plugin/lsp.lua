@@ -16,29 +16,14 @@ lspconfig.lua_ls.setup({
                 version = 'LuaJIT',
             },
             diagnostics = {
-                -- Get the language server to recognize the `vim` global
-                globals = {
-                    -- neovim
-                    'vim',
-                    'capabilities',
-                    -- busted
-                    'after_each',
-                    'before_each',
-                    'context',
-                    'describe',
-                    'it',
-                    'setup',
-                    'teardown',
-                    'pending',
-                    'copcall',
-                },
                 disable = { 'lowercase-global', 'assign-type-mismatch', 'missing-parameter' },
             },
             workspace = {
-                -- Make the server aware of Neovim runtime files
-                library = vim.api.nvim_get_runtime_file('*.lua', true),
-                maxPreload = 1000,
-                preloadFileSize = 500,
+                library = {
+                    vim.env.VIMRUNTIME,
+                    "${3rd}/busted/library",
+                    "${3rd}/luv/library"
+                },
                 checkThirdParty = false,
             },
             completion = { callSnippet = 'Replace', showWord = 'Disable' },
