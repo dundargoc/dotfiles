@@ -22,7 +22,7 @@ if ! test -e /etc/os-release
     alias show "brew info"
     alias search "brew search"
     alias remove "brew remove"
-    alias prune "brew autoremove"
+    alias prune "brew autoremove && brew cleanup"
 else if grep -iq ubuntu /etc/os-release
     alias install "sudo apt install"
     alias show "apt show"
