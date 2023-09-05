@@ -1,5 +1,6 @@
 local lspconfig = require('lspconfig')
 
+lspconfig.rust_analyzer.setup {}
 lspconfig.vimls.setup {}
 lspconfig.clangd.setup {}
 lspconfig.bashls.setup {}
