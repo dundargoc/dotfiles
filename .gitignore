@@ -11,8 +11,9 @@
 !/.config/kitty
 !/.config/polybar
 
-# Unlock .misc
+# Unlock
 !/.misc
+!/.emacs.d
 
 # Ignore fish_variables that get generated
 /.config/fish/fish_variables
