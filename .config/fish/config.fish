@@ -56,3 +56,4 @@ fish_add_path /home/linuxbrew/.linuxbrew/sbin
 set fish_complete_path $fish_complete_path /home/linuxbrew/.linuxbrew/share/fish/vendor_completions.d
 
 fish_add_path /opt/homebrew/bin
+fish_add_path /opt/homebrew/opt/llvm/bin
