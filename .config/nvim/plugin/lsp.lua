@@ -1,6 +1,8 @@
 local lspconfig = require('lspconfig')
 
-lspconfig.rust_analyzer.setup {}
+lspconfig.rust_analyzer.setup {
+    settings = { ['rust-analyzer'] = { check = { command = 'clippy' } } },
+}
 lspconfig.vimls.setup {}
 lspconfig.clangd.setup {}
 lspconfig.bashls.setup {}
