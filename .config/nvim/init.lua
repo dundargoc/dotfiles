@@ -25,7 +25,6 @@ require('lazy').setup({
         config = true,
     },
     'lewis6991/gitsigns.nvim',
-    'tpope/vim-fugitive',
     'edkolev/tmuxline.vim',
     'christoomey/vim-tmux-navigator',
     {
@@ -46,6 +45,8 @@ require('lazy').setup({
     },
     'tpope/vim-commentary',
     'tpope/vim-surround',
+    'tpope/vim-fugitive',
+    'tpope/vim-rhubarb',
     'farmergreg/vim-lastplace',
 
     -- Themes
