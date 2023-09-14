@@ -103,6 +103,9 @@ call Cabbrev('w', 'up')
 call Cabbrev('gb', 'G blame')
 call Cabbrev('gs', 'Gitsigns')
 
+" rhubarb
+call Cabbrev('go', '.GBrowse')
+
 " Plugin
 call Cabbrev('lazy', 'Lazy')
 call Cabbrev('up', 'Lazy update')
