@@ -3,10 +3,10 @@ set PROG $HOME/programs
 set NVIM $PROG/neovim
 
 # ls
-if type -q exa
-    alias ls exa
-    alias la "exa -a"
-    alias ll "exa -l"
+if type -q eza
+    alias ls eza
+    alias la "eza -a"
+    alias ll "eza -l"
 else
     alias la "ls -A"
     alias ll "la -l"
