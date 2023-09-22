@@ -6,7 +6,7 @@ function s
     git -C $repo_path fetch origin --tags --force --prune
     git -C $repo_path pull
 
-    if git ls-remote --exit-code upstream 2>/dev/null
+    if git ls-remote --exit-code upstream &>/dev/null
         git -C $repo_path fetch upstream --tags --force --prune
         git -C $repo_path rebase upstream/$default_branch $default_branch
     end
