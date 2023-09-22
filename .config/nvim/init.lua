@@ -111,6 +111,8 @@ call Cabbrev('lazy', 'Lazy')
 call Cabbrev('up', 'Lazy update')
 
 call Cabbrev('man', 'Man')
+
+call Cabbrev('mason', 'Mason')
 ]])
 
 -- Other
