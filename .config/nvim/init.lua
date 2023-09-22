@@ -91,6 +91,7 @@ vim.cmd.colorscheme('onedark')
 -- Custom commands
 
 vim.keymap.set('n', '<c-z>', '<nop>')
+vim.keymap.set( 'n', '<leader>s', ':%s/\\s\\+$//e<enter>')
 
 -- Abbreviations
 
