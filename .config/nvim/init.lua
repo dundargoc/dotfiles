@@ -133,7 +133,6 @@ vim.g.loaded_python3_provider = 0
 vim.o.shiftwidth = 4
 vim.o.softtabstop = -1
 
--- Make tabs spaces - required for neovim development
 vim.o.expandtab = true
 
 vim.o.ignorecase = true
