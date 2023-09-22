@@ -217,3 +217,6 @@ xnoremap <leader>p  "+p
 xnoremap <leader>P  "+P
 xnoremap <leader>gp "+gp
 xnoremap <leader>gP "+gP
+
+" ------------------------------------
+au BufNewFile,BufRead Jenkinsfile setf groovy
