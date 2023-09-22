@@ -222,3 +222,5 @@ xnoremap <leader>gP "+gP
 
 " ------------------------------------
 au BufNewFile,BufRead Jenkinsfile setf groovy
+
+nnoremap <leader>s :%s/\s\+$//e<cr>
