@@ -1,5 +1,8 @@
 #!/bin/bash
 
+if command -v nvim &>/dev/null; then
+        export EDITOR=vim
+fi
 DOT="$HOME"/.dotfiles
 PROGRAMS="$HOME"/programs
 NEOVIM="$PROGRAMS"/neovim
