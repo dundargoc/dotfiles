@@ -6,7 +6,7 @@ local telescope = function(f)
     end
 end
 
-local teletable = { ff = 'find_files', fg = 'live_grep', fb = 'buffers' }
+local teletable = { ff = 'find_files', fg = 'live_grep', fb = 'buffers', fh = 'grep_string' }
 
 for k, v in pairs(teletable) do
     vim.keymap.set('n', '<leader>' .. k, telescope(v))
