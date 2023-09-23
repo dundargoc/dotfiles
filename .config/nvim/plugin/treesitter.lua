@@ -4,4 +4,16 @@ require('nvim-treesitter.configs').setup({
         enable = true,
         disable = { 'cmake' },
     },
+    ensure_installed = {
+        "bash",
+        "c",
+        "javascript",
+        "lua",
+        "markdown",
+        "python",
+        "query",
+        "vim",
+        "vimdoc",
+        "yaml",
+    },
 })
