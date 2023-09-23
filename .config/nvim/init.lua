@@ -24,6 +24,14 @@ require('lazy').setup({
         build = ':MasonUpdate',
         config = true,
     },
+    {
+        'williamboman/mason-lspconfig.nvim',
+        opts = {
+            ensure_installed = {
+                "bashls", "clangd", "cmake", "jsonls", "lua_ls", "pyright", "rust_analyzer", "vimls", "yamlls"
+            },
+        },
+    },
     'lewis6991/gitsigns.nvim',
     'edkolev/tmuxline.vim',
     'christoomey/vim-tmux-navigator',
@@ -91,7 +99,7 @@ vim.cmd.colorscheme('onedark')
 -- Custom commands
 
 vim.keymap.set('n', '<c-z>', '<nop>')
-vim.keymap.set( 'n', '<leader>s', ':%s/\\s\\+$//e<enter>')
+vim.keymap.set('n', '<leader>s', ':%s/\\s\\+$//e<enter>')
 
 -- Abbreviations
 
