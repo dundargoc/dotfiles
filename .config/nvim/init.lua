@@ -51,11 +51,12 @@ require('lazy').setup({
         'powerman/vim-plugin-AnsiEsc',
         cmd = 'AnsiEsc',
     },
-    'tpope/vim-commentary',
     'tpope/vim-surround',
     'tpope/vim-fugitive',
     'tpope/vim-rhubarb',
     'farmergreg/vim-lastplace',
+
+    'echasnovski/mini.nvim',
 
     -- Themes
     {
