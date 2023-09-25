@@ -20,3 +20,4 @@ require('mini.operators').setup({
         prefix = '',
     },
 })
+require('mini.splitjoin').setup()
