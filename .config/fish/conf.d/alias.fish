@@ -183,7 +183,7 @@ alias bsprc="$EDITOR $XDG_CONFIG_HOME/bspwm/bspwmrc"
 alias sxhrc="$EDITOR $XDG_CONFIG_HOME/sxhkd/sxhkdrc"
 alias trc="$EDITOR $HOME/.tmux.conf"
 alias grc="$EDITOR $HOME/.gitconfig"
-alias lsprc="$EDITOR $XDG_CONFIG_HOME/nvim/plugin/lsp/lsp.lua"
+alias lsprc="$EDITOR $XDG_CONFIG_HOME/nvim/plugin/lsp.lua"
 alias treerc="$EDITOR $XDG_CONFIG_HOME/nvim/plugin/treesitter.lua"
 
 if type -q nvim
