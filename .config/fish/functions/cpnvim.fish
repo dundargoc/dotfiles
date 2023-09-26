@@ -1,3 +1,4 @@
 function cpnvim
-	cp -r $HOME/.config
+    nukenvim
+    cp -r nvim $HOME/.config
 end
