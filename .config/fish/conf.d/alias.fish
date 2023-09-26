@@ -112,7 +112,7 @@ alias old "git bisect old"
 alias new "git bisect new"
 alias bisect "git bisect start"
 
-alias fork "gh repo fork"
+alias fork "gh repo fork --default-branch-only"
 
 alias stash "git stash"
 alias pop "git stash pop"
