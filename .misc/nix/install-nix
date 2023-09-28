@@ -1,3 +1,8 @@
 #!/bin/bash
 
-sh <(curl -L https://nixos.org/nix/install) --no-daemon
+if ! test -e /etc/os-release; then
+    # Assume mac
+    sh <(curl -L https://nixos.org/nix/install)
+else
+    sh <(curl -L https://nixos.org/nix/install) --no-daemon
+fi
