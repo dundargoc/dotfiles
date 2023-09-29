@@ -88,8 +88,6 @@ main() {
 	# Exit if shell isn't interactive
 	[[ $- != *i* ]] && return
 
-	EDITOR=nvim
-
 	ChangeWindowTitle
 	EnableColors
 

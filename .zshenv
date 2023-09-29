@@ -8,9 +8,6 @@ HISTFILE=$XDG_CACHE_HOME/zhistory # The path to the history file.
 HISTSIZE=10000                    # The maximum number of events to save in the internal history.
 export SAVEHIST=10000             # The maximum number of events to save in the history file.
 
-export EDITOR=nvim # Set neovim as default editor.
-export VISUAL=nvim # Set neovim as default reader.
-
 path+=("$HOME/.bin" "$GEM_HOME/bin")
 
 if [ -e /home/dundar/.nix-profile/etc/profile.d/nix.sh ]; then 
