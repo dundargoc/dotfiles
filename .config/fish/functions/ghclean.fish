@@ -5,5 +5,4 @@ function ghclean
     for branch in $merged_branches
         gbdd (string trim $branch)
     end
-
 end
