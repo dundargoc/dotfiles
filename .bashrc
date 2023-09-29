@@ -105,6 +105,8 @@ main() {
 
 	shopt -s expand_aliases
 
+	shopt -s autocd # Allow .. without getting "command not found"
+
 	# export QT_SELECT=4
 
 	# Enable history appending instead of overwriting.  #139609
