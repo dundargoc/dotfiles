@@ -2,6 +2,12 @@ function cppcheck
     set repo_path (git rev-parse --show-toplevel)
     reset
 
+    if test (uname) = Darwin
+        set cores (sysctl -n hw.logicalcpu)
+    else
+        set cores (nproc)
+    end
+
     if [ $repo_path = $HOME/programs/uncrustify ]
         set flags --std=c++11
     else if [ $repo_path = $HOME/programs/neovim ]
@@ -10,5 +16,5 @@ function cppcheck
         set flags --std=c99
     end
 
-    command cppcheck --project=compile_commands.json --enable=all --disable=unusedFunction --quiet -j(nproc) $flags $argv
+    command cppcheck --project=compile_commands.json --enable=all --disable=unusedFunction --quiet -j$cores $flags $argv
 end
