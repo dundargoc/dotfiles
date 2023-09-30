@@ -152,7 +152,7 @@ vim.o.smartcase = true
 vim.o.termguicolors = true
 
 -- Set default font and font size for GUI.
-vim.o.guifont = 'Fira Code:h11'
+vim.o.guifont = 'Fira Code:h15'
 
 -- Enable persistent undo
 vim.o.undofile = true
