@@ -72,5 +72,5 @@ function cppcheck
     end
 
     command cppcheck --project=compile_commands.json --enable=all --disable=unusedFunction --suppress=missingIncludeSystem --suppress=missingInclude \
-        $suppress_list --quiet -j$cores $flags $argv
+        $suppress_list --check-level=exhaustive --quiet -j$cores $flags $argv
 end
