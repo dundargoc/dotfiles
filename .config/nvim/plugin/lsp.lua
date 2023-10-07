@@ -8,7 +8,6 @@ lspconfig.clangd.setup {}
 lspconfig.bashls.setup {}
 lspconfig.jsonls.setup {}
 lspconfig.pyright.setup {}
-lspconfig.cmake.setup {}
 
 lspconfig.lua_ls.setup({
     root_dir = require('lspconfig').util.root_pattern({ '.git', 'init.vim' }),
