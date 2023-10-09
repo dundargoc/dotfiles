@@ -4,6 +4,7 @@ function cppcheck
     if test "$USE_SUPPRESS_LIST" = true
         set suppress_list \
             --suppress=AssignmentIntegerToAddress \
+            --suppress=arrayIndexOutOfBounds \
             --suppress=arrayIndexOutOfBoundsCond \
             --suppress=assignBoolToPointer \
             --suppress=autoVariables \
@@ -50,6 +51,7 @@ function cppcheck
             --suppress=redundantPointerOp \
             --suppress=returnDanglingLifetime \
             --suppress=shadowFunction \
+            --suppress=shadowVariable \
             --suppress=signConversion \
             --suppress=sizeofDivisionMemfunc \
             --suppress=sizeofwithnumericparameter \
