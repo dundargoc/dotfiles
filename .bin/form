@@ -1,47 +1,33 @@
 #!/bin/bash
-shopt -s globstar
 
-repo_path="$(git rev-parse --show-toplevel)"
+while (($# > 0)); do
+  case $1 in
+  --all) # format all files
+    ALL=1
+    shift
+    ;;
+  esac
+done
 
-if [[ $repo_path = $HOME/programs/uncrustify ]]; then
-    repo_path="$HOME/programs/uncrustify"
-    source_path="$HOME/programs/uncrustify/src"
-    config_path="$HOME/programs/uncrustify/forUncrustifySources.cfg"
-    grep_pattern='\.(cpp|h)$'
-    format_files=($source_path/**/*.{cpp,h})
-else
-    repo_path="$HOME/programs/neovim/src/nvim"
-    source_path="$HOME/programs/neovim/src/nvim"
-    config_path="$HOME/programs/neovim/src/uncrustify.cfg"
-    grep_pattern='\.[ch]$'
-    format_files=($source_path/**/*.{c,h})
+repo_path="$HOME/programs/neovim"
+source_path="$HOME/programs/neovim/src/nvim"
+config_path="$HOME/programs/neovim/src/uncrustify.cfg"
+grep_pattern='\.[ch]$'
+format_files=($(find "$source_path" -name '*.[h,c]'))
+
+default_branch=$(git -C "$repo_path" rev-parse --abbrev-ref origin/HEAD | sed 's|origin/||')
+current_branch=$(git -C "$repo_path" branch --show-current)
+
+if [[ $default_branch != "$current_branch" ]] && [[ -z $ALL ]]; then
+    ancestor_commit=$(git -C "$repo_path" merge-base "$default_branch" "$current_branch")
+    files=$(git -C "$repo_path" diff --name-only --line-prefix="$repo_path"/ "$ancestor_commit"..."$current_branch")
+    files2=$(git -C "$repo_path" diff --name-only --line-prefix="$repo_path"/)
+    files3=$(git -C "$repo_path" diff --cached --name-only --line-prefix="$repo_path"/)
+    format_files=( $files $files2 $files3 )
+    format_files=($(echo "${format_files[@]}" | tr ' ' '\n'  | grep -E "$grep_pattern" | sort -u | tr '\n' ' '))
 fi
 
-(
-    # cd to nvim due to small bug in uncrustify:
-    # adds an extra space after "#include <math.h>" in math.c
-    cd $repo_path >/dev/null || exit
-
-    default_branch=$(git rev-parse --abbrev-ref origin/HEAD | sed 's|origin/||')
-    current_branch=$(git branch --show-current)
-
-    if [[ $default_branch != "$current_branch" ]]; then
-        ancestor_commit=$(git merge-base $default_branch $current_branch)
-        files=$(git diff --name-only $ancestor_commit...$current_branch | sed 's|src/nvim/||' | grep -E "$grep_pattern")
-        files2=$(git diff --name-only | sed 's|src/nvim/||' | grep -E "$grep_pattern")
-        files3=$(git diff --cached --name-only | sed 's|src/nvim/||' | grep -E "$grep_pattern")
-        format_files=( $files $files2 $files3 )
-        format_files=($(echo "${format_files[@]}" | tr ' ' '\n' | sort -u | tr '\n' ' '))
-    fi
-
-    for i in "${format_files[@]}"; do
-	    uncrustify -c "$config_path" --replace --no-backup "$i" &
-    done
-    wait
-)
-
-
-if [[ $repo_path = $HOME/programs/uncrustify ]]; then
-    git restore "$source_path"/ChunkStack.h
-    git restore "$source_path"/enum_flags.h
-fi
+for i in "${format_files[@]}"; do
+        uncrustify -c "$config_path" --replace --no-backup "$i" &
+done
+wait

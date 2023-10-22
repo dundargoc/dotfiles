@@ -285,6 +285,7 @@ alias clean "rm -rf $PROG/neovim/build"
 alias vimclean "find $PROG/neovim -type f -name '*.rej' -delete; find $PROG/neovim -maxdepth 1 -type f -name '*.patch' -delete; make -C $PROG/neovim/src/nvim/testdir clean"
 alias cvim "nvim --clean"
 alias v '$HOME/programs/vim/bin/vim'
+alias forma "form --all"
 
 # cmake
 alias cb "$PROG/CMake/build/bin/cmake"
