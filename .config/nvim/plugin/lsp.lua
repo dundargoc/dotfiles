@@ -8,6 +8,7 @@ lspconfig.clangd.setup {}
 lspconfig.bashls.setup {}
 lspconfig.jsonls.setup {}
 lspconfig.pyright.setup {}
+lspconfig.yamlls.setup {}
 
 lspconfig.lua_ls.setup({
     root_dir = require('lspconfig').util.root_pattern({ '.git', 'init.vim' }),
@@ -39,15 +40,6 @@ lspconfig.groovyls.setup({
         '-jar',
         os.getenv('HOME')
         .. '/.local/share/nvim/mason/packages/groovy-language-server/build/libs/groovy-language-server-all.jar',
-    },
-})
-
-lspconfig.yamlls.setup({
-    settings = {
-        yaml = {
-            -- This should be fixed in yaml-language-server version >1.12.0
-            keyOrdering = false,
-        },
     },
 })
 
