@@ -239,8 +239,6 @@ alias detox="detox -s lower"
 
 alias scc='scc --no-complexity --no-cocomo'
 
-alias black="black -C"
-
 alias codespell="reset; command codespell -H --config $HOME/.codespellrc --ignore-words=$HOME/.codespell-ignorewords"
 alias typos="reset; command typos --config $HOME/.config/typos.toml"
 
