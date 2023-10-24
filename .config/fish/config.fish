@@ -47,16 +47,20 @@ bind yy fish_clipboard_copy
 # --------------------------
 # Add paths and reorder them
 # --------------------------
-if type -q fish_add_path
-    fish_add_path $HOME/.bin
-    fish_add_path $HOME/.bin/*/bin
-    fish_add_path $HOME/.cargo/bin
-    fish_add_path $HOME/.local/bin
-
-    fish_add_path /home/linuxbrew/.linuxbrew/bin
-    fish_add_path /home/linuxbrew/.linuxbrew/sbin
-    set fish_complete_path $fish_complete_path /home/linuxbrew/.linuxbrew/share/fish/vendor_completions.d
-
-    fish_add_path /opt/homebrew/bin
-    fish_add_path /opt/homebrew/opt/llvm/bin
+if not type -q fish_add_path
+    function fish_add_path
+        contains $argv $fish_user_paths; or set -Ua fish_user_paths $argv
+    end
 end
+
+fish_add_path $HOME/.bin
+fish_add_path $HOME/.bin/*/bin
+fish_add_path $HOME/.cargo/bin
+fish_add_path $HOME/.local/bin
+
+fish_add_path /home/linuxbrew/.linuxbrew/bin
+fish_add_path /home/linuxbrew/.linuxbrew/sbin
+set fish_complete_path $fish_complete_path /home/linuxbrew/.linuxbrew/share/fish/vendor_completions.d
+
+fish_add_path /opt/homebrew/bin
+fish_add_path /opt/homebrew/opt/llvm/bin
