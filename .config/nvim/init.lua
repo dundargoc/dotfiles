@@ -71,7 +71,7 @@ require('lazy').setup({
     'morhetz/gruvbox',
     'navarasu/onedark.nvim',
 }, {
-    lockfile = vim.fn.stdpath('state') .. 'lazy/lazy-lock.json',
+    lockfile = vim.fn.stdpath('state') .. '/lazy/lazy-lock.json',
 })
 
 -- Helper functions
