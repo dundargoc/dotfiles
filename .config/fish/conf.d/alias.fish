@@ -28,7 +28,13 @@ else if grep -iq ubuntu /etc/os-release
     alias show "apt show"
     alias search "apt search"
     alias remove "sudo apt purge"
-    alias prune "sudo apt-get autoremove --yes"
+    function prune
+        sudo apt-get autoremove --yes
+        if type -q brew
+            brew autoremove
+            brew cleanup
+        end
+    end
 else if grep -iq tumbleweed /etc/os-release
     alias install "sudo zypper install"
     alias show "zypper info"
