@@ -23,6 +23,6 @@ function upgrade
         nvim --headless "+Lazy! sync" +qa
     end
 
-    git -C $HOME stash && git -C $HOME pull && git -C $HOME stash pop -q
-    git -C $HOME/.private-dotfiles stash && git -C $HOME/.private-dotfiles pull && git -C $HOME/.private-dotfiles stash pop -q
+    git -C $HOME pull
+    git -C $HOME/.private-dotfiles pull
 end
