@@ -193,6 +193,7 @@ alias trc="$EDITOR $HOME/.tmux.conf"
 alias grc="$EDITOR $HOME/.gitconfig"
 alias lsprc="$EDITOR $XDG_CONFIG_HOME/nvim/plugin/lsp.lua"
 alias treerc="$EDITOR $XDG_CONFIG_HOME/nvim/plugin/treesitter.lua"
+alias n="$EDITOR $XDG_CONFIG_HOME/home-manager/home.nix"
 
 if type -q nvim
     alias vimrc="$EDITOR $XDG_CONFIG_HOME/nvim/init.lua"
@@ -297,3 +298,6 @@ alias cmd="$EDITOR $NVIM/cmake.deps/CMakeLists.txt"
 alias cnd="$EDITOR $NVIM/src/nvim/CMakeLists.txt"
 
 alias podmannuke "podman image prune --all --external; podman system reset"
+
+alias hos="home-manager switch"
+alias nukenix="nix-collect-garbage -d; $HOME/.misc/nix/home-manager-install"
