@@ -34,6 +34,11 @@ if test -e $HOME/.nix-profile/etc/profile.d/nix.sh
     bass source $HOME/.nix-profile/etc/profile.d/nix.sh
 end
 
+# Source home-manager if it exists
+if test -e $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh
+    bass source $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh
+end
+
 # Enable vi mode
 fish_vi_key_bindings
 
