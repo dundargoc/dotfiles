@@ -126,6 +126,7 @@ alias stash "git stash"
 alias pop "git stash pop"
 alias apply "git stash apply"
 
+alias gset='git remote set-head origin -a'
 alias git-add-upstream "git remote add upstream"
 
 # -------------------------------------------------------------------------
