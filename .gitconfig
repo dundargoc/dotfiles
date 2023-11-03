@@ -37,3 +37,5 @@
         maxStack=50
 [fetch]
         prune = true
+[push]
+        autoSetupRemote = true
