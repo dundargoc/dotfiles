@@ -1,7 +1,6 @@
 function gdm
     set default (gh-default-branch)
-    set current (git branch --show-current)
-    set ancestor (git merge-base $default $current)
+    set ancestor (git merge-base $default HEAD)
 
-    git diff $ancestor...$current $argv
+    git diff $ancestor...HEAD $argv
 end
