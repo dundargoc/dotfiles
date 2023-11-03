@@ -35,3 +35,5 @@
 	cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
 [absorb]
 	maxStack=50
+[fetch]
+        prune = true

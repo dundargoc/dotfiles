@@ -7,11 +7,11 @@ function s
         set branch (gh-default-branch)
     end
 
-    git -C $repo_path fetch origin --tags --force --prune
+    git -C $repo_path fetch origin --tags --force
     git -C $repo_path pull
 
     if git ls-remote --exit-code upstream &>/dev/null
-        git -C $repo_path fetch upstream $branch --tags --force --prune
+        git -C $repo_path fetch upstream $branch --tags --force
         git -C $repo_path rebase upstream/$branch $branch
     end
 end
