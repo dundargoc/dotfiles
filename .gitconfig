@@ -31,11 +31,11 @@
 [advice]
         detachedHead = false
         skippedCherryPicks = false
-[mergetool "fugitive"]
-        cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
 [absorb]
         maxStack=50
 [fetch]
         prune = true
 [push]
         autoSetupRemote = true
+[mergetool "fugitive"]
+        cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
