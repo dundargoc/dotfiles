@@ -7,6 +7,7 @@ require('nvim-treesitter.configs').setup({
     ensure_installed = {
         "bash",
         "c",
+        "fish",
         "javascript",
         "lua",
         "markdown",
