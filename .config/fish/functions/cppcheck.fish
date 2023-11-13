@@ -102,5 +102,6 @@ function cppcheck
     $suppress_list \
     --check-level=exhaustive \
     --quiet \
+    # --file-filter='*fileio.c' \
     -j$cores $flags $argv
 end
