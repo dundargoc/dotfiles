@@ -93,6 +93,14 @@ function cppcheck
         set flags --std=c99
     end
 
-    command cppcheck --project=compile_commands.json --enable=all --disable=unusedFunction --suppress=missingIncludeSystem --suppress=missingInclude \
-        $suppress_list --check-level=exhaustive --quiet -j$cores $flags $argv
+    command cppcheck \
+    --project=compile_commands.json \
+    --enable=all \
+    --disable=unusedFunction \
+    --suppress=missingIncludeSystem \
+    --suppress=missingInclude \
+    $suppress_list \
+    --check-level=exhaustive \
+    --quiet \
+    -j$cores $flags $argv
 end
