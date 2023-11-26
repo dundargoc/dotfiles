@@ -98,6 +98,7 @@ alias gla="gl --all"
 alias glp="git log -p"
 alias glpd="git log -p --word-diff"
 alias gpa="git push --all"
+alias gp="git push --quiet"
 alias gpl="git pull --rebase"
 alias gpf='git push --force-with-lease --quiet'
 alias gpt="git push --tags"
