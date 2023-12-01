@@ -28,7 +28,6 @@
     ninja
     pkg-config
     python311Packages.compiledb
-    python311Packages.vulture
     ripgrep
     scc
     shellcheck
