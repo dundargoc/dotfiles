@@ -15,6 +15,7 @@
     colima
     cppcheck
     docker
+    dos2unix
     doxygen
     fd
     gettext
