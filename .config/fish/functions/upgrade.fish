@@ -25,4 +25,8 @@ function upgrade
     if type -q nvim
         nvim --headless "+Lazy! sync" +qa
     end
+
+    if type -q home-manager
+        home-manager switch
+    end
 end
