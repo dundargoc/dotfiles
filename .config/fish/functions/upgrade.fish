@@ -1,4 +1,7 @@
 function upgrade
+    git -C $HOME pull
+    git -C $HOME/.private-dotfiles pull
+
     if type -q brew
         brew update
         brew upgrade
@@ -22,7 +25,4 @@ function upgrade
     if type -q nvim
         nvim --headless "+Lazy! sync" +qa
     end
-
-    git -C $HOME pull
-    git -C $HOME/.private-dotfiles pull
 end
