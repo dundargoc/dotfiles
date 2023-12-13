@@ -19,7 +19,7 @@ lspconfig.lua_ls.setup({
                 version = 'LuaJIT',
             },
             diagnostics = {
-                disable = { 'lowercase-global', 'assign-type-mismatch', 'missing-parameter' },
+                disable = { 'undefined-global' },
             },
             workspace = {
                 library = {
