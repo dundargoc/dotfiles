@@ -10,6 +10,7 @@
   home.packages = with pkgs; [
     asciinema
     atool
+    bash
     ccache
     codespell
     colima
@@ -27,6 +28,7 @@
     just
     kitty
     ninja
+    patch
     pkg-config
     python311Packages.compiledb
     ripgrep
