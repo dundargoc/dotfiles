@@ -25,6 +25,7 @@
     git-absorb
     gnused
     hyperfine
+    jq
     just
     kitty
     ninja
