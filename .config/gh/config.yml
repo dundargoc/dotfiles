@@ -12,3 +12,4 @@ aliases: {create: pr create --fill}
 http_unix_socket:
 # What web browser gh should use when opening URLs. If blank, will refer to environment.
 browser:
+version: "1"
