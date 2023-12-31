@@ -298,6 +298,7 @@ alias cb "$PROG/CMake/build/bin/cmake"
 alias cm="$EDITOR CMakeLists.txt"
 alias cmd="$EDITOR $NVIM/cmake.deps/CMakeLists.txt"
 alias cnd="$EDITOR $NVIM/src/nvim/CMakeLists.txt"
+alias cnr="$EDITOR $NVIM/runtime/CMakeLists.txt"
 
 alias podmannuke "podman image prune --all --external; podman system reset"
 
