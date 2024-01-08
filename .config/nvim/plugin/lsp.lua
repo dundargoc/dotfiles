@@ -5,7 +5,13 @@ lspconfig.rust_analyzer.setup {
 }
 lspconfig.vimls.setup {}
 lspconfig.clangd.setup {}
-lspconfig.bashls.setup {}
+lspconfig.bashls.setup {
+    settings = {
+        bashIde = {
+            shellcheckArguments = "-e SC2086"
+        }
+    }
+}
 lspconfig.jsonls.setup {}
 lspconfig.pyright.setup {}
 lspconfig.yamlls.setup {}
