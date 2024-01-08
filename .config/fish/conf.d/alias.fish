@@ -304,3 +304,5 @@ alias podmannuke "podman image prune --all --external; podman system reset"
 
 alias hos="home-manager switch"
 alias nukenix="nix-collect-garbage -d; $HOME/.misc/nix/home-manager-install"
+
+alias cbuildrelease "cbuild -DCMAKE_BUILD_TYPE=Release"
