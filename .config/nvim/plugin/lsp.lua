@@ -34,15 +34,6 @@ lspconfig.lua_ls.setup({
     },
 })
 
-lspconfig.groovyls.setup({
-    cmd = {
-        'java',
-        '-jar',
-        os.getenv('HOME')
-        .. '/.local/share/nvim/mason/packages/groovy-language-server/build/libs/groovy-language-server-all.jar',
-    },
-})
-
 -- Global mappings.
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
