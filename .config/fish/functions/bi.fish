@@ -1,6 +1,4 @@
 function bi
     build
-    buildinstall
-    $PROG/neovim/bin/bin/nvim $argv
-    gclc --quiet
+    VIMRUNTIME=$NVIM/runtime $NVIM/build/bin/nvim $argv
 end
