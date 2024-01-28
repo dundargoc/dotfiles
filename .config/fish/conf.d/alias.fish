@@ -256,7 +256,7 @@ alias lt "reset; languagetool --autoDetect --disable DASH_RULE,COMMA_PARENTHESIS
 # Use full screen when using diff
 alias diff "diff -W (tput cols)"
 
-alias fd "fd --hidden"
+alias fd "fd --hidden --no-ignore"
 
 # npm
 alias gpm "sudo npm -g"
