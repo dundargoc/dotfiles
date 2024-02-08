@@ -118,6 +118,8 @@ main() {
         fi
 
         set -o vi
+
+        alias rc='$EDITOR $HOME/.bashrc'
 }
 
 main

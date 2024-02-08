@@ -59,3 +59,5 @@ source ~/.aliases.sh
 chpwd() {
 	la
 }
+
+alias rc='$EDITOR $HOME/.zshrc'

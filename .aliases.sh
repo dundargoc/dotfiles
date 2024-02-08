@@ -154,9 +154,6 @@ alias c="cd .config"
 
 #config
 alias ali="$EDITOR $HOME/.aliases.sh"
-alias rc="$EDITOR $HOME/.zshrc"
-alias brc="$EDITOR $HOME/.bashrc"
-alias frc="$EDITOR .config/fish/config.fish"
 alias zenv="$EDITOR $HOME/.zshenv"
 alias unrc="$EDITOR $NEOVIM/src/uncrustify.cfg"
 alias vimrc="$EDITOR $HOME/.config/nvim/init.lua"
