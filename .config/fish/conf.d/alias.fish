@@ -305,3 +305,5 @@ alias hos="home-manager switch"
 alias nukenix="nix-collect-garbage -d; $HOME/.misc/nix/home-manager-install"
 
 alias cbuildrelease "cbuild -DCMAKE_BUILD_TYPE=Release"
+
+alias ts "tree-sitter"
