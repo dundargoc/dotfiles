@@ -29,6 +29,7 @@
     just
     kitty
     ninja
+    nodePackages.prettier
     patch
     pkg-config
     python311Packages.compiledb
