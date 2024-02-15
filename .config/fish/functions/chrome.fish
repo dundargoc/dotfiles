@@ -1,3 +1,3 @@
 function chrome
-    google-chrome-stable "$argv" &>/dev/null
+    open -a "Google Chrome" "$argv" &>/dev/null
 end
