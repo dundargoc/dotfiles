@@ -1,4 +1,4 @@
-function upgrade
+function up
     git -C $HOME pull
     git -C $HOME/.private-dotfiles pull
 
