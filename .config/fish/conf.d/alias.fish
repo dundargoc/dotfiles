@@ -308,5 +308,3 @@ alias cbuildrelease "cbuild -DCMAKE_BUILD_TYPE=Release"
 
 alias ts "tree-sitter"
 alias tsp "tree-sitter generate && tree-sitter parse"
-
-alias up "hos && bos"
