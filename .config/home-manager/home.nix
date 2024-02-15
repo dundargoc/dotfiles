@@ -19,7 +19,6 @@
     dos2unix
     doxygen
     fd
-    gettext
     gh
     git
     git-absorb
