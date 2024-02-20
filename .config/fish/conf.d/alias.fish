@@ -143,6 +143,7 @@ alias view 'vi -M'
 # -------------------------------------------------------------------------
 alias cdd="cd $HOME/Downloads"
 alias cdp="cd $PROG"
+alias cda="cd (git rev-parse --show-toplevel)/.github/actions"
 alias cdi="cd (git rev-parse --show-toplevel)/.github/workflows"
 alias cdb="cd $HOME/books"
 
