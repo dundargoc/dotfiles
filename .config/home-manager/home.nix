@@ -21,7 +21,6 @@
     gh
     git
     git-absorb
-    git-cliff
     gnused
     hyperfine
     jq
