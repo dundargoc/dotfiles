@@ -11,8 +11,8 @@ DOT="$HOME"/.dotfiles
 PROGRAMS="$HOME"/programs
 NEOVIM="$PROGRAMS"/neovim
 
-if command -v exa &>/dev/null; then
-	alias ls="exa"
+if command -v eza &>/dev/null; then
+	alias ls="eza"
 fi
 
 alias show="yay -Si"
