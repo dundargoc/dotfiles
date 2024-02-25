@@ -106,7 +106,6 @@ alias gpl="git pull"
 alias gpla="git pull --all"
 alias gpf='git push --force-with-lease --quiet'
 alias gpf!='git push --force'
-alias gpt="git push --tags"
 alias gr="git remote"
 alias grr="git remote remove"
 alias gre="git rebase"
