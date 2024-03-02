@@ -1,3 +1,6 @@
+[files]
+extend-exclude = ["*.po"]
+
 [default.extend-words]
 alloced = "alloced"
 ba = "ba"
