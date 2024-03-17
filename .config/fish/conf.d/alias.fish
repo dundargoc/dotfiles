@@ -300,7 +300,7 @@ alias cmd="$EDITOR $NVIM/cmake.deps/CMakeLists.txt"
 alias cnd="$EDITOR $NVIM/src/nvim/CMakeLists.txt"
 alias cnr="$EDITOR $NVIM/runtime/CMakeLists.txt"
 
-alias podmannuke "podman image prune --all --external; podman system reset"
+alias nukepodman "podman image prune --all --external; podman system reset"
 alias nukedocker "docker system prune -a -f --volumes"
 
 alias hos="home-manager switch"
