@@ -16,13 +16,6 @@ def call(command):
     return subprocess.call(command.split())
 
 
-def call_shell(command):
-    """
-    Helper function for call for simple cases. Use shell = true
-    """
-    return subprocess.call(command, shell=True)
-
-
 def co(command):
     """
     Helper function for check_output for simple cases.
@@ -54,7 +47,7 @@ def main():
         commit = all_commits[0]
         message_body = co(f"git log --format=%b -n 1 {commit}")
         message_subject = co(f"git log --format=%s -n 1 {commit}")
-        call_shell(f'gh pr edit --title "{message_subject}"')
+        subprocess.call(["gh", "pr", "edit", "--title", message_subject])
         with tempfile.NamedTemporaryFile() as tmp:
             Path(tmp.name).write_text(message_body)
             call(f"gh pr edit --body-file {tmp.name}")
