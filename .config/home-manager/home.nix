@@ -11,6 +11,7 @@
     asciinema
     atool
     bash
+    black
     ccache
     codespell
     colima
