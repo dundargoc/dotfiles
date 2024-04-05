@@ -1,5 +1,3 @@
-require('mini.comment').setup()
-
 require('mini.operators').setup({
     evaluate = { prefix = '', },
     exchange = { prefix = '', },
