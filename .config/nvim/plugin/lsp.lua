@@ -16,7 +16,6 @@ lspconfig.pyright.setup {}
 lspconfig.yamlls.setup {}
 
 lspconfig.lua_ls.setup({
-    root_dir = require('lspconfig').util.root_pattern({ '.git', 'init.vim' }),
     cmd_env = { HOME = '' },
     settings = {
         Lua = {
