@@ -27,6 +27,7 @@
     jq
     just
     kitty
+    mpv
     ninja
     nodePackages.prettier
     patch
