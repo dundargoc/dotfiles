@@ -101,6 +101,8 @@ vim.cmd.colorscheme('onedark')
 vim.keymap.set('n', '<c-z>', '<nop>')
 vim.keymap.set('n', '<leader>s', ':%s/\\s\\+$//e<enter>')
 
+vim.cmd[[nnoremap yY :let b:winview=winsaveview()<bar>exe 'keepjumps keepmarks norm ggVG"+y'<bar>call winrestview(b:winview)<cr>]]
+
 -- Abbreviations
 
 vim.cmd([[
