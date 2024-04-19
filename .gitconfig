@@ -6,8 +6,8 @@
         uncommit = "!sh -c \"git reset --hard HEAD~$1\""
         back = reset HEAD~
         reback = "!sh -c \"git revert --no-edit HEAD; git back\""
-        who = shortlog --summary --numbered
-        who2 = shortlog --summary --numbered --since=2year
+        who = shortlog --summary --numbered --no-merges
+        who2 = shortlog --summary --numbered --no-merges --since=2year
 [merge]
         tool = fugitive
         conflictstyle = diff3
