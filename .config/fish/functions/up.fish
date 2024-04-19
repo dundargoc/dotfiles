@@ -4,7 +4,7 @@ function up
 
     if type -q brew
         brew update
-        brew upgrade
+        brew upgrade --fetch-HEAD
     end
 
     if type -q apt
