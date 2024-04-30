@@ -39,7 +39,6 @@
     typos
     wget
     xclip
-    zig
   ];
 
   programs = {
