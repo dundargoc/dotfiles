@@ -14,6 +14,7 @@ lspconfig.bashls.setup {
 lspconfig.jsonls.setup {}
 lspconfig.pyright.setup {}
 lspconfig.yamlls.setup {}
+lspconfig.zls.setup {}
 
 lspconfig.lua_ls.setup({
     cmd_env = { HOME = '' },

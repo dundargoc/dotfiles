@@ -28,7 +28,7 @@ require('lazy').setup({
         'williamboman/mason-lspconfig.nvim',
         opts = {
             ensure_installed = {
-                "bashls", "clangd", "jsonls", "lua_ls", "pyright", "rust_analyzer", "yamlls"
+                "bashls", "clangd", "jsonls", "lua_ls", "pyright", "rust_analyzer", "yamlls", "zls"
             },
         },
     },
