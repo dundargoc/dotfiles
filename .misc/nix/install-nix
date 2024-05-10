@@ -1,8 +1,3 @@
 #!/bin/bash
 
-if ! test -e /etc/os-release; then
-    # Assume mac
-    sh <(curl -L https://nixos.org/nix/install)
-else
-    sh <(curl -L https://nixos.org/nix/install) --no-daemon
-fi
+curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
