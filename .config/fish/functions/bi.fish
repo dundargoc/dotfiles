@@ -1,4 +1,4 @@
 function bi
     build
-    VIMRUNTIME=$NVIM/runtime $NVIM/build/bin/nvim $argv
+    VIMRUNTIME=$NVIM/runtime $NVIM/build/bin/nvim --luamod-dev $argv
 end
