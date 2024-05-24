@@ -56,7 +56,10 @@ require('lazy').setup({
     'tpope/vim-rhubarb',
     'farmergreg/vim-lastplace',
 
-    'echasnovski/mini.nvim',
+    -- mini.nvim
+    'echasnovski/mini.files',
+    'echasnovski/mini.operators',
+    'echasnovski/mini.splitjoin',
 
     -- Themes
     {
