@@ -27,6 +27,7 @@
     jq
     just
     kitty
+    lua51Packages.luarocks
     mpv
     ninja
     nodePackages.prettier
