@@ -11,6 +11,7 @@ require('nvim-treesitter.configs').setup({
         "javascript",
         "lua",
         "markdown",
+        "markdown_inline",
         "nix",
         "python",
         "query",
