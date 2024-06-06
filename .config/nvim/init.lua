@@ -177,6 +177,9 @@ set completeopt-=preview
 
 " Fold max number of identical lines when diffing
 set diffopt=filler,context:1
+
+" Make completion not select an item immediately
+set completeopt=menuone,noselect,noinsert
 ]])
 
 -- Clipboard
