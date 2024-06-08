@@ -46,6 +46,13 @@ def main():
     if len(all_commits) == 1:
         commit = all_commits[0]
         message_body = co(f"git log --format=%b -n 1 {commit}")
+        message_body_split = message_body.splitlines()
+        while message_body_split and (
+            message_body_split[-1].startswith("Co-authored-by:")
+            or message_body_split[-1].strip() == ""
+        ):
+            message_body_split.pop()
+        message_body = "\n".join(message_body_split)
         message_subject = co(f"git log --format=%s -n 1 {commit}")
         subprocess.call(["gh", "pr", "edit", "--title", message_subject])
         with tempfile.NamedTemporaryFile() as tmp:
