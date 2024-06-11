@@ -1,5 +1,5 @@
 [files]
-extend-exclude = ["*.po"]
+extend-exclude = ["*.po", "bigfile_oneline.txt"]
 
 [default.extend-words]
 alloced = "alloced"
