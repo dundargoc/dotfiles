@@ -73,6 +73,7 @@ function cppcheck
             --suppress=uselessAssignmentPtrArg \
             --suppress=variableScope \
             --suppress=wrongPrintfScanfArgNum \
+            --suppress=zerodiv \
             --suppress=zerodivcond
     end
 
