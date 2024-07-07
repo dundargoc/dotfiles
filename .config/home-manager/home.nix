@@ -37,6 +37,7 @@
     ripgrep
     scc
     shellcheck
+    texliveFull
     typos
     wget
     xclip
