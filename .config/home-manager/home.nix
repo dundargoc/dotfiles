@@ -15,6 +15,7 @@
     ccache
     codespell
     colima
+    cppcheck
     docker
     dos2unix
     doxygen
