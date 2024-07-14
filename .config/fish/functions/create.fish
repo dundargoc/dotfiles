@@ -1,22 +1,20 @@
 function create
     set current_branch (git rev-parse --abbrev-ref HEAD)
     set default_branch (gh-default-branch)
-    set repo_path (git rev-parse --show-toplevel)
+    set origin_url (git config --get remote.origin.url)
 
-    if [ $repo_path = $HOME/programs/dundar-org/neovim ]
-        echo "Currently on neodundar. Abort."
+    if [ $current_branch = $default_branch ]
+        echo "Currently on default branch. Abort..."
         return
     end
 
-    if [ $repo_path = $HOME/programs/dundar-org/nvim-treesitter ]
-        echo "Currently on neodundar. Abort."
-        return
-    end
-
-    if [ $current_branch != $default_branch ]
+    if string match -q -- "*neodundar*" $origin_url
         gps
-        gh pr create --fill --draft
-    else
-        echo "Current branch is master. Abort."
+        set repo_name (basename (git rev-parse --show-toplevel))
+        gh pr create --fill -R neodundar/$repo_name
+        return
     end
+
+    gps
+    gh pr create --fill --draft
 end
