@@ -18,7 +18,6 @@
     cppcheck
     docker
     dos2unix
-    doxygen
     fd
     gh
     git
@@ -26,10 +25,7 @@
     gnused
     hyperfine
     jq
-    just
-    kitty
     lua51Packages.luarocks
-    mpv
     ninja
     nodePackages.prettier
     patch
@@ -38,7 +34,6 @@
     ripgrep
     scc
     shellcheck
-    texliveFull
     typos
     wget
     xclip
