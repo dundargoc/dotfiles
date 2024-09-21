@@ -4,7 +4,7 @@ function s
     if count $argv >/dev/null
         set branch $argv
     else
-        set branch (gh-default-branch)
+        set branch (git branch --show-current)
     end
 
     git -C $repo_path fetch origin --tags --force
