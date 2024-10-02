@@ -29,7 +29,9 @@ lspconfig.lua_ls.setup({
             },
             workspace = {
                 library = {
-                    vim.env.VIMRUNTIME,
+                    -- TODO: might want to make this smarter by adding this for
+                    -- non-neovim repos.
+                    -- vim.env.VIMRUNTIME,
                     "${3rd}/busted/library",
                     "${3rd}/luv/library"
                 },
