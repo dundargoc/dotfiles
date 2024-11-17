@@ -1,25 +1,13 @@
 [files]
 extend-exclude = ["*.po", "bigfile_oneline.txt"]
 
+[default]
+extend-ignore-words-re = ['\b\w{1,4}\b']
+
 [default.extend-words]
 alloced = "alloced"
-ba = "ba"
 charcol = "charcol"
-clen = "clen"
-dout = "dout"
-enew = "enew"
-fo = "fo"
-inex = "inex"
 inout = "inout"
 iterm = "iterm"
-mak = "mak"
-mch = "mch"
-nd = "nd"
-nore = "nore"
-parm = "parm"
-sav = "sav"
-teh = "teh"
 tolen = "tolen"
-tpos = "tpos"
-ue = "ue"
 windo = "windo"
