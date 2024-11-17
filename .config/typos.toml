@@ -1,5 +1,5 @@
 [files]
-extend-exclude = ["*.po", "bigfile_oneline.txt"]
+extend-exclude = ["*.po", "bigfile_oneline.txt", "*.1", "tags"]
 
 [default]
 extend-ignore-words-re = ['\b\w{1,4}\b']
