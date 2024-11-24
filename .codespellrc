@@ -1,2 +1,3 @@
 [codespell]
 skip = *UTF-8*,tags,version5.txt,version7.txt,version8.txt,node_modules,*.po,.deps
+ignore-words-list = re-use,afile,scriptin,towin,re-usable
