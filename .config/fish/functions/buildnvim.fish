@@ -2,6 +2,9 @@ function buildnvim
     set neovim_path "$HOME/.neovim"
     set install_path "$HOME/.bin/neovim"
 
+    if test ! -d $neovim_path
+        git clone --depth=1 https://github.com/neovim/neovim.git $neovim_path
+    end
     git -C "$neovim_path" pull
 
     if type -q clang
