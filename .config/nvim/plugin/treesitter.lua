@@ -2,7 +2,7 @@ require('nvim-treesitter.configs').setup({
     auto_install = true,
     highlight = {
         enable = true,
-        disable = { 'python' },
+        disable = { 'python', 'make' },
     },
     ensure_installed = {
         "bash",
