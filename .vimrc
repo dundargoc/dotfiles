@@ -155,7 +155,7 @@ nnoremap <c-z> <nop>
 " Define leader key
 let g:mapleader = ' '
 
-colorscheme desert
+colorscheme zaibatsu
 
 " ------------------------------------
 " Abbreviations
