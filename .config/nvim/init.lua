@@ -169,18 +169,16 @@ vim.o.timeout = false
 vim.o.splitbelow = true
 vim.o.splitright = true
 
-vim.cmd([[
-set listchars+=tab:<->
+vim.cmd([[set listchars+=tab:<->]])
 
-" Disable autopreview when using omnicompletion
-set completeopt-=preview
+-- Fold max number of identical lines when diffing
+vim.cmd([[set diffopt=filler,context:1]])
 
-" Fold max number of identical lines when diffing
-set diffopt=filler,context:1
+-- Disable autopreview when using omnicompletion
+vim.cmd([[set completeopt-=preview]])
 
-" Make completion not select an item immediately
-set completeopt=menuone,noselect,noinsert
-]])
+-- Make completion not select an item immediately
+vim.cmd([[set completeopt=menuone,noselect,noinsert]])
 
 -- Clipboard
 vim.keymap.set({ 'n', 'x' }, '<leader>y', '"+y')
