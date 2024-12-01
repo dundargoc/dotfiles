@@ -174,11 +174,9 @@ vim.cmd([[set listchars+=tab:<->]])
 -- Fold max number of identical lines when diffing
 vim.cmd([[set diffopt=filler,context:1]])
 
--- Disable autopreview when using omnicompletion
-vim.cmd([[set completeopt-=preview]])
-
--- Make completion not select an item immediately
-vim.cmd([[set completeopt=menuone,noselect,noinsert]])
+-- Make completion not select an item immediately. Also uses fuzzy finding
+-- matching
+vim.cmd([[set completeopt=menuone,noselect,fuzzy]])
 
 -- Clipboard
 vim.keymap.set({ 'n', 'x' }, '<leader>y', '"+y')
