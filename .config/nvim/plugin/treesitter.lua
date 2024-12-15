@@ -13,7 +13,6 @@ require('nvim-treesitter.configs').setup({
         "markdown",
         "markdown_inline",
         "nix",
-        "python",
         "query",
         "vim",
         "vimdoc",
