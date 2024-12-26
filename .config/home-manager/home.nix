@@ -30,7 +30,6 @@
     nodePackages.prettier
     patch
     pkg-config
-    python311Packages.compiledb
     ripgrep
     scc
     shellcheck
