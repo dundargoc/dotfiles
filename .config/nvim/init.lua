@@ -49,6 +49,8 @@ require('lazy').setup({
     'neovim/nvim-lspconfig',
     'dundargoc/nvim-cool',
     {
+        -- There is already a built-in replacement for this, see
+        -- `:h terminal-scrollback-pager`
         'powerman/vim-plugin-AnsiEsc',
         cmd = 'AnsiEsc',
     },
