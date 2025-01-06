@@ -103,6 +103,6 @@ function cppcheck
     $suppress_list \
     --check-level=exhaustive \
     --quiet \
-    # --file-filter='*fileio.c' \
+    # --file-filter='*vterm*' \
     -j$cores $flags $argv
 end
