@@ -4,6 +4,17 @@ main() {
         # Exit if shell isn't interactive
         [[ $- != *i* ]] && return
 
+        unameOut="$(uname -s)"
+        case "${unameOut}" in
+            Linux*)
+                ;;
+            Darwin*)
+                ;;
+            CYGWIN*)
+                set -o igncr # Ignore line endings
+                ;;
+        esac
+
         xhost +local:root >/dev/null 2>&1
 
         # Bash won't get SIGWINCH if another process is in the foreground.
