@@ -33,8 +33,7 @@ main() {
                 source $HOME/.nix-profile/etc/profile.d/nix.sh
         fi
 
-        # FIXME: Doesn't seem to work for some reason
-        # set -o vi
+        set -o vi
 
         alias rc='$EDITOR $HOME/.bashrc'
 }
