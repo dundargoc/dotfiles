@@ -47,3 +47,6 @@
 	recurse = true
 [mergetool "fugitive"]
         cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
+[core]
+	autocrlf = input
+	eol = lf
