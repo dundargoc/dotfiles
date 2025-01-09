@@ -5,12 +5,14 @@ main() {
         [[ $- != *i* ]] && return
 
         unameOut="$(uname -s)"
+        home=$HOME
         case "${unameOut}" in
             Linux*)
                 ;;
             Darwin*)
                 ;;
             CYGWIN*)
+                home=$(cygpath --mixed $HOME)
                 set -o igncr # Ignore line endings
                 ;;
         esac
@@ -29,13 +31,13 @@ main() {
         source ~/.aliases.sh
 
         # Source nix if it exists
-        if test -e $HOME/.nix-profile/etc/profile.d/nix.sh; then
-                source $HOME/.nix-profile/etc/profile.d/nix.sh
+        if test -e $home/.nix-profile/etc/profile.d/nix.sh; then
+                source $home/.nix-profile/etc/profile.d/nix.sh
         fi
 
         set -o vi
 
-        alias rc='$EDITOR $HOME/.bashrc'
+        alias rc='$EDITOR $home/.bashrc'
 }
 
 main

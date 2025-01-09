@@ -7,8 +7,8 @@ else
     export EDITOR=vim
     export VISUAL=vim
 fi
-DOT="$HOME"/.dotfiles
-PROGRAMS="$HOME"/programs
+DOT="$home"/.dotfiles
+PROGRAMS="$home"/programs
 NEOVIM="$PROGRAMS"/neovim
 
 if command -v eza &>/dev/null; then
@@ -137,9 +137,9 @@ alias ll="la -l"
 
 # goto
 alias cdf="cd .config/fish"
-alias cdd="cd $HOME/Downloads"
+alias cdd="cd $home/Downloads"
 alias cdn="cd $NEOVIM"
-alias cdw="cd $HOME/work"
+alias cdw="cd $home/work"
 alias cdni="cd $NEOVIM/.github/workflows"
 alias cdnc="cd $NEOVIM/contrib"
 alias cdnd="cd $NEOVIM/runtime/doc"
@@ -153,14 +153,14 @@ alias n="cd .config/nvim"
 alias c="cd .config"
 
 #config
-alias ali="$EDITOR $HOME/.aliases.sh"
-alias zenv="$EDITOR $HOME/.zshenv"
+alias ali="$EDITOR $home/.aliases.sh"
+alias zenv="$EDITOR $home/.zshenv"
 alias unrc="$EDITOR $NEOVIM/src/uncrustify.cfg"
-alias vimrc="$EDITOR $HOME/.config/nvim/init.lua"
-alias bsprc="$EDITOR $HOME/.config/bspwm/bspwmrc"
-alias sxhrc="$EDITOR $HOME/.config/sxhkd/sxhkdrc"
-alias trc="$EDITOR $HOME/.tmux.conf"
-alias gconf="$EDITOR $HOME/.gitconfig"
+alias vimrc="$EDITOR $home/.config/nvim/init.lua"
+alias bsprc="$EDITOR $home/.config/bspwm/bspwmrc"
+alias sxhrc="$EDITOR $home/.config/sxhkd/sxhkdrc"
+alias trc="$EDITOR $home/.tmux.conf"
+alias gconf="$EDITOR $home/.gitconfig"
 
 # reload current shell
 if [ -n "$ZSH_VERSION" ]; then
