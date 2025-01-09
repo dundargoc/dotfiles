@@ -149,6 +149,8 @@ alias cdns="cd $NEOVIM/src"
 alias cdp="cd $PROGRAMS"
 alias cdv="cd $PROGRAMS/vim/src"
 alias d="cd $DOT"
+alias db="cd $home/.bin"
+alias dm="cd $home/.misc"
 alias n="cd .config/nvim"
 alias c="cd .config"
 
