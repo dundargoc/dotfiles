@@ -91,6 +91,7 @@ alias gcp="git cherry-pick"
 alias gf="git add -A; git commit -m 'fixup: quick update, squash later'"
 alias gib="git switch -"
 alias gk="gitk"
+alias g="git switch -; gbd bump-" # temporary, remove when done
 alias gfn="git add -A; git commit --no-verify -m 'fixup: quick update, squash later'"
 alias gt="git add -A; git commit -m 'fixup: TEST COMMIT THAT WILL DELETED'"
 alias gl="git log --graph --full-history --pretty --oneline"
