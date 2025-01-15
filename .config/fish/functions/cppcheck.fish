@@ -100,7 +100,6 @@ function cppcheck
     --enable=all \
     --disable=unusedFunction \
     --suppress=missingIncludeSystem \
-    --suppress=missingInclude \
     $suppress_list \
     --check-level=exhaustive \
     --quiet \
