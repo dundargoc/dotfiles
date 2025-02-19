@@ -10,8 +10,10 @@
         who2 = shortlog --summary --numbered --no-merges --since=2year
 
         ; Removes 5 oldest remote branches
-        ; Add --merged to only remove merged branches
         ; git branch -r --sort=committerdate | head -n 5 | sed 's/  origin\///' | xargs git push origin --delete
+        ;
+        ; Removes 5 oldest merged remote branches
+        ; git branch -r --sort=committerdate --merged | head -n 5 | sed 's/  origin\///' | xargs git push origin --delete
 [merge]
         tool = fugitive
         conflictstyle = diff3
