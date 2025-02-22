@@ -17,8 +17,20 @@ lspconfig.yamlls.setup {}
 lspconfig.ts_ls.setup {}
 lspconfig.zls.setup {}
 
-lspconfig.lua_ls.setup({
+vim.lsp.config('luals', {
     cmd_env = { HOME = '' },
+    cmd = { 'lua-language-server' },
+    filetypes = { 'lua' },
+    root_markers = {
+        '.luarc.json',
+        '.luarc.jsonc',
+        '.luacheckrc',
+        '.stylua.toml',
+        'stylua.toml',
+        'selene.toml',
+        'selene.yml',
+    },
+    -- Note this is ignored if the project has a .luarc.json
     settings = {
         Lua = {
             runtime = {
@@ -28,19 +40,20 @@ lspconfig.lua_ls.setup({
                 disable = { 'undefined-global' },
             },
             workspace = {
+                checkThirdParty = false,
                 library = {
                     -- TODO: might want to make this smarter by adding this for
                     -- non-neovim repos.
                     -- vim.env.VIMRUNTIME,
-                    "${3rd}/busted/library",
-                    "${3rd}/luv/library"
+                    '${3rd}/busted/library',
+                    '${3rd}/luv/library',
                 },
-                checkThirdParty = false,
             },
             completion = { callSnippet = 'Replace', showWord = 'Disable' },
         },
     },
 })
+vim.lsp.enable('luals')
 
 -- Global mappings.
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
