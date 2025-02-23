@@ -83,5 +83,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set('n', '<space>x', function()
             vim.lsp.buf.format { async = true }
         end, opts)
+        vim.lsp.completion.enable(true, ev.data.client_id, ev.buf)
     end,
 })
