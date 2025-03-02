@@ -1,3 +1,7 @@
+[core]
+        editor = nvim
+        autocrlf = input
+        eol = lf
 [user]
         name = dundargoc
         email = gocdundar@gmail.com
@@ -46,9 +50,6 @@
 [push]
         autoSetupRemote = true
 [submodule]
-	recurse = true
+        recurse = true
 [mergetool "fugitive"]
         cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
-[core]
-	autocrlf = input
-	eol = lf
