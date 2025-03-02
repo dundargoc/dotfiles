@@ -20,3 +20,14 @@
 
 # Ignore fish_variables that get generated
 /.config/fish/fish_variables
+
+# Unlock Appdata but ignore all of its contents...
+!/AppData
+/AppData/*
+
+# ...except for Local
+!/AppData/Local
+/AppData/Local/*
+
+# Unlock nvim
+!/Appdata/Local/nvim
