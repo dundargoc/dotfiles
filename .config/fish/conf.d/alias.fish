@@ -391,3 +391,7 @@ alias cbuildrelease "cbuild -DCMAKE_BUILD_TYPE=Release"
 
 alias ts "tree-sitter"
 alias tsp "tree-sitter generate && tree-sitter parse"
+
+alias dww 'gradle wrapper --gradle-distribution-url=https://esw-artifactory.got.volvo.net/artifactory/gradle-distributions/gradle-7.6.3-bin.zip'
+alias dw './gradlew wrapper --gradle-distribution-url=https://esw-artifactory.got.volvo.net/artifactory/gradle-distributions/gradle-7.6.3-bin.zip'
+alias db './gradlew build'
