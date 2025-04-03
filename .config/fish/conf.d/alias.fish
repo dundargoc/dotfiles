@@ -261,7 +261,6 @@ alias dm="cd $HOME/.misc"
 alias dn="cd $XDG_CONFIG_HOME/nvim"
 alias dnp="cd $XDG_CONFIG_HOME/nvim/plugin"
 alias c="cd $XDG_CONFIG_HOME"
-alias db="cd $HOME/.bin"
 alias dp="cd $HOME/.private-dotfiles"
 
 # -------------------------------------------------------------------------
@@ -391,5 +390,3 @@ alias cbuildrelease "cbuild -DCMAKE_BUILD_TYPE=Release"
 
 alias ts "tree-sitter"
 alias tsp "tree-sitter generate && tree-sitter parse"
-
-alias db './gradlew build'
