@@ -390,3 +390,7 @@ alias cbuildrelease "cbuild -DCMAKE_BUILD_TYPE=Release"
 
 alias ts "tree-sitter"
 alias tsp "tree-sitter generate && tree-sitter parse"
+
+alias np "npx npm-groovy-lint"
+alias npf "npx npm-groovy-lint --format"
+alias npff "npx npm-groovy-lint --fix"
