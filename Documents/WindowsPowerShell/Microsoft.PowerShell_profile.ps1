@@ -540,3 +540,7 @@ function si {
 function cm {
     vi CMakeLists.txt
 }
+
+function db {
+    ./gradlew.bat build
+}
