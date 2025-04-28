@@ -27,6 +27,7 @@ set-psreadlinekeyhandler -key ctrl+w -function backwarddeleteword
 
 $PROG="$HOME/programs"
 $NVIM="$PROG/neovim"
+$ENV:GRADLE_USER_HOME="$HOME/.gradle"
 
 function gh-default-branch {
     $branch=(git rev-parse --abbrev-ref origin/HEAD).replace("origin/","")
