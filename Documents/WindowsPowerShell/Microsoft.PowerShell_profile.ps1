@@ -464,10 +464,6 @@ function dm {
     cd $HOME/.misc
 }
 
-function db {
-    cd $HOME/.bin
-}
-
 #
 # Config
 #
