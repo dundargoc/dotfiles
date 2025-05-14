@@ -538,6 +538,10 @@ function cm {
     vi CMakeLists.txt
 }
 
+function d {
+    ./gradlew.bat $args
+}
+
 function db {
     ./gradlew.bat build
 }
