@@ -543,5 +543,5 @@ function d {
 }
 
 function db {
-    ./gradlew.bat build
+    ./gradlew.bat build $args
 }
