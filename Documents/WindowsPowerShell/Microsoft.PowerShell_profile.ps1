@@ -468,7 +468,7 @@ function dm {
 # Config
 #
 function vimrc{
-    nvim $HOME/AppData/Local/nvim/init.lua
+    nvim $HOME/.config/nvim/init.lua
 }
 
 function ali {
