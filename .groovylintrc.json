@@ -1,0 +1,6 @@
+{
+    "extends": "all",
+    "rules": {
+        "unnecessary.UnnecessaryGetter":"off"
+    }
+}
