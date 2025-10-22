@@ -1,21 +1,14 @@
-local lspconfig = require('lspconfig')
+vim.lsp.config('rust_analyzer', {
+    settings = { ['rust-analyzer'] = { check = { command = 'clippy' } } }
+})
 
-lspconfig.rust_analyzer.setup {
-    settings = { ['rust-analyzer'] = { check = { command = 'clippy' } } },
-}
-lspconfig.clangd.setup {}
-lspconfig.bashls.setup {
+vim.lsp.config('bashls', {
     settings = {
         bashIde = {
             shellcheckArguments = "-e SC2086"
         }
-    }
-}
-lspconfig.jsonls.setup {}
-lspconfig.pyright.setup {}
-lspconfig.yamlls.setup {}
-lspconfig.ts_ls.setup {}
-lspconfig.zls.setup {}
+    },
+})
 
 vim.lsp.config('luals', {
     cmd_env = { HOME = '' },
@@ -53,7 +46,8 @@ vim.lsp.config('luals', {
         },
     },
 })
-vim.lsp.enable('luals')
+
+vim.lsp.enable({ 'bashls', 'clangd', 'jsonls', 'luals', 'pyright', 'rust_analyzer', 'ts_ls', 'yamlls', 'zls' })
 
 -- Global mappings.
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
