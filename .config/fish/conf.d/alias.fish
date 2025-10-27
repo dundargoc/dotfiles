@@ -69,8 +69,7 @@ end
 fish_vi_key_bindings
 
 # Accept autosuggestions with ctrl-space
-bind -k nul -M insert accept-autosuggestion
-bind -k nul -M normal accept-autosuggestion
+bind ctrl-space -M insert accept-autosuggestion
 
 # Make yy in normal mode copy the entire line to clipboard
 bind yy fish_clipboard_copy
