@@ -1,4 +1,4 @@
-function gitcompare
+function gitcompare --wraps "git switch"
     if count $argv >/dev/null
         set branch $argv
     else
