@@ -449,11 +449,11 @@ function .. {
 }
 
 function dn {
-    cd $HOME/AppData/Local/nvim
+    cd $HOME/.config/nvim
 }
 
 function dnp {
-    cd $HOME/AppData/Local/nvim/plugin
+    cd $HOME/.config/nvim/plugin
 }
 
 function dff {
