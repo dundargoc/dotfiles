@@ -1,3 +1,6 @@
 #!/bin/bash
 
+# Might need to first run the following command in WSL ubuntu:
+# which fish | sudo tee -a /etc/shells
+
 chsh -s $(which fish)
