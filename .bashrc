@@ -38,6 +38,8 @@ main() {
         set -o vi
 
         alias rc='$EDITOR $home/.bashrc'
+
+        export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
 }
 
 main
