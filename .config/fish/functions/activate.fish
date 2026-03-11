@@ -1,7 +1,7 @@
 function activate
     # Function for quick virtual environment activation.
     set activate_file (find . -type f -name "activate")
-    set number_of_files (echo $activate_file | wc -l)
+    set number_of_files (count $activate_file)
 
     if test $number_of_files -eq 0
         echo "No activate file found. Exiting."
