@@ -473,7 +473,7 @@ function vimrc{
 }
 
 function ali {
-    nvim $profile
+    nvim $HOME/Documents/PowerShell/profile.ps1
 }
 
 function cnd {
