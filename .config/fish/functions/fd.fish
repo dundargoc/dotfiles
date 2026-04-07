@@ -1,6 +1,6 @@
 function fd
     if command -q fd
-        command fd --hidden --no-ignore $argv
+        command fd --hidden $argv
     else
         find * -iname "*$argv*"
     end
