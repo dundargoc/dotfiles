@@ -1,4 +1,5 @@
 function fd
+    reset
     if command -q fd
         command fd --hidden $argv
     else
