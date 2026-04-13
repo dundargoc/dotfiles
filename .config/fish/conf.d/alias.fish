@@ -323,8 +323,6 @@ alias t="tmux"
 
 alias logout="loginctl terminate-user dundar"
 
-alias ch="reset; shellcheck -a -x -e SC2086"
-
 alias rename="perl-rename -i"
 
 alias detox="detox -s lower"
