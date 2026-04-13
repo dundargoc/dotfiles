@@ -45,7 +45,6 @@ require('lazy').setup({
     },
     {
         'nvim-treesitter/nvim-treesitter',
-        branch = 'master',
         build = ':TSUpdate',
     },
     'neovim/nvim-lspconfig',
