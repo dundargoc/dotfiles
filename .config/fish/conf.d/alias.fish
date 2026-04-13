@@ -99,13 +99,13 @@ end
 if ! test -e /etc/os-release
     # Assume mac
     alias install "brew install"
-    alias show "brew info"
+    alias info "brew info"
     alias search "brew search"
     alias remove "brew remove"
     alias prune "brew autoremove && brew cleanup"
 else if grep -iq ubuntu /etc/os-release
     alias install "sudo apt install"
-    alias show "apt show"
+    alias info "apt show"
     alias search "apt search"
     alias remove "sudo apt purge"
     function prune
@@ -117,7 +117,7 @@ else if grep -iq ubuntu /etc/os-release
     end
 else if grep -iq tumbleweed /etc/os-release
     alias install "sudo zypper install"
-    alias show "zypper info"
+    alias info "zypper info"
     alias search "zypper search"
     alias remove "sudo zypper remove --clean-deps"
 else
@@ -132,7 +132,7 @@ else
     end
 
     alias install "$installer -S --needed --removemake"
-    alias show "$installer -Si"
+    alias info "$installer -Si"
     alias search "$installer -Ss"
     alias remove "$installer -Rs"
     alias prune "sudo paccache -ruk0; $installer -Scc --noconfirm"
