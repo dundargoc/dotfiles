@@ -47,7 +47,7 @@ vim.lsp.config('luals', {
     },
 })
 
-vim.lsp.enable({ 'bashls', 'clangd', 'jsonls', 'luals', 'pyright', 'rust_analyzer', 'ts_ls', 'yamlls', 'zls' })
+vim.lsp.enable({ 'bashls', 'clangd', 'jsonls', 'luals', 'ty', 'rust_analyzer', 'ts_ls', 'yamlls', 'zls' })
 
 -- Global mappings.
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)

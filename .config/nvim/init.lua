@@ -29,7 +29,13 @@ require('lazy').setup({
         opts = {
             automatic_enable = false,
             ensure_installed = {
-                "bashls", "clangd", "jsonls", "lua_ls", "pyright", "rust_analyzer", "ts_ls", "yamlls", "zls"
+                "bashls",
+                "clangd",
+                "jsonls",
+                "lua_ls",
+                "ts_ls",
+                "ty",
+                "yamlls",
             },
         },
     },
