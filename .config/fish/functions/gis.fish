@@ -1,7 +1,9 @@
 function gis --wraps "git switch"
     if count $argv >/dev/null
-        git switch $argv
+        set branch $argv
     else
-        git switch (gh-default-branch)
+        set branch (gh-default-branch)
     end
+    git switch --quiet "$branch"
+    git submodule update
 end
