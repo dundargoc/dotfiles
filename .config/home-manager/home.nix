@@ -27,7 +27,6 @@
     jq
     lua51Packages.luarocks
     ninja
-    nodePackages.prettier
     patch
     pkg-config
     ripgrep
