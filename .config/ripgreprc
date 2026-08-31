@@ -1,0 +1,12 @@
+# Ripgrep config
+# See https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md#configuration-file
+
+# Search hidden files / directories (e.g. dotfiles) by default
+--hidden
+
+# Exclude .git folders
+--glob=!.git/*
+
+# Exclude specific file types
+--glob=!*.svg
+--glob=!*.xodr

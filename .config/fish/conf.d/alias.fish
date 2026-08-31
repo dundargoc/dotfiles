@@ -40,6 +40,8 @@ superset XDG_DATA_HOME $HOME/.local/share
 superset XDG_DATA_DIRS /usr/local/share:/usr/share
 superset XDG_CONFIG_DIRS /etc/xdg
 
+superset RIPGREP_CONFIG_PATH $XDG_CONFIG_HOME/ripgreprc
+
 # Change ls colors. Possible colors schemes: ayu, jellybeans, molokai, snazzy, solarized-dark, solarized-light.
 if type -q vivid
     set -gx LS_COLORS (vivid generate snazzy)
@@ -349,7 +351,7 @@ alias fish-benchmark 'hyperfine --warmup 3 "exec fish"'
 # Run custom built fish
 alias fi "$PROG/fish-shell/bin/fish"
 
-alias ag "rg --ignore-case --hidden --glob '!.git'"
+alias ag "rg --ignore-case"
 
 # -------------------------------------------------------------------------
 # neovim development
