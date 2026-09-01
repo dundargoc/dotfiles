@@ -6,7 +6,8 @@
 /.config/*
 
 # ...except for these
-!/.config/fish
+!/.config/fish/conf.d
+!/.config/fish/functions
 !/.config/nvim
 !/.config/kitty
 !/.config/polybar
