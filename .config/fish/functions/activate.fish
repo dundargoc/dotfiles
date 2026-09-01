@@ -1,6 +1,6 @@
 function activate
     # Function for quick virtual environment activation.
-    set activate_file (find . -type f -name "activate")
+    set activate_file (find . -type f -name "activate.fish")
     set number_of_files (count $activate_file)
 
     if test $number_of_files -eq 0
@@ -13,5 +13,5 @@ function activate
         return 1
     end
 
-    bass source $activate_file
+    source $activate_file
 end
