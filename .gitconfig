@@ -50,6 +50,6 @@
 [push]
         autoSetupRemote = true
 [submodule]
-        recurse = true
+        ; recurse = true
 [mergetool "fugitive"]
         cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
